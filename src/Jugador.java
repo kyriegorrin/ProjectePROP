@@ -5,6 +5,16 @@ public class Jugador {
     private String nom;
     private int puntuacio;
 
+    public Jugador(){
+        this.nom = null;
+        this.puntuacio = 0;
+    }
+
+    public Jugador(String nom, int puntuacio) {
+        this.nom = nom;
+        this.puntuacio = puntuacio;
+    }
+
     public String getNom() {
         return nom;
     }

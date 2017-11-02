@@ -4,8 +4,16 @@ import Domini.Jugador;
 import java.util.Scanner;
 
 public class DriverJugador {
-    private String comanda;
-    private Scanner reader = new Scanner(System.in);
 
-    
+    public static void main(String [] args){
+        String comanda;
+        Scanner reader = new Scanner(System.in);
+        Jugador jugador;
+
+        comanda = reader.nextLine();
+
+        while(!comanda.equals("exit")){
+            
+        }
+    }
 }

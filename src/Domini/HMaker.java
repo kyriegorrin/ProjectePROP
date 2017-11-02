@@ -1,3 +1,5 @@
+package Domini;
+
 import java.util.Scanner;
 
 public class HMaker extends Jugador{

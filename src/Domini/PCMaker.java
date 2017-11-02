@@ -1,4 +1,4 @@
-import java.lang.Math;
+package Domini;
 
 public class PCMaker extends Jugador {
 

@@ -1,3 +1,5 @@
+package Domini;
+
 import java.util.Scanner;
 
 public class HBreaker extends Jugador {

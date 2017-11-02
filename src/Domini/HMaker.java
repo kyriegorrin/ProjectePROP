@@ -41,7 +41,7 @@ public class HMaker extends Jugador{
 
     @Override
     public int fesJugada(){
-        int combinacio;
+        int combinacio = 0;
         //TODO: abans de començar, mira si necessites parametres
 
         return combinacio;

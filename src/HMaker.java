@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class HMaker extends Jugador{
 
     public HMaker() {
+        super();
     }
 
     public HMaker(String nom, int puntuacio) {
@@ -37,8 +38,11 @@ public class HMaker extends Jugador{
     }
 
     @Override
-    public void fesJugada(){
+    public int fesJugada(){
+        int combinacio;
         //TODO: abans de començar, mira si necessites parametres
+
+        return combinacio;
     }
 
 }

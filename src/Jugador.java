@@ -35,6 +35,13 @@ public class Jugador {
         return this;
     }
 
-    //Funcio virtual, diferent per a cada subclasse
-    public void fesJugada(){}
+    //Funcio virtual, diferent per a cada subclasse, retorna una combinació en forma d'enter
+    public int fesJugada(){
+        //WARNING: El return està perque m'obliga
+        return 0;
+    }
+
+    public String toString(){
+        return nom + " " + puntuacio;
+    }
 }

@@ -16,7 +16,7 @@ public class HBreaker extends Jugador {
     public int fesJugada(){
         int combinacio;
         //TODO: potser necessitem control de la entrada
-        System.out.println("Inserta una combinacio:");
+        System.out.println("Inserta una combinacio (format: 1234):");
         Scanner reader = new Scanner(System.in);
         combinacio = reader.nextInt();
 

@@ -1,4 +1,4 @@
-package tauler;
+package Domini;
 import java.util.Scanner;
 
 public class Combinacio {

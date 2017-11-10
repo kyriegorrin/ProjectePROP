@@ -1,4 +1,4 @@
-package tauler;
+package Domini;
 
 public class Tauler { // tauler de linies del MM
 	private int line_number; // nombre de linies del MM

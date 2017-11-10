@@ -99,7 +99,7 @@ public class DriverHBreaker {
                     if(jugador == null){
                         System.out.println("El jugador encara no s'ha creat!");
                     }else{
-                        System.out.println(combinacio);
+                        System.out.println(combinacio.toString());
                     }
                     break;
 

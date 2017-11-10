@@ -1,4 +1,4 @@
-package Domini;
+package tauler;
 
 public class Tauler { // tauler de linies del MM
 	private int line_number; // nombre de linies del MM
@@ -11,7 +11,7 @@ public class Tauler { // tauler de linies del MM
 	
 	//-----COLORS-----
 	// 0-> BUIT
-	// 1-> NEGRE b� per� en pos incorrecte
+	// 1-> NEGRE bé però en pos incorrecte
 	// 2-> BLANC ok
 
 	// CONSTRUCTOR
@@ -62,7 +62,6 @@ public class Tauler { // tauler de linies del MM
 	public Combinacio getlinia(int line){
 		return matriu[line_number-1-line];
 	}
-	
 	public Combinacio get_solucio_linia(int linia){
 		return solucio[line_number-1-linia];
 	}
@@ -119,10 +118,7 @@ public class Tauler { // tauler de linies del MM
 	
 	//afegeix una combinacio a la ultima linia no modificada
 	public void set_ultima_linia(Combinacio c){
-		int puta;
-		puta = c.comprovar_colors(colors);
-		System.out.println("puta mae."+puta);
-		if(puta == -1)System.out.println("ERROR: La combinacio no esta dins el rang de colors.");
+		if(c.comprovar_colors(colors) == -1)System.out.println("ERROR: La combinacio no esta dins el rang de colors.");
 		else if(ultima < 0)	System.out.println("ERROR: El mastermind ja esta omplert.");
 				//ja tenim el mastermind ple per tant no podem posar + linies
 		else{
@@ -145,8 +141,8 @@ public class Tauler { // tauler de linies del MM
        private void actualitzar(Combinacio c){
     	   int blancs = 0;
     	   int negres = 0;
-    	   //el vector s'utilitza per que si veiem que una bola est� b�
-    	   //no la conti 2 cops si una �s del mateix color en mala pos
+    	   //el vector s'utilitza per que si veiem que una bola està bé
+    	   //no la conti 2 cops si una és del mateix color en mala pos
     	   int[] comprovant = new int[line_size];
     	   for(int i = 0; i < line_size; ++i){
     		   if(c.get_elementx(i)== comb_ini.get_elementx(i)){
@@ -158,8 +154,8 @@ public class Tauler { // tauler de linies del MM
     			   int j = 0;
    					boolean trobat = false;
    					while(j < line_size && !trobat){
-   						if(c.get_elementx(i) == comb_ini.get_elementx(j)&& comprovant[j] ==0 ){
-   						comprovant[i] = 1;
+   						if(c.get_elementx(i) == comb_ini.get_elementx(j)&& comprovant[j] !=2 ){
+   						comprovant[j] = 1;
    						++negres;
    						trobat = true;
    					}

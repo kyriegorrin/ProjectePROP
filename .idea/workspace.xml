@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="91dfed3d-bb7e-425c-a48d-1cb806d11999" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Domini/HBreaker.java" afterPath="$PROJECT_DIR$/src/Domini/HBreaker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Domini/Jugador.java" afterPath="$PROJECT_DIR$/src/Domini/Jugador.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Domini/PCBreaker.java" afterPath="$PROJECT_DIR$/src/Domini/PCBreaker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Domini/Tauler.java" afterPath="$PROJECT_DIR$/src/Domini/Tauler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Drivers/DriverHBreaker.java" afterPath="$PROJECT_DIR$/src/Drivers/DriverHBreaker.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -31,8 +27,8 @@
       <file leaf-file-name="HBreaker.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Domini/HBreaker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="17" column="33" lean-forward="false" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
+            <state relative-caret-position="210">
+              <caret line="18" column="26" lean-forward="true" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -61,9 +57,11 @@
       <file leaf-file-name="DriverHBreaker.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Drivers/DriverHBreaker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="91" column="26" lean-forward="false" selection-start-line="91" selection-start-column="26" selection-end-line="91" selection-end-column="26" />
-              <folding />
+            <state relative-caret-position="1395">
+              <caret line="93" column="21" lean-forward="true" selection-start-line="93" selection-start-column="21" selection-end-line="93" selection-end-column="21" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -71,7 +69,7 @@
       <file leaf-file-name="Combinacio.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Domini/Combinacio.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
+            <state relative-caret-position="855">
               <caret line="63" column="50" lean-forward="false" selection-start-line="63" selection-start-column="50" selection-end-line="63" selection-end-column="50" />
               <folding />
             </state>
@@ -815,22 +813,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domini/Combinacio.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="63" column="50" lean-forward="false" selection-start-line="63" selection-start-column="50" selection-end-line="63" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domini/HBreaker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="17" column="33" lean-forward="false" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Drivers/DriverJugador.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -847,10 +829,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domini/HBreaker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="18" column="26" lean-forward="true" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Domini/PCBreaker.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="79" lean-forward="false" selection-start-line="5" selection-start-column="79" selection-end-line="5" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domini/Combinacio.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="855">
+          <caret line="63" column="50" lean-forward="false" selection-start-line="63" selection-start-column="50" selection-end-line="63" selection-end-column="50" />
           <folding />
         </state>
       </provider>
@@ -865,9 +863,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Drivers/DriverHBreaker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="91" column="26" lean-forward="false" selection-start-line="91" selection-start-column="26" selection-end-line="91" selection-end-column="26" />
-          <folding />
+        <state relative-caret-position="1395">
+          <caret line="93" column="21" lean-forward="true" selection-start-line="93" selection-start-column="21" selection-end-line="93" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

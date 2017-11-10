@@ -58,7 +58,8 @@ public class Combinacio {
 	
 	public void llegir_comb(){
 		Scanner S = new Scanner(System.in);
-		System.out.println("Introdueix els valors:");
+		System.out.println("INTRODUEIX ELS VALORS");
+		System.out.println("FORMAT: <int>espai<int>espai<int>....");
 		for(int i = 0; i < tamany; ++i){
 			combinacio[i] = S.nextInt();
 		}

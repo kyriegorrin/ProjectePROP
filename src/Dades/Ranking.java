@@ -109,7 +109,8 @@ public class Ranking {
         puntuacioJugadors = new ArrayList<Integer>();
     }
 
-    //Metode que retorna un string contenint el ranking, llest per printar
+    //Metode que retorna un string contenint el ranking, llest per printar.
+    //Esta limitat a MAXJUGADORS, encara que els atributs de classe en continguin mes
     public String toString(){
         String stringRanking = "";
         if(init){

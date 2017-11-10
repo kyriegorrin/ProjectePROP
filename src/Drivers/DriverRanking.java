@@ -14,7 +14,7 @@ public class DriverRanking {
         Jugador[] jugadors = new Jugador[5];
         Ranking ranking = new Ranking();
 
-        //Inicialitza jugadors stud
+        //Inicialitza jugadors stub
         for (int i = 0; i < 5; ++i) {
             jugadors[i] = new Jugador("Jugador" + i, i * 100);
         }

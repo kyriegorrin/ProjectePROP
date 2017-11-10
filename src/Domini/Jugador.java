@@ -31,13 +31,9 @@ public class Jugador {
         this.puntuacio = puntuacio;
     }
 
-    public Jugador getJugador(){
-        return this;
-    }
-
     //Funcio virtual, diferent per a cada subclasse, retorna una combinació en forma d'enter
     public int fesJugada(){
-        //WARNING: El return està perque m'obliga
+        //El return no sera utilitzat, aixo es un metode virtual per als CodeBreakers
         return 0;
     }
 

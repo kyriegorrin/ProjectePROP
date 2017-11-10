@@ -38,13 +38,4 @@ public class HMaker extends Jugador{
         //Si res ha explotat, retornem la combinacio llegida
         return combinacio;
     }
-
-    @Override
-    public int fesJugada(){
-        int combinacio = 0;
-        //TODO: abans de començar, mira si necessites parametres
-
-        return combinacio;
-    }
-
 }

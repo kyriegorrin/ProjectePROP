@@ -33,7 +33,7 @@ public class Algoritme {
 				linia_max = i;
 			}
 		}
-		
+		// nova versio proba
 		Combinacio resultat = t.getlinia(linia_max);
 		Random r = new Random();
 		resultat.set_elementx(r.nextInt(t.getLine_size()), r.nextInt(6));

@@ -1,4 +1,7 @@
-package tauler;
+package Drivers;
+
+import Domini.Tauler;
+import Domini.Combinacio;
 
 import java.util.Scanner;
 

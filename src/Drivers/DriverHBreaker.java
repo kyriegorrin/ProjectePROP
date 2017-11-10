@@ -2,6 +2,7 @@ package Drivers;
 
 import Domini.HBreaker;
 import Domini.Combinacio;
+import Domini.Tauler;
 
 import java.util.Scanner;
 
@@ -10,11 +11,13 @@ import java.util.Scanner;
 public class DriverHBreaker {
 
     public static void main(String [] args){
-        //TODO:
         String comanda;
         Scanner reader = new Scanner(System.in);
         HBreaker jugador = null;
+
+        //STUDS
         Combinacio combinacio = new Combinacio(4);
+        Tauler tauler = new Tauler(8, 4, 4);
 
         System.out.println("Inserta comanda (escriu help si necessites ajuda):");
         comanda = reader.nextLine();
@@ -91,7 +94,7 @@ public class DriverHBreaker {
                     if(jugador == null){
                         System.out.println("El jugador encara no s'ha creat!");
                     }else{
-                        combinacio = jugador.fesJugada(null);
+                        combinacio = jugador.fesJugada(tauler);
                     }
                     break;
 
@@ -99,7 +102,7 @@ public class DriverHBreaker {
                     if(jugador == null){
                         System.out.println("El jugador encara no s'ha creat!");
                     }else{
-                        System.out.println(combinacio.toString());
+                        combinacio.escriu_combinacio();
                     }
                     break;
 

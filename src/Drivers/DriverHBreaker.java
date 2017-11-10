@@ -84,12 +84,12 @@ public class DriverHBreaker {
                         System.out.println(jugador.toString());
                     }
                     break;
-
+                //TODO: arregla fesJugada adaptant-ho al nou format
                 case "fesJugada":
                     if(jugador == null){
                         System.out.println("El jugador encara no s'ha creat!");
                     }else{
-                        combinacio = jugador.fesJugada();
+                        //combinacio = jugador.fesJugada();
                     }
                     break;
 

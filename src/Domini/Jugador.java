@@ -33,9 +33,9 @@ public class Jugador {
     }
 
     //Funcio virtual, diferent per a cada subclasse, retorna una combinació en forma d'enter
-    public int fesJugada(Tauler tauler){
+    public Combinacio fesJugada(Tauler tauler){
         //El return no sera utilitzat, aixo es un metode virtual per als CodeBreakers
-        return 0;
+        return null;
     }
 
     public String toString(){

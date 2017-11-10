@@ -13,13 +13,9 @@ public class HBreaker extends Jugador {
     }
 
     @Override
-    public int fesJugada(){
-        int combinacio;
-        //TODO: potser necessitem control de la entrada
-        System.out.println("Inserta una combinacio (format: 1234):");
-        Scanner reader = new Scanner(System.in);
-        combinacio = reader.nextInt();
-
+    public Combinacio fesJugada(Tauler tauler){
+        Combinacio combinacio = new Combinacio(tauler.getLine_size());
+        combinacio.llegir_comb();
         return combinacio;
     }
 }

@@ -1,4 +1,4 @@
-package Domini;
+package tauler;
 import java.util.Scanner;
 
 public class Combinacio {
@@ -78,7 +78,6 @@ public class Combinacio {
 	
 	public int comprovar_colors(int color){
 		for (int i = 0; i < tamany; ++i){
-			System.out.println("aix�"+combinacio[i]);
 			if (combinacio[i]<0 || combinacio[i] >= color)return -1;
 		}
 		return 0;

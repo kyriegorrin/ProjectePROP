@@ -32,6 +32,7 @@ public class DriverHBreaker {
                                         "(i en quest cas es mostra per pantalla)");
                     System.out.println("fesJugada -> Permet inserir una jugada (combinacio)");
                     System.out.println("ultimaJugada -> Permet consultar la ultima jugada (combinacio) inserida\n");
+                    System.out.println("---LES COMBINACIONS SON DE 4 POSICIONS PER DEFECTE---\n");
                     break;
 
                 case "creaHBreaker":
@@ -85,7 +86,7 @@ public class DriverHBreaker {
                         System.out.println(jugador.toString());
                     }
                     break;
-                //TODO: arregla fesJugada adaptant-ho al nou format
+
                 case "fesJugada":
                     if(jugador == null){
                         System.out.println("El jugador encara no s'ha creat!");

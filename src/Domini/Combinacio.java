@@ -33,10 +33,7 @@ public class Combinacio {
 	
 	// Donada una posicio x i un element y canvia l'element de la posicio x per y
 	public void set_elementx(int x, int y){
-		if (combinacio[x] == y) {
-			combinacio[x] = 0;
-		}
-		else combinacio[x] = y;
+		combinacio[x] = y;
 	}
 	
 	// donat un nombre de blancs i negres els posa correctament

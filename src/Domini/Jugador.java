@@ -1,4 +1,5 @@
 package Domini;//TODO: fes la classe Tauler i importa-la (si és necessari, si no canvia el parametre de fesJugada())
+import Domini.Tauler;
 
 public class Jugador {
 
@@ -32,7 +33,7 @@ public class Jugador {
     }
 
     //Funcio virtual, diferent per a cada subclasse, retorna una combinació en forma d'enter
-    public int fesJugada(){
+    public int fesJugada(Tauler tauler){
         //El return no sera utilitzat, aixo es un metode virtual per als CodeBreakers
         return 0;
     }

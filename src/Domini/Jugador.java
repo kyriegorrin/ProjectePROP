@@ -1,4 +1,4 @@
-package Domini;//TODO: fes la classe Tauler i importa-la (si és necessari, si no canvia el parametre de fesJugada())
+package Domini;
 import Domini.Tauler;
 
 public class Jugador {

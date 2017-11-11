@@ -116,10 +116,13 @@ public class DriverHMaker {
                     break;
 
                 default:
+                    if(!comanda.equals(""))
+                        System.out.println("Comanda incorrecta.");
                     break;
             }
+            if (!comanda.equals(""))
+                System.out.println("Inserta comanda (escriu help si necessites ajuda):");
 
-            System.out.println("Inserta comanda (escriu help si necessites ajuda):");
             comanda = reader.nextLine();
         }
     }

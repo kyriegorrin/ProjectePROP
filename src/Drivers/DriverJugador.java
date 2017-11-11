@@ -80,9 +80,13 @@ public class DriverJugador {
                     break;
 
                 default:
+                    if(!comanda.equals(""))
+                        System.out.println("Comanda incorrecta.");
                     break;
             }
-            System.out.println("Inserta comanda (escriu help si necessites ajuda):");
+            if (!comanda.equals(""))
+                System.out.println("Inserta comanda (escriu help si necessites ajuda):");
+
             comanda = reader.nextLine();
         }
     }

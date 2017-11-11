@@ -14,8 +14,17 @@ public class HBreaker extends Jugador {
 
     @Override
     public Combinacio fesJugada(Tauler tauler){
+        int correcte = -1;
         Combinacio combinacio = new Combinacio(tauler.getLine_size());
-        combinacio.llegir_comb();
+
+        while(correcte < 0){
+            combinacio.llegir_comb();
+            correcte = combinacio.comprovar_colors(tauler.getColors());
+
+            if (correcte < 0){
+                System.out.println("La combinacio no respecta els parametres de color! Torna a ficar-la. \n");
+            }
+        }
         return combinacio;
     }
 }

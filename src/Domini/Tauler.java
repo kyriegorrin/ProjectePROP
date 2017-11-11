@@ -158,10 +158,8 @@ public class Tauler {
 			for(int i = line_number-1; i >= ultima; --i)
 			{	
 				aux += solucio[i].get_puntuacio();
-				System.out.println("Soc la primera punt"+aux);
 			}
 			aux += (ultima+1)*500;
-			System.out.println("Soc la segona punt"+aux);
 		return aux;
 	}
 	
@@ -172,7 +170,6 @@ public class Tauler {
 				//ja tenim el mastermind ple per tant no podem posar + linies
 		else{
 			matriu[ultima] = c;
-			System.out.println("soc la ultima wiiii"+ultima);
 			// Emplenem la solucio
 			actualitzar(c);	
 			--ultima;

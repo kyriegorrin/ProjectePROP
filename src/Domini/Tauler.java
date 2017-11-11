@@ -141,7 +141,6 @@ public class Tauler { // tauler de linies del MM
 			// Emplenem la solucio
 			actualitzar(c);	
 			--ultima;
-			System.out.println("LA UUUUUUUUUULTIMA"+ultima);
 		}
 	}
 		public int getColors() {

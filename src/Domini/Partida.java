@@ -93,17 +93,18 @@ public class Partida {
             //Reiniciem tauler
             Tauler oldTauler = tauler;
             tauler = new Tauler(oldTauler.getLine_number(),oldTauler.getLine_size(), oldTauler.getColors());
-            //TODO:assignacio de puntuacions als jugadors (a l'espera de que el metode de tauler s'acabi de cuinar)
             System.out.println("Canviant rols i iniciant segona partida...");
 
             //Intercanvi de rols
             if(conf == 0){//HBreaker i PCMaker
+                hbreaker.setPuntuacio(oldTauler.puntuacio());
                 hmaker = new HMaker(hbreaker.getNom(),hbreaker.getPuntuacio());
                 pcbreaker = new PCBreaker(pcmaker.getNom(), pcmaker.getPuntuacio());
                 tauler.setInitial_line(hmaker.triaCombinacio(tauler.getLine_size(), tauler.getColors()));
                 conf = 1;
             }
             else{//PCBreaker i HMaker
+                pcbreaker.setPuntuacio(oldTauler.puntuacio());
                 pcmaker = new PCMaker(pcbreaker.getNom(), pcbreaker.getPuntuacio());
                 hbreaker = new HBreaker(hmaker.getNom(),hmaker.getPuntuacio());
                 tauler.setInitial_line(pcmaker.triaCombinacio(tauler.getLine_size(), tauler.getColors()));
@@ -113,7 +114,7 @@ public class Partida {
         }
         //Finalitzar partida i actualitzar ranking
         else if(fase == 1){
-            //TODO: assignacio de puntuacions
+            if(conf == 0) hbreaker.setPuntuacio(tauler.puntuacio());
             System.out.println("--- JOC FINALITZAT ---\n");
             System.out.println("Afegint jugador al ranking...");
             ranking.insertaJugador(hbreaker.toString());

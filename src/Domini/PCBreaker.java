@@ -8,12 +8,12 @@ public class PCBreaker extends Jugador{
 
     public PCBreaker(String nom, int puntuacio) {
         super(nom, puntuacio);
+        algoritme = new Algoritme();
     }
 
     @Override
     public Combinacio fesJugada(Tauler tauler){
-        //TODO: Quan estigui l'algoritme acabat, habilita-ho per a que funcioni
-        Combinacio combinacio = null;
+        Combinacio combinacio = algoritme.algoritmeGenetic(tauler);
         return combinacio;
     }
 }

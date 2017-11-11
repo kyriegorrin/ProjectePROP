@@ -62,7 +62,7 @@ public class Algoritme {
 	public Combinacio calcularFitness(Tauler t) {
 		Iterator<Combinacio> it = poblacio.iterator();
 		Combinacio c = new Combinacio(t.getLine_size());
-		Combinacio resultat = new Combinacio(poblacio.iterator().next());
+		Combinacio c_max = new Combinacio(poblacio.iterator().next());
 		int max = 0;
 		while (it.hasNext()) {
 			c = it.next();
@@ -76,9 +76,10 @@ public class Algoritme {
 			}
 			if (puntuacio > max) {
 				max = puntuacio;
-				resultat = c;
+				c_max = c;
 			}
 		}
+		Combinacio resultat = new Combinacio(c_max);
 		return resultat;
 	}
 	
@@ -138,7 +139,7 @@ public class Algoritme {
 				crossoverPoblacio(t);
 			}
 			Combinacio c = calcularFitness(t);
-			Combinacio resultat = c;
+			Combinacio resultat = new Combinacio(c);
 			return resultat;
 		}
 	}

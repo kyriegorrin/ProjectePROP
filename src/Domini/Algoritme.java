@@ -1,62 +1,101 @@
 package Domini;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Random;
+import java.util.Set;
 
 public class Algoritme {
-	private Combinacio primer;
-	private Combinacio segon;
-	private Combinacio resultat;
+	private Set<Combinacio> poblacio;
+	private boolean primer;
+	private ArrayList<Integer> colorNull;
 	
 	public Algoritme(Tauler t) {
-		primer = new Combinacio(t.getLine_size());
-		segon = new Combinacio(t.getLine_size());
-		resultat = new Combinacio(t.getLine_size());
+		poblacio = new HashSet<Combinacio>();
+		primer = true;
+		colorNull = new ArrayList<Integer>();
 	}
 	
-	public Combinacio evolucio(Tauler t) {
-		obtenir_millors(t);
+	// Emplena el atribut poblacio amb combinacions aleatories
+	public void emplenarPoblacio(Tauler t) {
 		Random r = new Random();
-		for (int i = 0; i <= t.getLine_size(); ++i) {
-			if (r.nextInt(10) % 2 == 0) {
-				resultat.set_elementx(i, primer.get_elementx(i));
+		for (int i = 0; i < 150; ++i) {
+			Combinacio c = new Combinacio(t.getLine_size());
+			for (int j = 0; j < t.getLine_size(); ++j){
+				c.set_elementx(j, r.nextInt(t.getColors()));
 			}
-			else {
-				resultat.set_elementx(i, segon.get_elementx(i));
-			}
+			poblacio.add(c);
 		}
-		resultat.set_elementx(r.nextInt(t.getLine_size()), r.nextInt(t.getColors()));
-		return resultat;
 	}
 	
-	public void obtenir_millors(Tauler t) {
-		// La taula te 1 combinacio
-		if (t.getUltima() == t.getLine_number() - 2) {
-			primer = t.getlinia(t.getUltima());
-		}
-		// La taula te 2 o mes combinacions
-		else {
-			int max, linia_max, linia_max2;
-			max = linia_max = linia_max2 = 0;
-			for (int i = 0; i <= t.getUltima(); ++i) {
-				int aux = 0;
-				int cont = 0;
-				for (int j = 0; j <= t.getLine_size(); ++j) {
-					if (t.get_solucio_linia(i).get_elementx(j) == 2) {
-						aux += 2;
-						++cont;
-					}
-					else if (t.get_solucio_linia(i).get_elementx(j) == 1) {
-						++aux;
-						++cont;
-					}
-				}
-				if ((aux+cont) > max) {
-					max = aux + cont;
-					linia_max2 = linia_max;
-					linia_max = i;
-				}
+	// Emplena el vector ColorNull de colors que sabem que no apareixen a la combinacio a endevinar
+	public void emplenarColorNull(Combinacio c, Tauler t) {
+		for (int i = 0; i < t.getLine_size(); ++i) {
+			if (!colorNull.contains(c.get_elementx(i))){
+				colorNull.add(c.get_elementx(i));
 			}
-			primer = t.getlinia(linia_max);
-			segon = t.getlinia(linia_max2);
+		}
+	}
+	
+	// Elimina part de la poblacio que tingui els mateixos elements que Combinacio c
+	public void eliminarPoblacio(Tauler t) {
+		Iterator<Combinacio> it = poblacio.iterator();
+		Combinacio caux = new Combinacio(t.getLine_size());
+		while (it.hasNext()) {
+			caux = it.next();
+		    int noApte = 0;
+		    int i = 0;
+		    while (noApte < t.getLine_size() && i < t.getLine_size()) {
+		    	int j = 0;
+		    	while (noApte < t.getLine_size() && j < colorNull.size()) {
+		    		if (caux.get_elementx(i) == colorNull.get(j)) ++noApte;
+		    		++j;
+		    	}
+		    	++i;
+		    }
+		    if (noApte >= 4) {
+		    	it.remove();
+		    }
+		}
+	}
+	
+	
+	public void escriureSet() {
+		Iterator<Combinacio> it = poblacio.iterator();
+		while (it.hasNext()) {
+			it.next().escriu_combinacio();
+		}
+	}
+	
+	
+	public Combinacio algoritmeGenetic(Tauler t) {
+		
+		// Retorna el primer element del conjunt poblacio
+		if (primer) {
+			primer = false;
+			emplenarPoblacio(t);
+			return poblacio.iterator().next();
+		}
+		
+		// S'executa l'algoritme Genetic
+		else {
+			Combinacio pista = new Combinacio(t.getLine_size());
+			Combinacio aux = new Combinacio(t.getLine_size());
+			pista = t.get_solucio_linia(t.getUltima() + 1);
+			aux = t.getlinia(t.getUltima() + 1);
+			
+			// comprovar si pista te algun valor
+			int cont = 0;
+			for (int i = 0; i != t.getLine_size(); ++i) {
+				if (pista.get_elementx(i) != 0) ++cont;
+			}
+			// si no en te elimina de poblacio aquells que tenen els mateixos colors
+			if (cont == 0) {
+				emplenarColorNull(aux, t);
+				eliminarPoblacio(t);
+			}
+			return poblacio.iterator().next();
 		}
 	}
 }
+

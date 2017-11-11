@@ -155,7 +155,7 @@ public class Tauler {
 	public int puntuacio(){
 		
 		int aux = 0;
-			for(int i = line_number-1; i >= ultima; --i)
+			for(int i = line_number-1; i > ultima; --i)
 			{	
 				aux += solucio[i].get_puntuacio();
 			}

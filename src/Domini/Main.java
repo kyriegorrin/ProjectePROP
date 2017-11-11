@@ -33,11 +33,11 @@ public class Main {
                         System.out.println("Inserta el teu nom:");
                         nom = reader.nextLine();
                         System.out.println("Inserta 0 per a començar sent CodeBreaker, 1 per a ser CodeMaker");
-                        conf = Integer.getInteger(reader.nextLine());
+                        conf = reader.nextInt();
                         System.out.println("Inserta quantes posicions vols per linia (recomanat: 4-6)");
-                        tamLinia = Integer.getInteger(reader.nextLine());
+                        tamLinia = reader.nextInt();
                         System.out.println("Inserta quants colors vols (recomanat: 5-8)");
-                        numColors = Integer.getInteger(reader.nextLine());
+                        numColors = reader.nextInt();
                         partida = new Partida(nom, conf, tamLinia, numColors);
                     }
                     else{
@@ -60,6 +60,15 @@ public class Main {
                     }else{
                         partida.mostraRanking();
                     }
+                    break;
+
+                case "mostraTauler":
+                    if(partida == null){
+                        System.out.println("No has inicialitzat partida!");
+                    }else{
+                        partida.mostraTauler();
+                    }
+                    break;
 
                 default:
                     if(!comanda.equals(""))

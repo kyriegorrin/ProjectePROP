@@ -13,7 +13,7 @@ public class Partida {
 
     //Taulers
     private Tauler tauler;
-    public static final int NUM_LINIES = 15;
+    public static final int NUM_LINIES = 5;
 
     //Capa de dades
     private Ranking ranking;
@@ -61,6 +61,7 @@ public class Partida {
         if(fase == 2) event = 3;
         else{
             if(conf == 0){//HBreaker i PCMaker
+                System.out.println("Inserta la teva proposta de combinacio:");
                 tauler.set_ultima_linia(hbreaker.fesJugada(tauler));
                 //Mirem si la jugada es guanyadora o hem acabat les posicions del tauler
                 if(tauler.tauler_ple() || tauler.encert()) {
@@ -123,7 +124,9 @@ public class Partida {
     }
 
     public void mostraRanking(){
-        System.out.println(ranking.toString());
+        String stringRanking = ranking.toString();
+        if(stringRanking.equals("")) System.out.println("No hi ha ningu al ranking");
+        else System.out.println(stringRanking);
     }
 
     public void mostraTauler(){

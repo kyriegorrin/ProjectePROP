@@ -1,3 +1,4 @@
+
 package Domini;
 
 public class Tauler { // tauler de linies del MM
@@ -11,8 +12,8 @@ public class Tauler { // tauler de linies del MM
 	
 	//-----COLORS-----
 	// 0-> BUIT
-	// 1-> BLANC bé però en pos incorrecte
-	// 2-> NEGRE ok
+	// 1-> NEGRE bé però en pos incorrecte
+	// 2-> BLANC ok
 
 	// CONSTRUCTOR
 	
@@ -116,6 +117,21 @@ public class Tauler { // tauler de linies del MM
 	
 	//OTHERS
 	
+	
+	public boolean tauler_ple(){
+		return ultima == -1;
+	}
+	
+	public boolean encert(){
+		for(int i = 0; i < line_size; ++i){
+			if(solucio[ultima+1].get_elementx(i) != 2)return false;
+		}
+		return true;
+		
+	}
+	
+	
+	
 	//afegeix una combinacio a la ultima linia no modificada
 	public void set_ultima_linia(Combinacio c){
 		if(c.comprovar_colors(colors) == -1)System.out.println("ERROR: La combinacio no esta dins el rang de colors.");
@@ -128,7 +144,7 @@ public class Tauler { // tauler de linies del MM
 			--ultima;
 		}
 	}
-	public int getColors() {
+		public int getColors() {
 		return colors;
 	}
 
@@ -165,4 +181,3 @@ public class Tauler { // tauler de linies del MM
     	   }
     	   solucio[ultima].omplir(blancs, negres);  
        }
-}

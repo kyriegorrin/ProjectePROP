@@ -4,8 +4,6 @@ import Domini.Algoritme;
 import Domini.Combinacio;
 import Domini.Tauler;
 
-import java.util.Scanner;
-
 public class DriverAlgoritme {
 
 	public static void main(String [] args){
@@ -17,15 +15,20 @@ public class DriverAlgoritme {
 		int cont = 0;
 		
 		while (t.getUltima() >= 0) {
+			Combinacio c2 = new Combinacio(t.getLine_size());
 			System.out.println("iteracio:"+cont);
-			c = a.algoritmeGenetic(t);
-			c.escriu_combinacio();
+			c2 = a.algoritmeGenetic(t);
+			c2.escriu_combinacio();
 			System.out.println("TAULER");
-			t.set_ultima_linia(c);
+			t.set_ultima_linia(c2);
 			t.escriu_tauler();
 			System.out.println("----------------");
+			System.out.println("SOLUCIO");
 			t.escriu_solucio();
 			++cont;
+			System.out.println();
+			System.out.println("----------------");
+			System.out.println("----------------");
 			System.out.println();
 		}
 	}

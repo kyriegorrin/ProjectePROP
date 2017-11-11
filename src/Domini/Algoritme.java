@@ -59,8 +59,27 @@ public class Algoritme {
 		}
 	}
 	
-	public void fitness(Tauler t) {
-		
+	public Combinacio calcularFitness(Tauler t) {
+		Iterator<Combinacio> it = poblacio.iterator();
+		Combinacio c = new Combinacio(t.getLine_size());
+		Combinacio resultat = new Combinacio(poblacio.iterator().next());
+		int max = 0;
+		while (it.hasNext()) {
+			c = it.next();
+			int puntuacio = 0;
+			for (int i = t.getUltima(); i < t.getLine_number(); ++i) {
+				for (int j = 0; j < t.getLine_size(); ++j) {
+					for (int k = 0; k < t.getLine_size(); ++k) {
+						if ((t.getlinia(i)).get_elementx(j) == c.get_elementx(k)) ++puntuacio;
+					}
+				}
+			}
+			if (puntuacio > max) {
+				max = puntuacio;
+				resultat = c;
+			}
+		}
+		return resultat;
 	}
 	
 	public void crossoverPoblacio(Tauler t) {
@@ -93,8 +112,8 @@ public class Algoritme {
 		if (primer) {
 			primer = false;
 			emplenarPoblacio(t);
-			Combinacio c = new Combinacio(t.getLine_size());
-			c = poblacio.iterator().next();
+			Combinacio c;
+			c = new Combinacio(poblacio.iterator().next());
 			return c;
 		}
 		
@@ -118,9 +137,9 @@ public class Algoritme {
 			else {
 				crossoverPoblacio(t);
 			}
-			Combinacio c = new Combinacio(t.getLine_size());
-			c = poblacio.iterator().next();
-			return c;
+			Combinacio c = calcularFitness(t);
+			Combinacio resultat = c;
+			return resultat;
 		}
 	}
 }

@@ -10,7 +10,7 @@ public class Algoritme {
 	private boolean primer;
 	private ArrayList<Integer> colorNull;
 	
-	public Algoritme(Tauler t) {
+	public Algoritme() {
 		poblacio = new HashSet<Combinacio>();
 		primer = true;
 		colorNull = new ArrayList<Integer>();

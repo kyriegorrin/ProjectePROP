@@ -60,10 +60,10 @@ public class Tauler { // tauler de linies del MM
 	
 	// retorna la combinacio la linia "line"
 	public Combinacio getlinia(int line){
-		return matriu[line_number-1-line];
+		return matriu[line];
 	}
 	public Combinacio get_solucio_linia(int linia){
-		return solucio[line_number-1-linia];
+		return solucio[linia];
 	}
 
 	// retorna el vector de combinacions

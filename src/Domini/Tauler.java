@@ -141,6 +141,7 @@ public class Tauler { // tauler de linies del MM
 			// Emplenem la solucio
 			actualitzar(c);	
 			--ultima;
+
 		}
 	}
 		public int getColors() {
@@ -169,7 +170,7 @@ public class Tauler { // tauler de linies del MM
     			   int j = 0;
    					boolean trobat = false;
    					while(j < line_size && !trobat){
-   						if(c.get_elementx(i) == comb_ini.get_elementx(j)&& comprovant[j] !=2 ){
+   						if(c.get_elementx(i) == comb_ini.get_elementx(j)&& comprovant[j] ==0 ){
    						comprovant[j] = 1;
    						++negres;
    						trobat = true;

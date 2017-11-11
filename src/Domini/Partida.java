@@ -16,7 +16,7 @@ public class Partida {
     public static final int NUM_LINIES = 15;
 
     //Capa de dades
-    Ranking ranking;
+    private Ranking ranking;
 
     //Variables d'estat de la partida
     private int conf;
@@ -30,10 +30,10 @@ public class Partida {
 
     //---------------------------------METODES----------------------------------//
 
-    //Constructora de la classe.
-    //conf determina quin jugador ocupa quin rol inicialment.
-    //tamLinia indica el quantes posicions te cada linia.
-    //numColors indica quants quants colors utilitzem.
+    /**@brief Constructora de la classe.
+    * @conf determina quin jugador ocupa quin rol inicialment.
+    * @tamLinia indica el quantes posicions te cada linia.
+    * @numColors indica quants quants colors utilitzem.*/
     public Partida(String nom, int conf, int tamLinia, int numColors){
         this.conf = conf;
         this.fase = 0;

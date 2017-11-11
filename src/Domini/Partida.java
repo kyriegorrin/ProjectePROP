@@ -126,7 +126,7 @@ public class Partida {
     }
 
     public void mostraTauler(){
-        //TODO: aquesta funcio no es la que toca. Falta que el Marc faci la funcio que mostra combinacio i solucio 
+        //TODO: aquesta funcio no es la que toca. Falta que el Marc faci la funcio que mostra combinacio i solucio
         tauler.escriu_tauler();
     }
 

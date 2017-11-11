@@ -64,25 +64,38 @@ public class Algoritme {
 	}
 	
 	public void crossoverPoblacio(Tauler t) {
-		
-	}
-	
-	
-	public void escriureSet() {
 		Iterator<Combinacio> it = poblacio.iterator();
+		Random r = new Random();
 		while (it.hasNext()) {
-			it.next().escriu_combinacio();
+			Combinacio aux = new Combinacio(t.getLine_size());
+			aux = it.next();
+			if (it.hasNext()) {
+				Combinacio aux2 = new Combinacio(t.getLine_size());
+				aux2 = it.next();
+				int n = r.nextInt(t.getLine_size());
+				if (n%2 == 0) {
+					aux.set_elementx(n, aux2.get_elementx(n));
+					if (r.nextInt(100) > 3) aux.set_elementx(n, r.nextInt(t.getColors()));
+					poblacio.add(aux);
+				}
+				else {
+					aux2.set_elementx(n, aux.get_elementx(n));
+					if (r.nextInt(100) > 3) aux2.set_elementx(n, r.nextInt(t.getColors()));
+					poblacio.add(aux2);
+				}
+			}
 		}
 	}
 	
 	
 	public Combinacio algoritmeGenetic(Tauler t) {
-		
 		// Retorna el primer element del conjunt poblacio
 		if (primer) {
 			primer = false;
 			emplenarPoblacio(t);
-			return poblacio.iterator().next();
+			Combinacio c = new Combinacio(t.getLine_size());
+			c = poblacio.iterator().next();
+			return c;
 		}
 		
 		// S'executa l'algoritme Genetic
@@ -105,7 +118,9 @@ public class Algoritme {
 			else {
 				crossoverPoblacio(t);
 			}
-			return poblacio.iterator().next();
+			Combinacio c = new Combinacio(t.getLine_size());
+			c = poblacio.iterator().next();
+			return c;
 		}
 	}
 }

@@ -126,6 +126,7 @@ public class Tauler {
 	public void escriu_tauler(){
 		for(int i = 0; i < line_number; ++i){
 			matriu[i].escriu_combinacio();
+			System.out.println();
 		}
 	}
 	
@@ -133,9 +134,19 @@ public class Tauler {
 	public void escriu_solucio(){
 		for(int i = 0; i < line_number; ++i){
 			solucio[i].escriu_combinacio();
+			System.out.println();
 		}
 	}
-	
+	// escriu el tauler seguidament de la solucio corresponent
+	public void escriu_tot(){
+		for(int i = 0; i < line_number; ++i ){
+			matriu[i].escriu_combinacio();
+			System.out.print("////");
+			solucio[i].escriu_combinacio();
+			System.out.println();
+		}
+		
+	}
 	//OTHERS
 	
 	
@@ -155,7 +166,7 @@ public class Tauler {
 	public int puntuacio(){
 		
 		int aux = 0;
-			for(int i = line_number-1; i >= ultima; --i)
+			for(int i = line_number-1; i > ultima; --i)
 			{	
 				aux += solucio[i].get_puntuacio();
 			}

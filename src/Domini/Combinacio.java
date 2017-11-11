@@ -1,5 +1,4 @@
-/**
- * Clase Combinacio
+* Clase Combinacio
  */
 package Domini;
 import java.util.Scanner;
@@ -25,15 +24,6 @@ public class Combinacio {
 		combinacio = new int [tamany];
 		this.tamany = tamany;
 		puntuacio = 0;
-	}
-
-	public Combinacio(Combinacio comb){
-		this.tamany = comb.tamany;
-		this.puntuacio = comb.puntuacio;
-		this.combinacio = new int[comb.tamany];
-		for(int i = 0; i < comb.tamany; ++i){
-			this.combinacio[i] = comb.combinacio[i];
-		}
 	}
 	
 	///SETTERS & GETTERS
@@ -68,20 +58,10 @@ public class Combinacio {
 	public int get_elementx(int x){
 		return combinacio[x];
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	/**
+	 * Getter que retorna la puntuacio de la combinacio
+	 * @return la puntuacio qua acumula aquesta combinacio
+	 */
 	
 	
 	public int get_puntuacio(){
@@ -117,6 +97,7 @@ public class Combinacio {
 			else combinacio[i] = 0;
 			++i;
 		}
+		System.out.println("molo i tinc"+puntuacio);
 	}
 	
 	/**@brief Llegeix una combinacio introduida per teclat i 
@@ -138,7 +119,6 @@ public class Combinacio {
 		for (int i = 0; i < combinacio.length; ++i){
 			 System.out.print (combinacio[i]);	
 		}
-		System.out.println();
 	}
 	
 	/** @brief Donat un nombre de colors comprova que es respecti

@@ -45,10 +45,9 @@ public class Algoritme {
 			caux = it.next();
 		    int noApte = 0;
 		    int i = 0;
-		    caux.escriu_combinacio();
-		    while (noApte < t.getLine_size() || i < t.getLine_size()) {
+		    while (noApte < t.getLine_size() && i < t.getLine_size()) {
 		    	int j = 0;
-		    	while (noApte < t.getLine_size() || j < colorNull.size()) {
+		    	while (noApte < t.getLine_size() && j < colorNull.size()) {
 		    		if (caux.get_elementx(i) == colorNull.get(j)) ++noApte;
 		    		++j;
 		    	}

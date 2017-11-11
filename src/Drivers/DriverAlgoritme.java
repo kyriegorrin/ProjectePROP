@@ -13,7 +13,7 @@ public class DriverAlgoritme {
 		Combinacio c = new Combinacio(t.getLine_size());
 		c.llegir_comb();
 		t.setInitial_line(c);
-		Algoritme a = new Algoritme(t);
+		Algoritme a = new Algoritme();
 		int cont = 0;
 		
 		while (t.getUltima() >= 0) {

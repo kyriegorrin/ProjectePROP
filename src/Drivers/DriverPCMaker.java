@@ -115,7 +115,6 @@ public class DriverPCMaker {
                     break;
 
                 default:
-                    System.out.println("Comanda incorrecta");
                     break;
             }
             System.out.println("Inserta comanda (escriu help si necessites ajuda):");

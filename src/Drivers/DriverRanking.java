@@ -5,7 +5,6 @@ import Dades.Ranking;
 
 import java.util.Scanner;
 
-//TODO: afegir comandes pendents
 public class DriverRanking {
     public static void main (String[] args) {
 
@@ -53,7 +52,6 @@ public class DriverRanking {
                     break;
 
                 default:
-                    System.out.println("Comanda incorrecta");
                     break;
             }
             System.out.println("Inserta comanda (escriu help si necessites ajuda):");

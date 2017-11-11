@@ -14,7 +14,7 @@ public class Combinacio {
 	// GETTERS AND SETTERS
 	
 	// Retorna una combinacio
-	public Combinacio getCombinacio() {
+	public int[] getCombinacio() {
 		return combinacio;
 	}
 

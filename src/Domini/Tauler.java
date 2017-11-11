@@ -11,8 +11,8 @@ public class Tauler { // tauler de linies del MM
 	
 	//-----COLORS-----
 	// 0-> BUIT
-	// 1-> NEGRE bé però en pos incorrecte
-	// 2-> BLANC ok
+	// 1-> BLANC bé però en pos incorrecte
+	// 2-> NEGRE ok
 
 	// CONSTRUCTOR
 	
@@ -128,7 +128,7 @@ public class Tauler { // tauler de linies del MM
 			--ultima;
 		}
 	}
-		public int getColors() {
+	public int getColors() {
 		return colors;
 	}
 

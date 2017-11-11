@@ -80,7 +80,6 @@ public class DriverJugador {
                     break;
 
                 default:
-                    System.out.println("Comanda incorrecta");
                     break;
             }
             System.out.println("Inserta comanda (escriu help si necessites ajuda):");

@@ -62,7 +62,7 @@ public class Jugador {
     }
 
     /**
-     * Funció virtual, diferent per a cada subclasse, Retorna una combinació proposada pel jugador.
+     * Funció virtual, diferent per a cada subclasse. Retorna una combinació proposada pel jugador.
      * @param tauler Un tauler inicialitzat.
      * @return Retorna la combinació proposada, en aquest cas és null ja que és un mètode virtual a implementar per les subclasses.
      */

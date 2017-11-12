@@ -1,4 +1,4 @@
-* Clase Combinacio
+/* Clase Combinacio
  */
 package Domini;
 import java.util.Scanner;
@@ -97,7 +97,6 @@ public class Combinacio {
 			else combinacio[i] = 0;
 			++i;
 		}
-		System.out.println("molo i tinc"+puntuacio);
 	}
 	
 	/**@brief Llegeix una combinacio introduida per teclat i 

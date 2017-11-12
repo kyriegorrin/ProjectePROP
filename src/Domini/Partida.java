@@ -71,15 +71,13 @@ public class Partida {
                     seguentFase();
                 }
             }else{//PCBreaker i HMaker
-                if(conf == 0) {//HBreaker i PCMaker
-                    tauler.set_ultima_linia(pcbreaker.fesJugada(tauler));
-                    //Mirem si la jugada es guanyadora o hem acabat les posicions del tauler
-                    if (tauler.tauler_ple() || tauler.encert()) {
-                        if(tauler.encert()) System.out.println("HAS ENCERTAT LA COMBINACIO!");
-                        if (fase == 0) event = 1;
-                        else if (fase == 1) event = 2;
-                        seguentFase();
-                    }
+                tauler.set_ultima_linia(pcbreaker.fesJugada(tauler));
+                //Mirem si la jugada es guanyadora o hem acabat les posicions del tauler
+                if (tauler.tauler_ple() || tauler.encert()) {
+                    if(tauler.encert()) System.out.println("HAS ENCERTAT LA COMBINACIO!");
+                    if (fase == 0) event = 1;
+                    else if (fase == 1) event = 2;
+                    seguentFase();
                 }
             }
         }
@@ -130,8 +128,7 @@ public class Partida {
     }
 
     public void mostraTauler(){
-        //TODO: aquesta funcio no es la que toca. Falta que el Marc faci la funcio que mostra combinacio i solucio
-        tauler.escriu_tauler();
+        tauler.escriu_tot();
     }
 
     public void guardaPartida(){

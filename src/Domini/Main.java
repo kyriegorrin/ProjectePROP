@@ -51,6 +51,7 @@ public class Main {
                     }else{
                         int estat = partida.fesTorn();
                         if(estat == 3) System.out.println("La partida ja ha finalitzat");
+                        partida.mostraTauler();
                     }
                     break;
 

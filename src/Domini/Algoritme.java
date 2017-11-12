@@ -84,13 +84,11 @@ public class Algoritme {
 		
 		while (it.hasNext()) {
 			c = it.next();
-			for (int i = 0; i < t.getLine_size(); ++i) {
-				Tauler t2 = new Tauler (t.getLine_number(), t.getLine_size(), t.getColors());
-				t2.setInitial_line(fitness);
-				t2.set_ultima_linia(c);
-				if (t.get_solucio_linia(liniaFitness).comparar(t2.get_solucio_linia(t2.getUltima() + 1))){
-					poblacioFitness.add(c);	
-				}
+			Tauler t2 = new Tauler (t.getLine_number(), t.getLine_size(), t.getColors());
+			t2.setInitial_line(fitness);
+			t2.set_ultima_linia(c);
+			if (t.get_solucio_linia(liniaFitness).comparar(t2.get_solucio_linia(t2.getUltima() + 1))){
+				poblacioFitness.add(c);	
 			}
 		}
 	}

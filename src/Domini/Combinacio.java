@@ -31,6 +31,15 @@ public class Combinacio {
 		puntuacio = 0;
 	}
 	
+	public Combinacio(Combinacio comb){
+		this.tamany = comb.tamany;
+		this.puntuacio = comb.puntuacio;
+		this.combinacio = new int[comb.tamany];
+		for(int i = 0; i < comb.tamany; ++i){
+			this.combinacio[i] = comb.combinacio[i];
+		}
+	}
+	
 	///SETTERS & GETTERS
 	
 	

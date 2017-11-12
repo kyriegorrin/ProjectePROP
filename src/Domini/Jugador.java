@@ -55,7 +55,7 @@ public class Jugador {
 
     /**
      * Setter de la puntuacio d'un Jugador.
-     * @param puntuacio Es unenter > 0.
+     * @param puntuacio Es un enter &gt; 0.
      */
     public void setPuntuacio(int puntuacio) {
         this.puntuacio = puntuacio;

@@ -18,10 +18,11 @@ public class Algoritme {
 		colorNull = new ArrayList<Integer>();
 	}
 	
-	// Emplena el atribut poblacio amb combinacions aleatories
+	/** @brief Emplena el Set poblacio amb combinacions aleatories
+	 */
 	public void emplenarPoblacio(Tauler t) {
 		Random r = new Random();
-		for (int i = 0; i < 150; ++i) {
+		for (int i = 0; i < 1000; ++i) {
 			Combinacio c = new Combinacio(t.getLine_size());
 			for (int j = 0; j < t.getLine_size(); ++j){
 				c.set_elementx(j, r.nextInt(t.getColors()));
@@ -30,7 +31,9 @@ public class Algoritme {
 		}
 	}
 	
-	// Emplena el vector ColorNull de colors que sabem que no apareixen a la combinacio a endevinar
+	/** @brief Emplena l'ArrayList colorNull amb tots aquells colors que
+	 * han estat confirmats que no apareixen a la combinacio que s'ha d'endevinar.
+	 */
 	public void emplenarColorNull(Combinacio c, Tauler t) {
 		for (int i = 0; i < t.getLine_size(); ++i) {
 			if (!colorNull.contains(c.get_elementx(i))){
@@ -39,7 +42,9 @@ public class Algoritme {
 		}
 	}
 	
-	// Elimina part de la poblacio que tingui els mateixos elements que Combinacio c
+	/** @brief Elimina de poblacio totes aquelles combinacions que nomes tenen colors
+	 * que pertanyen al ArrayList colorNull.
+	 */
 	public void eliminarColorPoblacio(Tauler t) {
 		Iterator<Combinacio> it = poblacio.iterator();
 		Combinacio caux = new Combinacio(t.getLine_size());
@@ -56,11 +61,15 @@ public class Algoritme {
 		    	++i;
 		    }
 		    if (noApte >= 4) {
-		    	it.remove();
+		    	Combinacio cremove = new Combinacio(caux);
+		    	poblacio.remove(cremove);
 		    }
 		}
 	}
 	
+	/** @brief Emplena el Set poblacioFitness amb totes les combinacions que
+	 * assoleixen la formula de Fitness.
+	 */
 	public void calcularFitness(Tauler t) {
 		Iterator<Combinacio> it = poblacio.iterator();
 		Combinacio c = new Combinacio(t.getLine_size());
@@ -93,6 +102,9 @@ public class Algoritme {
 		}
 	}
 	
+	/** @brief Afegeix al Set poblacio els crossovers que s'ha fet
+	 * sobre el Set poblacioFitness
+	 */
 	public void crossoverPoblacioFitness(Tauler t) {
 		Iterator<Combinacio> it = poblacioFitness.iterator();
 		Random r = new Random();

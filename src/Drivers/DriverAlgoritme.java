@@ -14,17 +14,21 @@ public class DriverAlgoritme {
 		Algoritme a = new Algoritme();
 		int cont = 0;
 		
-		while (t.getUltima() >= 0) {
+		while (t.getUltima() >= 0) while (t.getUltima() >= 0) {
 			Combinacio c2 = new Combinacio(t.getLine_size());
 			System.out.println("iteracio:"+cont);
 			c2 = a.algoritmeGenetic(t);
+			System.out.print("linia afegida: ");
 			c2.escriu_combinacio();
-			System.out.println("TAULER");
 			t.set_ultima_linia(c2);
-			t.escriu_tauler();
-			System.out.println("----------------");
-			System.out.println("SOLUCIO");
-			t.escriu_solucio();
+			for (int i = 0; i != t.getLine_number(); ++i) {
+				for (int j = 0; j != t.getLine_size(); ++j) {
+					System.out.print(t.getlinia(i).get_elementx(j));
+				}
+				
+				System.out.print("///");
+				t.get_solucio_linia(i).escriu_combinacio();
+			}
 			++cont;
 			System.out.println();
 			System.out.println("----------------");

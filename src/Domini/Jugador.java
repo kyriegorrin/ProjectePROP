@@ -1,19 +1,18 @@
 package Domini;
-import Domini.Tauler;
 
-/**
- * 
- * CLASE JUGADOR
+/**<h1>Classe pare de tots els tipus de jugador.</h1>
+ * <p>Determina els atributs intrinsecs d'un jugador, els metodes necessaris per a gestionar-los i
+ * proporciona metodes virtuals a implementar per les seves subclasses.</p>
  *
+ * @author Ricard Zarco Badia
  */
-
 public class Jugador {
 
     private String nom; /// id del jugador
-    private int puntuacio; ///puntuaio del jugador
+    private int puntuacio; ///puntuacio del jugador
 
     /**
-     * Constructora que crea un Jugador buit.
+     * Constructora que crea un Jugador buit i amb puntuacio 0.
      */
     public Jugador(){
         this.nom = null;
@@ -23,7 +22,7 @@ public class Jugador {
     /**
      * Constructora que crea un jugador amb els dos parametres.
      * @param nom Es un String que identifica un jugador.
-     * @param puntuacio Es un Enter >=00.
+     * @param puntuacio Es un nombre enter &gt;= 0.
      */
     public Jugador(String nom, int puntuacio) {
         this.nom = nom;
@@ -39,20 +38,21 @@ public class Jugador {
     }
 
     /**
-     *Setter del nom del jugador.
-     * 
+     * Setter del nom del jugador.
+     * @param nom String que conte el nom a assignar al jugador.
      */
     public void setNom(String nom) {
         this.nom = nom;
     }
     
     /**
-     * Getter de la puntuacio d'unjugador.
+     * Getter de la puntuacio d'un jugador.
      * @return Es retorna l'atribut puntuacio.
      */
     public int getPuntuacio() {
         return puntuacio;
     }
+
     /**
      * Setter de la puntuacio d'un Jugador.
      * @param puntuacio Es unenter > 0.
@@ -61,18 +61,19 @@ public class Jugador {
         this.puntuacio = puntuacio;
     }
 
-
     /**
-     * Funcio virtual, diferent per a cada subclasse, retorna una combinació en forma d'enter.
-     * @param tauler de la partida.
-     * @return En aquest cas es retorna null.
+     * Funció virtual, diferent per a cada subclasse, Retorna una combinació proposada pel jugador.
+     * @param tauler Un tauler inicialitzat.
+     * @return Retorna la combinació proposada, en aquest cas és null ja que és un mètode virtual a implementar per les subclasses.
      */
     public Combinacio fesJugada(Tauler tauler){
         //El return no sera utilitzat, aixo es un metode virtual per als CodeBreakers
         return null;
     }
+
     /**
-     * Converteix el nom i la puntiacio en un string.
+     * Converteix el nom i la puntuació en un string.
+     * @return Un string contenint el nom i la puntuacio del jugador.
      */
     public String toString(){
         return nom + " " + puntuacio;

@@ -30,7 +30,9 @@ public class Combinacio {
 		this.tamany = tamany;
 		puntuacio = 0;
 	}
+
 	
+
 	///SETTERS & GETTERS
 	
 	

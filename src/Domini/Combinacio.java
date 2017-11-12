@@ -127,7 +127,7 @@ public class Combinacio {
 	/**  Donat un nombre de colors comprova que es respecti que 
 	 * tots els elements de combinacio siguin de un enter inferior
 	 * a colors i superior a 0.
-	 * @params colors Es un enter >0
+	 * @params color Es un enter >0
 	 * @return Retorna -1 si no es rspecta la franja de colors, en cas contrari retorna 0
 	 */
 	

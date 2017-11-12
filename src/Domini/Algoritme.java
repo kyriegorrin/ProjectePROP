@@ -18,7 +18,8 @@ public class Algoritme {
 		colorNull = new ArrayList<Integer>();
 	}
 	
-	/** @brief Emplena el Set poblacio amb combinacions aleatories
+	/** Emplena el Set poblacio amb combinacions aleatories
+	 * @param t es un tauler de la partida.
 	 */
 	public void emplenarPoblacio(Tauler t) {
 		Random r = new Random();
@@ -31,8 +32,10 @@ public class Algoritme {
 		}
 	}
 	
-	/** @brief Emplena l'ArrayList colorNull amb tots aquells colors que
+	/** Emplena l'ArrayList colorNull amb tots aquells colors que
 	 * han estat confirmats que no apareixen a la combinacio que s'ha d'endevinar.
+	 * @param c es una combinacio amb valors a dins.
+	 * @param t es un tauler de la partida.
 	 */
 	public void emplenarColorNull(Combinacio c, Tauler t) {
 		for (int i = 0; i < t.getLine_size(); ++i) {
@@ -42,8 +45,9 @@ public class Algoritme {
 		}
 	}
 	
-	/** @brief Elimina de poblacio totes aquelles combinacions que nomes tenen colors
+	/** Elimina de poblacio totes aquelles combinacions que nomes tenen colors
 	 * que pertanyen al ArrayList colorNull.
+	 * @param t es un tauler de la partida.
 	 */
 	public void eliminarColorPoblacio(Tauler t) {
 		Iterator<Combinacio> it = poblacio.iterator();
@@ -67,8 +71,9 @@ public class Algoritme {
 		}
 	}
 	
-	/** @brief Emplena el Set poblacioFitness amb totes les combinacions que
+	/** Emplena el Set poblacioFitness amb totes les combinacions que
 	 * assoleixen la formula de Fitness.
+	 * @param t es un tauler de la partida.
 	 */
 	public void calcularFitness(Tauler t) {
 		Iterator<Combinacio> it = poblacio.iterator();
@@ -102,8 +107,9 @@ public class Algoritme {
 		}
 	}
 	
-	/** @brief Afegeix al Set poblacio els crossovers que s'ha fet
+	/** Afegeix al Set poblacio els crossovers que s'ha fet
 	 * sobre el Set poblacioFitness
+	 *  @param t es un tauler de la partida.
 	 */
 	public void crossoverPoblacioFitness(Tauler t) {
 		Iterator<Combinacio> it = poblacioFitness.iterator();

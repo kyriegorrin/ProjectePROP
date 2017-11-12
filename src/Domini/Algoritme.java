@@ -7,11 +7,13 @@ import java.util.Set;
 
 public class Algoritme {
 	private Set<Combinacio> poblacio;
+	private Set<Combinacio> poblacioFitness;
 	private boolean primer;
 	private ArrayList<Integer> colorNull;
 	
 	public Algoritme() {
 		poblacio = new HashSet<Combinacio>();
+		poblacioFitness = new HashSet<Combinacio>();
 		primer = true;
 		colorNull = new ArrayList<Integer>();
 	}
@@ -19,7 +21,7 @@ public class Algoritme {
 	// Emplena el atribut poblacio amb combinacions aleatories
 	public void emplenarPoblacio(Tauler t) {
 		Random r = new Random();
-		for (int i = 0; i < 150; ++i) {
+		for (int i = 0; i < 1000; ++i) {
 			Combinacio c = new Combinacio(t.getLine_size());
 			for (int j = 0; j < t.getLine_size(); ++j){
 				c.set_elementx(j, r.nextInt(t.getColors()));
@@ -38,7 +40,7 @@ public class Algoritme {
 	}
 	
 	// Elimina part de la poblacio que tingui els mateixos elements que Combinacio c
-	public void eliminarPoblacio(Tauler t) {
+	public void eliminarColorPoblacio(Tauler t) {
 		Iterator<Combinacio> it = poblacio.iterator();
 		Combinacio caux = new Combinacio(t.getLine_size());
 		while (it.hasNext()) {
@@ -59,32 +61,42 @@ public class Algoritme {
 		}
 	}
 	
-	public Combinacio calcularFitness(Tauler t) {
+	public void calcularFitness(Tauler t) {
 		Iterator<Combinacio> it = poblacio.iterator();
 		Combinacio c = new Combinacio(t.getLine_size());
-		Combinacio c_max = new Combinacio(poblacio.iterator().next());
-		int max = 0;
-		while (it.hasNext()) {
-			c = it.next();
-			int puntuacio = 0;
-			for (int i = t.getUltima(); i < t.getLine_number(); ++i) {
-				for (int j = 0; j < t.getLine_size(); ++j) {
-					for (int k = 0; k < t.getLine_size(); ++k) {
-						if ((t.getlinia(i)).get_elementx(j) == c.get_elementx(k)) ++puntuacio;
-					}
-				}
+		Combinacio fitness = new Combinacio(t.getLine_size());
+		
+		int fmax = 0;
+		for (int i = t.getUltima(); i < t.getLine_number(); ++i) {
+			int blancs = 0;
+			int negres = 0;
+			for (int j = 0; j != t.getLine_size(); ++j) {
+				if (t.get_solucio_linia(i).get_elementx(j) == 1) ++blancs;
+				else if (t.get_solucio_linia(i).get_elementx(j) == 2) ++negres;
 			}
-			if (puntuacio > max) {
-				max = puntuacio;
-				c_max = c;
+			if (((2*negres) + blancs) > fmax) {
+				fmax = (2*negres) + blancs;
+				fitness = t.getlinia(i);
 			}
 		}
-		Combinacio resultat = new Combinacio(c_max);
-		return resultat;
+		
+		boolean ple = false;
+		while (it.hasNext() && !ple) {
+			c = it.next();
+			boolean afegir = false;
+			for (int i = 0; i < t.getLine_size(); ++i) {
+				if (fitness.get_elementx(i) == c.get_elementx(i)) {
+					afegir = true;
+				}
+			}
+			if (afegir) {
+				poblacioFitness.add(c);
+			}
+		}
 	}
 	
-	public void crossoverPoblacio(Tauler t) {
-		Iterator<Combinacio> it = poblacio.iterator();
+	public void crossoverPoblacioFitness(Tauler t) {
+		Iterator<Combinacio> it = poblacioFitness.iterator();
 		Random r = new Random();
 		while (it.hasNext()) {
 			Combinacio aux = new Combinacio(t.getLine_size());
@@ -133,14 +145,12 @@ public class Algoritme {
 			// si no en te elimina de poblacio aquells que tenen els mateixos colors
 			if (cont == 0) {
 				emplenarColorNull(aux, t);
-				eliminarPoblacio(t);
+				eliminarColorPoblacio(t);
 			}
-			else {
-				crossoverPoblacio(t);
-			}
-			Combinacio c = calcularFitness(t);
-			Combinacio resultat = new Combinacio(c);
-			return resultat;
+			calcularFitness(t);
+			poblacio.clear();
+			crossoverPoblacioFitness(t);
+			return poblacio.iterator().next();
 		}
 	}
 }

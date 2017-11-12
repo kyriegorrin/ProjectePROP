@@ -46,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Combinacio.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Combinacio.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Domini/Combinacio.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="105" column="35" lean-forward="false" selection-start-line="105" selection-start-column="35" selection-end-line="105" selection-end-column="35" />
+            <state relative-caret-position="548">
+              <caret line="127" column="66" lean-forward="true" selection-start-line="127" selection-start-column="66" selection-end-line="127" selection-end-column="66" />
               <folding>
                 <element signature="e#775#776#0" expanded="true" />
                 <element signature="e#799#800#0" expanded="true" />
@@ -63,6 +63,16 @@
                 <element signature="e#1656#1657#0" expanded="true" />
                 <element signature="e#1680#1681#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DriverTauler.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Drivers/DriverTauler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="592">
+              <caret line="86" column="17" lean-forward="false" selection-start-line="86" selection-start-column="17" selection-end-line="86" selection-end-column="17" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -798,16 +808,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Drivers/DriverTauler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1290">
-          <caret line="86" column="17" lean-forward="false" selection-start-line="86" selection-start-column="17" selection-end-line="86" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Drivers/DriverPCMaker.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="412">
@@ -940,8 +940,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Domini/Combinacio.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="105" column="35" lean-forward="false" selection-start-line="105" selection-start-column="35" selection-end-line="105" selection-end-column="35" />
+        <state relative-caret-position="548">
+          <caret line="127" column="66" lean-forward="true" selection-start-line="127" selection-start-column="66" selection-end-line="127" selection-end-column="66" />
           <folding>
             <element signature="e#775#776#0" expanded="true" />
             <element signature="e#799#800#0" expanded="true" />
@@ -954,6 +954,14 @@
             <element signature="e#1656#1657#0" expanded="true" />
             <element signature="e#1680#1681#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Drivers/DriverTauler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="592">
+          <caret line="86" column="17" lean-forward="false" selection-start-line="86" selection-start-column="17" selection-end-line="86" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>

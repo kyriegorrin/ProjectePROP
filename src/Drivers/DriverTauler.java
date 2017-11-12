@@ -1,8 +1,7 @@
-package Drivers;
+package Domini;
 
 import Domini.Tauler;
 import Domini.Combinacio;
-
 import java.util.Scanner;
 
 public class DriverTauler {
@@ -20,81 +19,103 @@ public class DriverTauler {
 		int colors = 0;
 		colors = S.nextInt();
 		Tauler t = new Tauler(files, numero_elements,colors);
-		System.out.println("Apreta 0 per sortir.");
-		System.out.println("Apreta 1 per obtenir el nombre de linies del tauler.");
-		System.out.println("Apreta 2 per obtenir el nombre de d'elements de la linia.");
-		System.out.println("Apreta 3 per obtenir els elements de una linia.");
-		System.out.println("Apreta 4 per posar els elements a la ultima linia.");
-		System.out.println("Apreta 5 per visualitzar el tauler.");
-		System.out.println("Apreta 6 per escriure la linia per endevinar.");
-		System.out.println("Apreta 7 per obtenir la linia per endevinar.");
-		System.out.println("Apreta 8 per visualitzar la solucio.");
-		System.out.println("Apreta 9 per visualitzar el nombre de colors.");
-		int n = 0;
-		n = S.nextInt();
-		while(n != 0){
-			switch(n){
-				case 0:
-				{
-					break;
-				}
-				case 1:
-				{
+		String comanda;
+		comanda = S.nextLine();
+		
+		
+		while(!comanda.equals("exit")){
+			switch(comanda){
+				case "help":
+					System.out.println("Llista de comandes:");
+					System.out.println("linies_tauler-> Per obtenir el nombre de linies del tauler.");
+					System.out.println("elements_linia->Per obtenir el nombre de d'elements de la linia.");
+					System.out.println("colors->Per visualitzar el nombre de colors.");
+					System.out.println("escriure_endivinar->Per escriure la linia per endevinar.");
+					System.out.println("endivinar->Per obtenir la linia per endevinar.");
+					System.out.println("afegir_linia->Per posar els elements a la ultima linia.");
+					System.out.println("llegir_combinaciox->Per lleguir una combinacio i modificar l'element x per y.");
+					System.out.println("elementsx->Per obtenir els elements de una linia.");
+					System.out.println("tauler->per visualitzar el tauler.");
+					System.out.println("solucio->Per visualitzar la solucio.");
+					System.out.println("puntuacio->Per obtenir la puntuacio");
+					System.out.println("tauler_solucio->Per escriure tauler i solucio");
+					System.out.println("exit-> Per sortir");
+				case "linies_tauler":
+				
 					 System.out.println("files: "+t.getLine_number());
 					 break;
-				}
-				case 2:
-				{
+			
+				case "elements_linia":
 					System.out.println("elements: "+t.getLine_size());
 					break;
-				}
-				case 3:
-				{
-					System.out.print("Introdueix numero de linia:");
-					int l = S.nextInt();
-					if (l < 0 || l >= t.getLine_number()) System.out.println("El numero que has introduit no es valid");
-					else {
-						Combinacio c = t.getlinia(l);
-						c.escriu_combinacio();
-					}
+		
+				case "colors":
+					System.out.print("colors:"+t.getColors());
 					break;
-				}
-				case 4:
-				{
-					Combinacio comb = new Combinacio(t.getLine_size());
-					comb.llegir_comb();
-					t.set_ultima_linia(comb);
 					
-					break;
-				}
-				case 5:
-				{
-					t.escriu_tauler();
-					break;
-				}
-				case 6:
-				{
+				case "escriure_endivinar":
 					Combinacio comb = new Combinacio(t.getLine_size());
 					comb.llegir_comb();
 					t.setInitial_line(comb);
 					break;
-				}
-				case 7:{
+					
+				case "endivinar":
+					
 					(t.get_comb_ini()).escriu_combinacio();
+					System.out.println();
 					break;
-				}
-				case 8:
-				{
+					
+				case "afegir_linia":
+					
+					Combinacio combi = new Combinacio(t.getLine_size());
+					combi.llegir_comb();
+					System.out.println("LA puta"+t.getUltima());
+					t.set_ultima_linia(combi);
+					break;
+					
+				case "llegir_combinaciox":
+					Combinacio c = new Combinacio(t.getLine_size());
+					c.llegir_comb();
+					System.out.print("Combinacio inicial())");
+					c.escriu_combinacio();
+					System.out.println();
+					int x = 0;
+					int y = 0;
+					System.out.print("Escriu element que vols midficar");
+					x = S.nextInt();
+					System.out.print("Escriu el valor");
+					y = S.nextInt();
+					c.set_elementx(x, y);
+					c.escriu_combinacio();
+					System.out.println();
+					
+					break;
+				case "elementsx":
+					System.out.print("Introdueix numero de linia:");
+					int l = S.nextInt();
+					if (l < 0 || l >= t.getLine_number()) System.out.println("El numero que has introduit no es valid");
+					else {
+						t.getlinia(l).escriu_combinacio();
+						System.out.println();
+					}
+					break;
+				case "tauler":
+					t.escriu_tauler();
+					break;
+				case "solucio":
 					t.escriu_solucio();
 					break;
-				}
-				case 9:
-				{
-					System.out.print("colors:"+t.getColors());
-				}
+				case "puntuacio":
+					System.out.print("WINER WINER CHICKEN DINER."+t.puntuacio());
+					break;
+				case "tauler_solucio":
+					t.escriu_tot();
+					break;			
 			}
-			n = S.nextInt();
+			comanda = S.nextLine();
+			
 		}
+		
 		S.close();
 	}
 }

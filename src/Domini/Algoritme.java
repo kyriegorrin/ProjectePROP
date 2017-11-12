@@ -21,7 +21,7 @@ public class Algoritme {
 	// Emplena el atribut poblacio amb combinacions aleatories
 	public void emplenarPoblacio(Tauler t) {
 		Random r = new Random();
-		for (int i = 0; i < 1000; ++i) {
+		for (int i = 0; i < 150; ++i) {
 			Combinacio c = new Combinacio(t.getLine_size());
 			for (int j = 0; j < t.getLine_size(); ++j){
 				c.set_elementx(j, r.nextInt(t.getColors()));
@@ -67,6 +67,7 @@ public class Algoritme {
 		Combinacio fitness = new Combinacio(t.getLine_size());
 		
 		int fmax = 0;
+		int liniaFitness = t.getUltima();
 		for (int i = t.getUltima(); i < t.getLine_number(); ++i) {
 			int blancs = 0;
 			int negres = 0;
@@ -77,20 +78,17 @@ public class Algoritme {
 			if (((2*negres) + blancs) > fmax) {
 				fmax = (2*negres) + blancs;
 				fitness = t.getlinia(i);
+				liniaFitness = i;
 			}
 		}
 		
-		boolean ple = false;
-		while (it.hasNext() && !ple) {
+		while (it.hasNext()) {
 			c = it.next();
-			boolean afegir = false;
-			for (int i = 0; i < t.getLine_size(); ++i) {
-				if (fitness.get_elementx(i) == c.get_elementx(i)) {
-					afegir = true;
-				}
-			}
-			if (afegir) {
-				poblacioFitness.add(c);
+			Tauler t2 = new Tauler (t.getLine_number(), t.getLine_size(), t.getColors());
+			t2.setInitial_line(fitness);
+			t2.set_ultima_linia(c);
+			if (t.get_solucio_linia(liniaFitness).comparar(t2.get_solucio_linia(t2.getUltima() + 1))){
+				poblacioFitness.add(c);	
 			}
 		}
 	}
@@ -150,7 +148,8 @@ public class Algoritme {
 			calcularFitness(t);
 			poblacio.clear();
 			crossoverPoblacioFitness(t);
-			return poblacio.iterator().next();
+			Combinacio resultat = new Combinacio(poblacioFitness.iterator().next());
+			return resultat;
 		}
 	}
 }

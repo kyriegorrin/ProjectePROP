@@ -31,15 +31,6 @@ public class Combinacio {
 		puntuacio = 0;
 	}
 	
-	public Combinacio(Combinacio comb){
-		this.tamany = comb.tamany;
-		this.puntuacio = comb.puntuacio;
-		this.combinacio = new int[comb.tamany];
-		for(int i = 0; i < comb.tamany; ++i){
-			this.combinacio[i] = comb.combinacio[i];
-		}
-	}
-	
 	///SETTERS & GETTERS
 	
 	
@@ -146,6 +137,19 @@ public class Combinacio {
 			if (combinacio[i]<0 || combinacio[i] >= color)return -1;
 		}
 		return 0;
+	}
+	/**
+	 * Donada una combinacio c la compara amb l'atribut combiancio.
+	 * @param c Es una combinacio incialitzada.
+	 * @return Si són iguals retorna true, si són diferents retorna false.
+	 */
+	public boolean comparar(Combinacio c){
+		for(int i = 0; i < tamany; ++i){
+			if(c.get_elementx(i) != combinacio[i])return false;
+		}
+		return true;
+		
+		
 	}
 	
 }

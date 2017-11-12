@@ -1,23 +1,28 @@
-/* Clase Combinacio
+/**
+ * Clase Combinacio
  */
 package Domini;
 import java.util.Scanner;
 
+/**
+ * CLASE COMBINACIO
+ *
+ *
+ */
+
 public class Combinacio {
 	
-	/**
-	 * ATRIBUTS DE LA CLASE
-	 */
+	 ///ATRIBUTS DE LA CLASE
 	private int [] combinacio; /// Vector d'enters que identificar un color
-	private int tamany; /** Tamany conte el size del vector combinacio */
+	private int tamany; /// Tamany conte el size del vector combinacio 
 	private int puntuacio;
 
 	/// CONSTRUCTORS 
 	
-/** \brief Constructora que genera un objecte combinacio.
+/** Constructora que genera un objecte combinacio.
  * 
  * @param tamany es un enter >0.
- * @return Un objecte combinacio
+ * @return Es retorna un objecta combiancio inicialitzat.
  */
 	public Combinacio(int tamany) {
 		
@@ -26,29 +31,20 @@ public class Combinacio {
 		puntuacio = 0;
 	}
 	
-	public Combinacio(Combinacio comb){
-		this.tamany = comb.tamany;
-		this.puntuacio = comb.puntuacio;
-		this.combinacio = new int[comb.tamany];
-		for(int i = 0; i < comb.tamany; ++i){
-			this.combinacio[i] = comb.combinacio[i];
-		}
-	}
-	
 	///SETTERS & GETTERS
 	
 	
 	
-	/** @brief Getter que retonra el vector d'enters de combinacio.
-	 * @return retorna un vector d'enters amb els colors
+	/** Getter dels colors de la combinacio.
+	 * @return retorna Es retorna l'atribut combinacio.
 	 */
 	
 	
 	public int[] getCombinacio() {
 		return combinacio;
 	}
-	/**brief Setter de l'atribut coombinacio.
-	 * @combinacio Es un vector d'enters inicialitzat de gradnaria @tamany.
+	/**Setter de l'atribut coombinacio.
+	 * @param combinacio Es un vector d'enters inicialitzat de gradnaria @tamany.
 	 */
 	 
 	public void setCombinacio(int [] combinacio){
@@ -59,17 +55,17 @@ public class Combinacio {
 	
 	
 
-	/**@brief Getter de l'element que hi ha a una posicio concreta.
-	 * @x 0 >=x >= tamany-1.
-	 * @return Retorna l'element de la posicio x de l'atribut combinacio
+	/**Getter del color que hi ha a una posicio concreta.
+	 * @parameters x Es un enter 0 >=x >= tamany-1.
+	 * @return Retorna l'element de la posicio x de l'atribut combinacio.
 	 */
 	
 	public int get_elementx(int x){
 		return combinacio[x];
 	}
 	/**
-	 * Getter que retorna la puntuacio de la combinacio
-	 * @return la puntuacio qua acumula aquesta combinacio
+	 * Getter que retorna la puntuacio de la combinacio.
+	 * @return la puntuacio qua acumula aquesta combinacio.
 	 */
 	
 	
@@ -77,18 +73,17 @@ public class Combinacio {
 		return puntuacio;
 	}
 	
-	/**@brief Donada una posicio x i un element y posa y a la posicio x	 
-	 * de l'atribut combinacio
-	 * @x 0 >=x >= tamany-1
-	 * @y Es un enter inicialitzat
+	/**Posa un element a una posicio concreta al vector de colors de la combinacio. 
+	 * @param x Es un enter 0 >=x >= tamany-1.
+	 * @param y Es un enter inicialitzat.
 	 */ 
 	public void set_elementx(int x, int y){
 		combinacio[x] = y;
 	}
 	
-	/**@brief Donat un nombre de blancs i negres emplena l'atribut combinacio.
-	 * @blancs  0 >=blancs>= tamany-1.
-	 * @negres 0 >=negres >= tamany-1.
+	/**Donat un nombre de blancs i negres emplena l'atribut combinacio.
+	 * @param blancs  Es un enter 0 >=blancs>= tamany-1.
+	 * @param negres Es un enter 0 >=negres >= tamany-1.
 	 */
 	public void omplir(int blancs, int negres){
 		int i = 0;
@@ -106,10 +101,11 @@ public class Combinacio {
 			else combinacio[i] = 0;
 			++i;
 		}
+		System.out.println("molo i tinc"+puntuacio);
 	}
 	
-	/**@brief Llegeix una combinacio introduida per teclat i 
-	 * els posa com a parametres de la instacia combinacio.
+	/** Llegeix per pantalla la combinacio.
+	 * 
 	 */
 	
 	public void llegir_comb(){
@@ -121,7 +117,7 @@ public class Combinacio {
 	}
 	
 	/**
-	 * @brief Escriu una combinacio per pantalla.
+	 *  Escriu una combinacio per pantalla.
 	 */
 	public void escriu_combinacio(){
 		for (int i = 0; i < combinacio.length; ++i){
@@ -129,10 +125,10 @@ public class Combinacio {
 		}
 	}
 	
-	/** @brief Donat un nombre de colors comprova que es respecti
-	 * que tots els elements de combinacio siguin de un enter inferior
+	/**  Donat un nombre de colors comprova que es respecti que 
+	 * tots els elements de combinacio siguin de un enter inferior
 	 * a colors i superior a 0.
-	 * @colors Es un enter >0
+	 * @params colors Es un enter >0
 	 * @return Retorna -1 si no es rspecta la franja de colors, en cas contrari retorna 0
 	 */
 	

@@ -6,7 +6,7 @@ public class SaveGame {
     private File file;
 
     public SaveGame(){
-        file = new File("savegame");
+        file = new File("savegame.json");
     }
 
     public boolean exists(){
@@ -20,8 +20,11 @@ public class SaveGame {
     public void save(String stringJSON){
         try{
             clear();
+            file.createNewFile();
             FileWriter fw = new FileWriter(file);
             fw.write(stringJSON);
+            fw.flush();
+            fw.close();
         }catch(IOException e){
             e.printStackTrace();
         }
@@ -33,7 +36,7 @@ public class SaveGame {
         try{
             FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
-            while(br.read() != -1) stringJSON += br.readLine();
+            stringJSON = br.readLine();
         }catch(IOException e){
             e.printStackTrace();
         }

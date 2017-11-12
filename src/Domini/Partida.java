@@ -1,8 +1,6 @@
 package Domini;
 
 import Dades.Ranking;
-import Dades.SaveGame;
-import com.google.gson.Gson;
 
 public class Partida {
     //------------------------------ATRIBUTS------------------------------------//
@@ -14,6 +12,7 @@ public class Partida {
 
     //Taulers
     private Tauler tauler;
+    private Tauler oldTauler;
     public static final int NUM_LINIES = 5;
 
     //Capa de dades
@@ -91,7 +90,7 @@ public class Partida {
         //Canvi de rols i nou tauler
         if(fase == 0){
             //Reiniciem tauler
-            Tauler oldTauler = tauler;
+            oldTauler = tauler;
             tauler = new Tauler(oldTauler.getLine_number(),oldTauler.getLine_size(), oldTauler.getColors());
             System.out.println("Canviant rols i iniciant segona partida...");
 
@@ -115,8 +114,13 @@ public class Partida {
         //Finalitzar partida i actualitzar ranking
         else if(fase == 1){
             if(conf == 0) hbreaker.setPuntuacio(tauler.puntuacio());
+            else if(conf == 1) pcbreaker.setPuntuacio(tauler.puntuacio());
+            System.out.println("PUNTUACIO FINAL");
+            System.out.println("---------------");
+            System.out.println(hbreaker.getNom() + ": " + hbreaker.getPuntuacio());
+            System.out.println(pcbreaker.getNom() + ": " + pcbreaker.getPuntuacio() + "\n");
+            System.out.println("Afegint jugador humà al ranking...\n");
             System.out.println("--- JOC FINALITZAT ---\n");
-            System.out.println("Afegint jugador al ranking...");
             ranking.insertaJugador(hbreaker.toString());
             ++fase;
         }
@@ -130,13 +134,5 @@ public class Partida {
 
     public void mostraTauler(){
         tauler.escriu_tot();
-    }
-
-    public void guardaPartida(){
-        Gson gson = new Gson();
-
-        String jsonPartida = gson.toJson(this);
-        SaveGame savegame = new SaveGame();
-        savegame.save(jsonPartida);
     }
 }

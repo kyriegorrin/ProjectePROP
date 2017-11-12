@@ -110,7 +110,6 @@ public class Combinacio {
 			else combinacio[i] = 0;
 			++i;
 		}
-		System.out.println("molo i tinc"+puntuacio);
 	}
 	
 	/** Llegeix per pantalla la combinacio.

@@ -4,6 +4,7 @@
     <list default="true" id="91dfed3d-bb7e-425c-a48d-1cb806d11999" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Dades/SaveGame.java" afterPath="$PROJECT_DIR$/src/Dades/SaveGame.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Domini/Combinacio.java" afterPath="$PROJECT_DIR$/src/Domini/Combinacio.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Domini/Main.java" afterPath="$PROJECT_DIR$/src/Domini/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Domini/Partida.java" afterPath="$PROJECT_DIR$/src/Domini/Partida.java" />
     </list>
@@ -20,11 +21,9 @@
       <file leaf-file-name="Partida.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Domini/Partida.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="132" column="5" lean-forward="true" selection-start-line="132" selection-start-column="5" selection-end-line="132" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="778">
+              <caret line="111" column="19" lean-forward="true" selection-start-line="111" selection-start-column="19" selection-end-line="111" selection-end-column="19" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -32,8 +31,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Domini/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="89" column="0" lean-forward="true" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+            <state relative-caret-position="298">
+              <caret line="121" column="0" lean-forward="true" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -47,7 +46,6 @@
             <state relative-caret-position="180">
               <caret line="12" column="44" lean-forward="false" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
               <folding>
-                <marker date="1510476940724" expanded="true" signature="1432:1447" ph="/**...*/" />
                 <marker date="1510476940724" expanded="true" signature="8130:8131" ph="{...}" />
               </folding>
             </state>
@@ -57,19 +55,19 @@
       <file leaf-file-name="Combinacio.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Domini/Combinacio.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="915">
-              <caret line="67" column="51" lean-forward="true" selection-start-line="67" selection-start-column="51" selection-end-line="67" selection-end-column="51" />
+            <state relative-caret-position="345">
+              <caret line="112" column="0" lean-forward="false" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
               <folding>
-                <marker date="1510477586458" expanded="false" signature="1010:1015" ph=" { " />
-                <marker date="1510477586458" expanded="false" signature="1033:1036" ph=" }" />
-                <marker date="1510477586458" expanded="false" signature="1206:1210" ph=" { " />
-                <marker date="1510477586458" expanded="false" signature="1239:1242" ph=" }" />
-                <marker date="1510477586458" expanded="false" signature="1474:1478" ph=" { " />
-                <marker date="1510477586458" expanded="false" signature="1499:1502" ph=" }" />
-                <marker date="1510477586458" expanded="false" signature="1655:1659" ph=" { " />
-                <marker date="1510477586458" expanded="false" signature="1676:1679" ph=" }" />
-                <marker date="1510477586458" expanded="false" signature="1892:1896" ph=" { " />
-                <marker date="1510477586458" expanded="false" signature="1914:1917" ph=" }" />
+                <marker date="1510482604138" expanded="false" signature="1010:1015" ph=" { " />
+                <marker date="1510482604138" expanded="false" signature="1033:1036" ph=" }" />
+                <marker date="1510482604138" expanded="false" signature="1206:1210" ph=" { " />
+                <marker date="1510482604138" expanded="false" signature="1239:1242" ph=" }" />
+                <marker date="1510482604138" expanded="false" signature="1474:1478" ph=" { " />
+                <marker date="1510482604138" expanded="false" signature="1499:1502" ph=" }" />
+                <marker date="1510482604138" expanded="false" signature="1655:1659" ph=" { " />
+                <marker date="1510482604138" expanded="false" signature="1676:1679" ph=" }" />
+                <marker date="1510482604138" expanded="false" signature="1892:1896" ph=" { " />
+                <marker date="1510482604138" expanded="false" signature="1914:1917" ph=" }" />
               </folding>
             </state>
           </provider>
@@ -78,15 +76,15 @@
       <file leaf-file-name="SaveGame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Dades/SaveGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="39" column="22" lean-forward="false" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
+            <state relative-caret-position="178">
+              <caret line="38" column="39" lean-forward="false" selection-start-line="38" selection-start-column="39" selection-end-line="38" selection-end-column="39" />
               <folding>
                 <element signature="e#104#105#0" expanded="true" />
-                <element signature="e#147#148#0" expanded="true" />
-                <element signature="e#177#178#0" expanded="true" />
-                <element signature="e#213#214#0" expanded="true" />
-                <element signature="e#239#240#0" expanded="true" />
-                <element signature="e#286#287#0" expanded="true" />
+                <element signature="e#152#153#0" expanded="true" />
+                <element signature="e#182#183#0" expanded="true" />
+                <element signature="e#218#219#0" expanded="true" />
+                <element signature="e#244#245#0" expanded="true" />
+                <element signature="e#291#292#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -96,7 +94,7 @@
         <entry file="file://$PROJECT_DIR$/src/Dades/Ranking.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-135">
-              <caret line="15" column="49" lean-forward="true" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
+              <caret line="15" column="49" lean-forward="false" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -105,11 +103,10 @@
       <file leaf-file-name="Algoritme.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Domini/Algoritme.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-735">
+            <state relative-caret-position="-1502">
               <caret line="37" column="13" lean-forward="false" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1510482196703" expanded="true" signature="4331:4339" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -497,12 +494,13 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32817337" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32817337" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32817337" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -518,7 +516,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32817337" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -550,9 +547,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -593,9 +588,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -872,17 +865,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domini/Tauler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="44" lean-forward="false" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
-          <folding>
-            <marker date="1510476940724" expanded="true" signature="1432:1447" ph="/**...*/" />
-            <marker date="1510476940724" expanded="true" signature="8130:8131" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Drivers/DriverAlgoritme.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-30">
@@ -899,73 +881,80 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domini/Algoritme.java">
+    <entry file="file://$PROJECT_DIR$/src/Dades/Ranking.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-735">
-          <caret line="37" column="13" lean-forward="false" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1510482196703" expanded="true" signature="4331:4339" ph="{...}" />
-          </folding>
+        <state relative-caret-position="-135">
+          <caret line="15" column="49" lean-forward="false" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Domini/Combinacio.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="915">
-          <caret line="67" column="51" lean-forward="true" selection-start-line="67" selection-start-column="51" selection-end-line="67" selection-end-column="51" />
+        <state relative-caret-position="345">
+          <caret line="112" column="0" lean-forward="false" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
           <folding>
-            <marker date="1510477586458" expanded="false" signature="1010:1015" ph=" { " />
-            <marker date="1510477586458" expanded="false" signature="1033:1036" ph=" }" />
-            <marker date="1510477586458" expanded="false" signature="1206:1210" ph=" { " />
-            <marker date="1510477586458" expanded="false" signature="1239:1242" ph=" }" />
-            <marker date="1510477586458" expanded="false" signature="1474:1478" ph=" { " />
-            <marker date="1510477586458" expanded="false" signature="1499:1502" ph=" }" />
-            <marker date="1510477586458" expanded="false" signature="1655:1659" ph=" { " />
-            <marker date="1510477586458" expanded="false" signature="1676:1679" ph=" }" />
-            <marker date="1510477586458" expanded="false" signature="1892:1896" ph=" { " />
-            <marker date="1510477586458" expanded="false" signature="1914:1917" ph=" }" />
+            <marker date="1510482604138" expanded="false" signature="1010:1015" ph=" { " />
+            <marker date="1510482604138" expanded="false" signature="1033:1036" ph=" }" />
+            <marker date="1510482604138" expanded="false" signature="1206:1210" ph=" { " />
+            <marker date="1510482604138" expanded="false" signature="1239:1242" ph=" }" />
+            <marker date="1510482604138" expanded="false" signature="1474:1478" ph=" { " />
+            <marker date="1510482604138" expanded="false" signature="1499:1502" ph=" }" />
+            <marker date="1510482604138" expanded="false" signature="1655:1659" ph=" { " />
+            <marker date="1510482604138" expanded="false" signature="1676:1679" ph=" }" />
+            <marker date="1510482604138" expanded="false" signature="1892:1896" ph=" { " />
+            <marker date="1510482604138" expanded="false" signature="1914:1917" ph=" }" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Dades/Ranking.java">
+    <entry file="file://$PROJECT_DIR$/src/Domini/Tauler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-135">
-          <caret line="15" column="49" lean-forward="true" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
-          <folding />
+        <state relative-caret-position="180">
+          <caret line="12" column="44" lean-forward="false" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
+          <folding>
+            <marker date="1510476940724" expanded="true" signature="8130:8131" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Dades/SaveGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="39" column="22" lean-forward="false" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
+        <state relative-caret-position="178">
+          <caret line="38" column="39" lean-forward="false" selection-start-line="38" selection-start-column="39" selection-end-line="38" selection-end-column="39" />
           <folding>
             <element signature="e#104#105#0" expanded="true" />
-            <element signature="e#147#148#0" expanded="true" />
-            <element signature="e#177#178#0" expanded="true" />
-            <element signature="e#213#214#0" expanded="true" />
-            <element signature="e#239#240#0" expanded="true" />
-            <element signature="e#286#287#0" expanded="true" />
+            <element signature="e#152#153#0" expanded="true" />
+            <element signature="e#182#183#0" expanded="true" />
+            <element signature="e#218#219#0" expanded="true" />
+            <element signature="e#244#245#0" expanded="true" />
+            <element signature="e#291#292#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domini/Algoritme.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1502">
+          <caret line="37" column="13" lean-forward="false" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Domini/Partida.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="132" column="5" lean-forward="true" selection-start-line="132" selection-start-column="5" selection-end-line="132" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="778">
+          <caret line="111" column="19" lean-forward="true" selection-start-line="111" selection-start-column="19" selection-end-line="111" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Domini/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="89" column="0" lean-forward="true" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+        <state relative-caret-position="298">
+          <caret line="121" column="0" lean-forward="true" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

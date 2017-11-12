@@ -75,7 +75,7 @@ public class Main {
                     }else{
                         int estat = partida.fesTorn();
                         if(estat == 3) System.out.println("La partida ja ha finalitzat");
-                        partida.mostraTauler();
+                        else partida.mostraTauler();
                     }
                     break;
 
@@ -84,9 +84,12 @@ public class Main {
                         System.out.println("No has iniciat partida! Res a guardar.");
                     }
                     else{
-                        partida.guardaPartida();
+                        stringJSON = gson.toJson(partida);
+                        savegame.save(stringJSON);
                         System.out.println("Partida guardada. Sortint del joc...");
+                        System.exit(0);
                     }
+                    break;
 
                 case "mostraRanking":
                     if(partida == null){

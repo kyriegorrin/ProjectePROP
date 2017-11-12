@@ -148,7 +148,7 @@ public class Algoritme {
 			calcularFitness(t);
 			poblacio.clear();
 			crossoverPoblacioFitness(t);
-			Combinacio resultat = new Combinacio(poblacioFitness.iterator().next());
+			Combinacio resultat = new Combinacio(poblacio.iterator().next());
 			return resultat;
 		}
 	}

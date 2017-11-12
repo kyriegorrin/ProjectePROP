@@ -1,18 +1,40 @@
 package Domini;
 
+import Dades.SaveGame;
+import com.google.gson.Gson;
+
 import java.util.Scanner;
 
 public class Main {
     public static void main(String [] args){
         Partida partida = null;
+        SaveGame savegame = new SaveGame();
+        Gson gson = new Gson();
+        String stringJSON;
         String nom = "";
         int conf = 0;
         int tamLinia = 0;
         int numColors = 0;
 
-        //TODO: Afegir control de partida guardada
         String comanda;
         Scanner reader = new Scanner(System.in);
+
+        //Control de partida guardada
+        if(savegame.exists()){
+            System.out.println("S'ha detectat una partida guardada. " +
+                                "Tant si la restaures com no, no la podras utilitzar en futures execucions.");
+            System.out.println("Restaurar (si/no)?");
+            comanda = reader.nextLine();
+            if(comanda.equals("si")){
+                stringJSON = savegame.load();
+                partida = gson.fromJson(stringJSON, Partida.class);
+                System.out.println("----PARTIDA CARREGADA----");
+            }else{
+                savegame.clear();
+                System.out.println("----PARTIDA ANTERIOR DESCARTADA----");
+                System.out.println("Ja pots procedir a executar el programa normalment.\n");
+            }
+        }
 
         System.out.println("Inserta comanda (Escriu help si necessites ajuda):");
         comanda = reader.nextLine();
@@ -24,8 +46,10 @@ public class Main {
                     System.out.println("help -> Mostra ajuda");
                     System.out.println("inicia -> Inicia una partida");
                     System.out.println("fesTorn -> El jugador corresponent fa un torn");
+                    System.out.println("guardaPartida -> Guarda estat actual de la partida i " +
+                                        "tanca el joc per a continuar-lo en un altre moment");
                     System.out.println("mostraRanking -> Mostra el ranking per pantalla");
-                    //TODO
+                    System.out.println("mostraTauler -> Mostra l'estat del tauler\n");
                     break;
 
                 case "inicia":
@@ -54,6 +78,15 @@ public class Main {
                         partida.mostraTauler();
                     }
                     break;
+
+                case "guardaPartida":
+                    if (partida == null){
+                        System.out.println("No has iniciat partida! Res a guardar.");
+                    }
+                    else{
+                        partida.guardaPartida();
+                        System.out.println("Partida guardada. Sortint del joc...");
+                    }
 
                 case "mostraRanking":
                     if(partida == null){

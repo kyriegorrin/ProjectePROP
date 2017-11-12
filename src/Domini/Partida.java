@@ -2,6 +2,7 @@ package Domini;
 
 import Dades.Ranking;
 import Dades.SaveGame;
+import com.google.gson.Gson;
 
 public class Partida {
     //------------------------------ATRIBUTS------------------------------------//
@@ -132,6 +133,10 @@ public class Partida {
     }
 
     public void guardaPartida(){
-        //TODO: pendent d'implementar
+        Gson gson = new Gson();
+
+        String jsonPartida = gson.toJson(this);
+        SaveGame savegame = new SaveGame();
+        savegame.save(jsonPartida);
     }
 }

@@ -1,7 +1,6 @@
 package Drivers;
 
 import Domini.Algoritme;
-import Domini.Combinacio;
 import Domini.Tauler;
 
 public class DriverAlgoritme {

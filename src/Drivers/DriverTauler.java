@@ -1,7 +1,5 @@
 package Domini;
 
-import Domini.Tauler;
-import Domini.Combinacio;
 import java.util.Scanner;
 
 public class DriverTauler {

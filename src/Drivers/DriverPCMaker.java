@@ -1,6 +1,5 @@
 package Drivers;
 
-import Domini.Combinacio;
 import Domini.PCMaker;
 
 import java.util.Scanner;

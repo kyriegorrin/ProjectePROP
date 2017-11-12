@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="91dfed3d-bb7e-425c-a48d-1cb806d11999" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Domini/Combinacio.java" afterPath="$PROJECT_DIR$/src/Domini/Combinacio.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Domini/Jugador.java" afterPath="$PROJECT_DIR$/src/Domini/Jugador.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Domini/Combinacio.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Domini/Algoritme.java" afterPath="$PROJECT_DIR$/src/Domini/Algoritme.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Drivers/DriverAlgoritme.java" afterPath="$PROJECT_DIR$/src/Drivers/DriverAlgoritme.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Drivers/DriverHBreaker.java" afterPath="$PROJECT_DIR$/src/Drivers/DriverHBreaker.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Drivers/DriverHMaker.java" afterPath="$PROJECT_DIR$/src/Drivers/DriverHMaker.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Drivers/DriverPCMaker.java" afterPath="$PROJECT_DIR$/src/Drivers/DriverPCMaker.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Drivers/DriverTauler.java" afterPath="$PROJECT_DIR$/src/Drivers/DriverTauler.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,7 +42,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Tauler.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Tauler.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Domini/Tauler.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="180">
@@ -50,32 +54,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Combinacio.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Domini/Combinacio.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="33" column="4" lean-forward="false" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
-              <folding>
-                <element signature="e#777#778#0" expanded="true" />
-                <element signature="e#801#802#0" expanded="true" />
-                <element signature="e#972#973#0" expanded="true" />
-                <element signature="e#1007#1008#0" expanded="true" />
-                <element signature="e#1240#1241#0" expanded="true" />
-                <element signature="e#1267#1268#0" expanded="true" />
-                <element signature="e#1421#1422#0" expanded="true" />
-                <element signature="e#1444#1445#0" expanded="true" />
-                <element signature="e#1658#1659#0" expanded="true" />
-                <element signature="e#1682#1683#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="DriverTauler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Drivers/DriverTauler.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="352">
-              <caret line="67" column="36" lean-forward="true" selection-start-line="67" selection-start-column="36" selection-end-line="67" selection-end-column="36" />
+              <caret line="65" column="36" lean-forward="true" selection-start-line="65" selection-start-column="36" selection-end-line="65" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -121,10 +104,12 @@
       <file leaf-file-name="Algoritme.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Domini/Algoritme.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1110">
-              <caret line="37" column="13" lean-forward="false" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
+            <state relative-caret-position="-1065">
+              <caret line="40" column="13" lean-forward="false" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <marker date="1510492462752" expanded="true" signature="3203:3881" ph="{...}" />
+                <marker date="1510492462752" expanded="true" signature="3932:4870" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -508,7 +493,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="134" y="0" width="1366" height="742" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -523,7 +507,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1522694" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1522694" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -935,7 +919,7 @@
     <entry file="file://$PROJECT_DIR$/src/Drivers/DriverTauler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
-          <caret line="67" column="36" lean-forward="true" selection-start-line="67" selection-start-column="36" selection-end-line="67" selection-end-column="36" />
+          <caret line="65" column="36" lean-forward="true" selection-start-line="65" selection-start-column="36" selection-end-line="65" selection-end-column="36" />
           <folding />
         </state>
       </provider>
@@ -950,30 +934,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Domini/Algoritme.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1110">
-          <caret line="37" column="13" lean-forward="false" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
+        <state relative-caret-position="-1065">
+          <caret line="40" column="13" lean-forward="false" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1510492462752" expanded="true" signature="3203:3881" ph="{...}" />
+            <marker date="1510492462752" expanded="true" signature="3932:4870" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Domini/Combinacio.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="33" column="4" lean-forward="false" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
-          <folding>
-            <element signature="e#777#778#0" expanded="true" />
-            <element signature="e#801#802#0" expanded="true" />
-            <element signature="e#972#973#0" expanded="true" />
-            <element signature="e#1007#1008#0" expanded="true" />
-            <element signature="e#1240#1241#0" expanded="true" />
-            <element signature="e#1267#1268#0" expanded="true" />
-            <element signature="e#1421#1422#0" expanded="true" />
-            <element signature="e#1444#1445#0" expanded="true" />
-            <element signature="e#1658#1659#0" expanded="true" />
-            <element signature="e#1682#1683#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="165">
+          <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>

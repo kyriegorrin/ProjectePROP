@@ -1,7 +1,6 @@
 package Drivers;
 
 import Domini.HBreaker;
-import Domini.Combinacio;
 import Domini.Tauler;
 
 import java.util.Scanner;

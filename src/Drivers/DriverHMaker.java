@@ -1,9 +1,7 @@
 package Drivers;
 
-import Domini.Combinacio;
 import Domini.HMaker;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 public class DriverHMaker {

@@ -1,28 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="91dfed3d-bb7e-425c-a48d-1cb806d11999" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Project/Dades/Ranking.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Project/Dades/SaveGame.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Project/Domini/Algoritme.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Project/Domini/Combinacio.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Project/Domini/HBreaker.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Project/Domini/HMaker.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Project/Domini/Jugador.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Project/Domini/Main.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Project/Domini/PCBreaker.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Project/Domini/PCMaker.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Project/Domini/Partida.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Project/Domini/Tauler.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Project/Drivers/DriverAlgoritme.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Project/Drivers/DriverHBreaker.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Project/Drivers/DriverHMaker.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Project/Drivers/DriverJugador.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Project/Drivers/DriverPCMaker.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Project/Drivers/DriverRanking.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Project/Drivers/DriverTauler.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ranking.txt" afterPath="" />
-    </list>
+    <list default="true" id="91dfed3d-bb7e-425c-a48d-1cb806d11999" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -43,7 +22,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Domini/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="510">
@@ -67,22 +46,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Combinacio.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Combinacio.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Domini/Combinacio.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="112" column="0" lean-forward="false" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
+            <state relative-caret-position="190">
+              <caret line="105" column="35" lean-forward="false" selection-start-line="105" selection-start-column="35" selection-end-line="105" selection-end-column="35" />
               <folding>
-                <marker date="1510482604138" expanded="false" signature="1010:1015" ph=" { " />
-                <marker date="1510482604138" expanded="false" signature="1033:1036" ph=" }" />
-                <marker date="1510482604138" expanded="false" signature="1206:1210" ph=" { " />
-                <marker date="1510482604138" expanded="false" signature="1239:1242" ph=" }" />
-                <marker date="1510482604138" expanded="false" signature="1474:1478" ph=" { " />
-                <marker date="1510482604138" expanded="false" signature="1499:1502" ph=" }" />
-                <marker date="1510482604138" expanded="false" signature="1655:1659" ph=" { " />
-                <marker date="1510482604138" expanded="false" signature="1676:1679" ph=" }" />
-                <marker date="1510482604138" expanded="false" signature="1892:1896" ph=" { " />
-                <marker date="1510482604138" expanded="false" signature="1914:1917" ph=" }" />
+                <element signature="e#775#776#0" expanded="true" />
+                <element signature="e#799#800#0" expanded="true" />
+                <element signature="e#970#971#0" expanded="true" />
+                <element signature="e#1005#1006#0" expanded="true" />
+                <element signature="e#1238#1239#0" expanded="true" />
+                <element signature="e#1265#1266#0" expanded="true" />
+                <element signature="e#1419#1420#0" expanded="true" />
+                <element signature="e#1442#1443#0" expanded="true" />
+                <element signature="e#1656#1657#0" expanded="true" />
+                <element signature="e#1680#1681#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -122,6 +101,7 @@
               <caret line="37" column="13" lean-forward="false" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <marker date="1510488633627" expanded="true" signature="4471:4479" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -190,10 +170,10 @@
         <option value="$PROJECT_DIR$/src/Domini/HBreaker.java" />
         <option value="$PROJECT_DIR$/src/Domini/PCBreaker.java" />
         <option value="$PROJECT_DIR$/src/Domini/Tauler.java" />
-        <option value="$PROJECT_DIR$/src/Domini/Combinacio.java" />
         <option value="$PROJECT_DIR$/src/Dades/SaveGame.java" />
         <option value="$PROJECT_DIR$/src/Domini/Partida.java" />
         <option value="$PROJECT_DIR$/src/Domini/Main.java" />
+        <option value="$PROJECT_DIR$/src/Domini/Combinacio.java" />
       </list>
     </option>
   </component>
@@ -505,6 +485,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="134" y="0" width="1366" height="742" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -519,7 +500,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1522694" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1522694" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -903,25 +884,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domini/Combinacio.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="112" column="0" lean-forward="false" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
-          <folding>
-            <marker date="1510482604138" expanded="false" signature="1010:1015" ph=" { " />
-            <marker date="1510482604138" expanded="false" signature="1033:1036" ph=" }" />
-            <marker date="1510482604138" expanded="false" signature="1206:1210" ph=" { " />
-            <marker date="1510482604138" expanded="false" signature="1239:1242" ph=" }" />
-            <marker date="1510482604138" expanded="false" signature="1474:1478" ph=" { " />
-            <marker date="1510482604138" expanded="false" signature="1499:1502" ph=" }" />
-            <marker date="1510482604138" expanded="false" signature="1655:1659" ph=" { " />
-            <marker date="1510482604138" expanded="false" signature="1676:1679" ph=" }" />
-            <marker date="1510482604138" expanded="false" signature="1892:1896" ph=" { " />
-            <marker date="1510482604138" expanded="false" signature="1914:1917" ph=" }" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Domini/Tauler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -953,6 +915,7 @@
           <caret line="37" column="13" lean-forward="false" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1510488633627" expanded="true" signature="4471:4479" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -971,6 +934,25 @@
           <caret line="121" column="0" lean-forward="false" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domini/Combinacio.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="105" column="35" lean-forward="false" selection-start-line="105" selection-start-column="35" selection-end-line="105" selection-end-column="35" />
+          <folding>
+            <element signature="e#775#776#0" expanded="true" />
+            <element signature="e#799#800#0" expanded="true" />
+            <element signature="e#970#971#0" expanded="true" />
+            <element signature="e#1005#1006#0" expanded="true" />
+            <element signature="e#1238#1239#0" expanded="true" />
+            <element signature="e#1265#1266#0" expanded="true" />
+            <element signature="e#1419#1420#0" expanded="true" />
+            <element signature="e#1442#1443#0" expanded="true" />
+            <element signature="e#1656#1657#0" expanded="true" />
+            <element signature="e#1680#1681#0" expanded="true" />
           </folding>
         </state>
       </provider>

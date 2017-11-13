@@ -8,7 +8,19 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-
+/** <h1>Classe de gestió de ranking.</h1>
+ *
+ *  <p>La classe Ranking és l'encarregada de gestionar i assegurar la permanència del ranking entre execucions de diferents partides.
+ *  Ho aconsegueix creant un arxiu a disc (ranking.txt), on escribim i llegim el ranking en format string, ordenat per puntuació dels jugadors.
+ *  Per defecte guarda 10 jugadors màxim. Arribats a aquest punt, futures insercions impliquen descartar el jugador de puntuació més baixa,
+ *  en cas que el jugador a inserir tingui una puntuació més alta que algun dels integrants del ranking.
+ *  </p>
+ *
+ *  <p><b>Nota important:</b> qualsevol interacció amb el fitxer generat per aquesta classe que es produeixi de manera externa a
+ *                      l'execució del programa o driver està <b>terminantment prohibida</b> i pot causar la inoperabilitat del programa.</p>
+ *
+ *  @author Ricard Zarco Badia
+ */
 public class Ranking {
     private static final int MAXJUGADORS = 10;
 
@@ -18,14 +30,17 @@ public class Ranking {
 
     private File file;
 
+    /** Constructora per defefecte de la classe.
+     */
     public Ranking(){
         nomJugadors = new ArrayList<String>();
         puntuacioJugadors = new ArrayList<Integer>();
         init = false;
     }
 
-    //Primera funcio a cridar quan es crea el ranking, llegeix l'arxiu que conté el ranking si existeix.
-    //Si l'arxiu no existeix, el crea.
+    /** Primera funcio a cridar un cop es crea el ranking. No cridar aquesta funció implica la no permissió d'execució de certs mètodes.
+     * Llegeix l'arxiu que conté el ranking si existeix. Si l'arxiu no existeix, el crea.
+     */
     public void inicialitza(){
         if(!init){
             String linia;
@@ -63,7 +78,11 @@ public class Ranking {
         }
     }
 
-    //Inserta un jugador de manera ordenada al ranking si ha estat incialitzat abans
+    /** Inserta un jugador de manera ordenada al ranking si ha estat incialitzat abans.
+     *  Si no s'ha inicialitzat, ho recorda a l'usuari.
+     * @param jugador String que defineix a un jugador. Ha de ser un string generat <b>única i exclusivament</b>
+     *                generat pel mètode toString() de la classe Jugador o una de les seves subclasses.
+     */
     public void insertaJugador(String jugador){
         String[] componentsJugador = jugador.split(" ");
         int puntuacio = Integer.parseInt(componentsJugador[1]);
@@ -98,8 +117,9 @@ public class Ranking {
         }
     }
 
-    //Metode que borra el ranking complet a nivell d'arxiu i descarta els atributs de classe.
-    //Es necessari tornar a inicialitzar un cop s'ha cridat si es vol continuar utilitzant el ranking.
+    /** Mètode que borra el ranking complet a nivell d'arxiu i descarta els atributs de la classe.
+     *  És necessari tornar a cridar el mètode inicialitza() un cop s'ha cridat si es vol continuar utilitzant el ranking.
+     */
     public void clear(){
         if(file.exists()){
             file.delete();
@@ -109,8 +129,10 @@ public class Ranking {
         puntuacioJugadors = new ArrayList<Integer>();
     }
 
-    //Metode que retorna un string contenint el ranking, llest per printar.
-    //Esta limitat a MAXJUGADORS, encara que els atributs de classe en continguin mes
+    /** Mètode que retorna un string contenint el ranking.
+     * Està limitat a MAXJUGADORS = 10, encara que els atributs de classe en continguin més en aquell moment.
+     * @return String que conforma el ranking.
+     */
     public String toString(){
         String stringRanking = "";
         if(init){
@@ -123,8 +145,9 @@ public class Ranking {
         return stringRanking;
     }
 
-    //Metode intern per a actualitzar (sobrescriure) l'arxiu que conte el ranking
-    //Sempre escriu un maxim de MAXJUGADORS jugadors
+    /** Mètode intern per a actualitzar (sobrescriure) l'arxiu que conté el ranking
+     * Sempre escriu un maxim de MAXJUGADORS = 10 jugadors ordenats per puntuació.
+     */
     private void flushRanking(){
         try{
             file.delete();

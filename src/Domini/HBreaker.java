@@ -1,6 +1,7 @@
 package Domini;
 
 /**<h1>Classe que representa un CodeBreaker humà.</h1>
+ *
  * <p>HBreaker és una subclasse de Jugador que permet desenvolupar les funcionalitats necessàries d'un jugador humà
  * en el rol de CodeBreaker. La seva única funció rellevant és permetre a l'usuari fer una jugada que consisteix en proposar
  * una combinació per a intentar encertar la combinació guanyadora de la partida.</p>

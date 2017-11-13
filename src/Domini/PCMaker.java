@@ -3,6 +3,7 @@ package Domini;
 import java.util.Random;
 
 /**<h1>Classe que representa un CodeMaker controlat per la màquina.</h1>
+ *
  * <p>PCMaker és una subclasse de Jugador que permet desenvolupar les funcionalitats necessàries d'un jugador controlat per la màquina
  * en el rol de CodeMaker. La seva única funció rellevant és inserir la combinació inicial a trobar de la partida,
  * ja que la computació de les pistes de cada linia del tauler ja està automatitzada.</p>

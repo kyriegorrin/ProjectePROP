@@ -1,6 +1,7 @@
 package Domini;
 
 /**<h1>Classe pare de tots els tipus de jugador.</h1>
+ *
  * <p>Determina els atributs intrínsecs d'un jugador, els mètodes necessaris per a gestionar-los i
  * proporciona mètodes virtuals a implementar per les seves subclasses.</p>
  *

@@ -31,9 +31,9 @@ public class Partida {
     //---------------------------------METODES----------------------------------//
 
     /**@brief Constructora de la classe.
-    * @conf determina quin jugador ocupa quin rol inicialment.
-    * @tamLinia indica el quantes posicions te cada linia.
-    * @numColors indica quants quants colors utilitzem.*/
+    * @param conf determina quin jugador ocupa quin rol inicialment. Ha de ser 0 (comença CodeBreaker humà) o 1 (comença CodeBreaker màquina).
+    * @param tamLinia indica quantes posicions te cada linia. Ha de ser &gt; 0.
+    * @param numColors indica quants colors utilitzem. Ha de ser &gt; 0*/
     public Partida(String nom, int conf, int tamLinia, int numColors){
         this.conf = conf;
         this.fase = 0;

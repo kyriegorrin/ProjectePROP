@@ -1,6 +1,7 @@
 package Domini;
 
 /**<h1>Classe que representa un CodeBreaker controlat per la màquina.</h1>
+ *
  * <p>PCBreaker és una subclasse de Jugador que permet desenvolupar les funcionalitats necessàries d'un jugador controlat per la màquina
  * en el rol de CodeBreaker. La seva única funció rellevant és permetre a la màquina fer una jugada que consisteix en computar
  * una combinació per a intentar encertar la combinació guanyadora de la partida.</p>

@@ -1,6 +1,7 @@
 package Domini;
 
 /**<h1>Classe que representa un CodeMaker humà.</h1>
+ *
  * <p>HMaker és una subclasse de Jugador que permet desenvolupar les funcionalitats necessàries d'un jugador humà
  * en el rol de CodeMaker. La seva única funció rellevant és permetre a l'usuari inserir la combinació inicial a trobar de la
  * partida, ja que la computació de les pistes de cada linia del tauler ja està automatitzada.</p>

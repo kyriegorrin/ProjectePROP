@@ -2,12 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="91dfed3d-bb7e-425c-a48d-1cb806d11999" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Domini/Partida.java" afterPath="$PROJECT_DIR$/src/Domini/Partida.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Drivers/DriverAlgoritme.java" afterPath="$PROJECT_DIR$/src/Drivers/DriverAlgoritme.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Drivers/DriverHBreaker.java" afterPath="$PROJECT_DIR$/src/Drivers/DriverHBreaker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Drivers/DriverHMaker.java" afterPath="$PROJECT_DIR$/src/Drivers/DriverHMaker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Drivers/DriverPCMaker.java" afterPath="$PROJECT_DIR$/src/Drivers/DriverPCMaker.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Project/Dades/Ranking.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Project/Dades/SaveGame.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Project/Domini/Algoritme.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Project/Domini/Combinacio.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Project/Domini/DriverTauler.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Project/Domini/HBreaker.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Project/Domini/HMaker.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Project/Domini/Jugador.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Project/Domini/Main.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Project/Domini/PCBreaker.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Project/Domini/PCMaker.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Project/Domini/Partida.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Project/Domini/Tauler.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Project/Drivers/DriverAlgoritme.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Project/Drivers/DriverHBreaker.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Project/Drivers/DriverHMaker.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Project/Drivers/DriverJugador.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Project/Drivers/DriverPCMaker.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Project/Drivers/DriverRanking.class" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -497,7 +510,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="134" y="0" width="1366" height="742" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -512,7 +524,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1500732" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1500732" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />

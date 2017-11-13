@@ -2,6 +2,17 @@ package Domini;
 
 import Dades.Ranking;
 
+/** <h1>Classe que gestiona una partida completa de MasterMind.</h1>
+ *
+ *  <p>Aquesta classe conté tots els mètodes necessaris per a gestionar i assegurar que es pugui desenvolupar una partida
+ *  completa de MasterMind. Una partida completa consta de dues fases, on es juga amb un rol diferent en cada una. Quan aquestes
+ *  dues classes es completen, es dona la partida per acabada. També existeixen mètodes complementaris per a funcionalitats adicionals,
+ *  com mirar el rànking, per exemple.</p>
+ *
+ *  El nombre de linies per defecte és 15.
+ *
+ *  @author Ricard Zarco Badia
+ */
 public class Partida {
     //------------------------------ATRIBUTS------------------------------------//
     //Jugadors
@@ -13,6 +24,7 @@ public class Partida {
     //Taulers
     private Tauler tauler;
     private Tauler oldTauler;
+    //TODO: modifica el valor a 15 per a l'entrega final.
     public static final int NUM_LINIES = 5;
 
     //Capa de dades
@@ -31,7 +43,7 @@ public class Partida {
     //---------------------------------METODES----------------------------------//
 
     /**@brief Constructora de la classe.
-    * @param conf determina quin jugador ocupa quin rol inicialment. Ha de ser 0 (comença CodeBreaker humà) o 1 (comença CodeBreaker màquina).
+    * @param conf determina quin jugador ocupa quin rol inicialment. Ha de ser 0 (CodeBreaker humà) o 1 (CodeBreaker màquina).
     * @param tamLinia indica quantes posicions te cada linia. Ha de ser &gt; 0.
     * @param numColors indica quants colors utilitzem. Ha de ser &gt; 0*/
     public Partida(String nom, int conf, int tamLinia, int numColors){
@@ -52,9 +64,10 @@ public class Partida {
         }
     }
 
-    //Funcio que permet que els jugadors facin les seves corresponents accions durant un torn.
-    //Retorna 0 si el torn no ha produit cap event. 1 si el torn ha produit un final de fase.
-    //2 si el torn ha produit final de partida. 3 si no es permeten mes torns.
+    /** Funcio que permet que els jugadors facin les seves corresponents accions durant un torn.
+     * @return Retorna 0 si el torn no ha produit cap event. 1 si el torn ha produit un final de fase.
+     * 2 si el torn ha produit final de partida. 3 si no es permeten mes torns.
+     */
     public int fesTorn(){
         int event = 0;
 
@@ -84,14 +97,17 @@ public class Partida {
         return event;
     }
 
-    //Metode intern per a avançar de fase i fer les operacions que aixo requereixi.
-    //Comportament diferenciat depenent de la fase actual
+    /** Metode intern per a avançar de fase i fer les operacions que aixo requereixi.
+     * Comportament diferenciat depenent de la fase actual
+     */
     private void seguentFase(){
         //Canvi de rols i nou tauler
         if(fase == 0){
             //Reiniciem tauler
             oldTauler = tauler;
+            oldTauler.escriu_tot(); //Aquesta la posem aquí perque si no mai sabrem l'estat final del tauler un cop canviem de rol
             tauler = new Tauler(oldTauler.getLine_number(),oldTauler.getLine_size(), oldTauler.getColors());
+            System.out.println("\n--FASE ACABADA--");
             System.out.println("Canviant rols i iniciant segona partida...");
 
             //Intercanvi de rols
@@ -99,6 +115,7 @@ public class Partida {
                 hbreaker.setPuntuacio(oldTauler.puntuacio());
                 hmaker = new HMaker(hbreaker.getNom(),hbreaker.getPuntuacio());
                 pcbreaker = new PCBreaker(pcmaker.getNom(), pcmaker.getPuntuacio());
+                System.out.println("Inserta la combinació inicial:");
                 tauler.setInitial_line(hmaker.triaCombinacio(tauler.getLine_size(), tauler.getColors()));
                 conf = 1;
             }
@@ -126,12 +143,16 @@ public class Partida {
         }
     }
 
+    /** Mètode que mostra l'estat del ranking per pantalla.
+     */
     public void mostraRanking(){
         String stringRanking = ranking.toString();
         if(stringRanking.equals("")) System.out.println("No hi ha ningu al ranking");
         else System.out.println(stringRanking);
     }
 
+    /** Mètode que mostra l'estat del tauler per pantalla.
+     */
     public void mostraTauler(){
         tauler.escriu_tot();
     }

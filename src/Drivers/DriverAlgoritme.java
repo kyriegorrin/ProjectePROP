@@ -2,6 +2,7 @@ package Drivers;
 
 import Domini.Algoritme;
 import Domini.Tauler;
+import Domini.Combinacio;
 
 public class DriverAlgoritme {
 

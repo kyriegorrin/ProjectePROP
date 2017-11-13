@@ -1,5 +1,6 @@
 package Drivers;
 
+import Domini.Combinacio;
 import Domini.HBreaker;
 import Domini.Tauler;
 

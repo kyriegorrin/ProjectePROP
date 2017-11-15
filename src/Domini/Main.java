@@ -50,6 +50,7 @@ public class Main {
                                         "tanca el joc per a continuar-lo en un altre moment");
                     System.out.println("mostraRanking -> Mostra el ranking per pantalla");
                     System.out.println("mostraTauler -> Mostra l'estat del tauler\n");
+                    System.out.println("---NOTA: No seguir el format demanat pot provocar crash del programa!---\n");
                     break;
 
                 case "inicia":

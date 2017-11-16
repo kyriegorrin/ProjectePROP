@@ -28,7 +28,7 @@ public class DriverAlgoritme {
 		while (t.getUltima() >= 0 && !encertat) {
 			Combinacio c2 = new Combinacio(t.getLine_size());
 			System.out.println("iteracio:"+cont);
-			c2 = a.algoritmeGenetic(t);
+			c2 = a.algoritmeMinimax(t);
 			System.out.print("linia afegida: ");
 			c2.escriu_combinacio();
 			System.out.println();

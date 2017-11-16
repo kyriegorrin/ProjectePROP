@@ -3,10 +3,12 @@ package Domini;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-/**
- * CLASE ALGORITME
+/** <h1> CLASSE ALGORITME </h1>
  *
- * Un algoritme s'encarrega de resoldre ..........
+ * <p>La classe Algoritme s'encarrega de resoldre una partida de Mastermind utilitzant l'algoritme
+ * "Five-guess algorithm" de Donald Knuth.</p>
+ * 
+ * @author Miquel Bars Barba
  */
 
 public class Algoritme {
@@ -55,7 +57,9 @@ public class Algoritme {
 	}
 	
 	/**
-	 * S'executa el "Five-guess algorithm" de Donald Knuth
+	 * El ArrayList poblacio es substituit per un nou ArrayList en el qual
+	 * s'hi introdueix aquelles combinacions les quals la Combinacio "anterior" 
+	 * tindria la mateixa "pista".
 	 * @param t Es tractat del tauler del joc
 	 */
 	public void minimax(Tauler t) {
@@ -89,7 +93,9 @@ public class Algoritme {
 	}
 
 	/**
-	 * Crida de l'algoritme
+	 * Quan entra per primer cop crida la funcio "emplenarPoblacio" i despres s'executa
+	 * "minimax" fins que s'acaba. Retorna una Combinacio amb el primer element de la poblacio.
+	 * 
 	 * @param t Es tractat del tauler del joc
 	 */
 	public Combinacio algoritmeMinimax(Tauler t) {

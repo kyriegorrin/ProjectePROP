@@ -1,174 +1,88 @@
 package Domini;
+
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Random;
-import java.util.Set;
 
 public class Algoritme {
-	private Set<Combinacio> poblacio;
-	private Set<Combinacio> poblacioFitness;
-	private boolean primer;
-	private ArrayList<Integer> colorNull;
+	private ArrayList<Combinacio> poblacio;
+	private boolean first;
 	
 	public Algoritme() {
-		poblacio = new HashSet<Combinacio>();
-		poblacioFitness = new HashSet<Combinacio>();
-		primer = true;
-		colorNull = new ArrayList<Integer>();
+		poblacio = new ArrayList<Combinacio>();
+		first = true;
 	}
 	
-	/** Emplena el Set poblacio amb combinacions aleatories
-	 * @param t es un tauler de la partida.
-	 */
 	public void emplenarPoblacio(Tauler t) {
-		Random r = new Random();
-		for (int i = 0; i < 1000; ++i) {
-			Combinacio c = new Combinacio(t.getLine_size());
-			for (int j = 0; j < t.getLine_size(); ++j){
-				c.set_elementx(j, r.nextInt(t.getColors()));
+		double base = t.getColors();
+		double exponent = t.getLine_size();
+		double tamany = Math.pow(base, exponent);
+		for (int i = 0; i < tamany; ++i) {
+			int[] v = new int[t.getLine_size()];
+			boolean incrementar = true;
+			boolean primer = true;
+			int j = t.getLine_size() - 1;
+			while (incrementar) {
+				if (j > 0) { 
+					if (primer) {
+						v[j] = i % t.getColors();
+						v[j-1] = i / t.getColors();
+						primer = false;
+					}
+					else {
+						v[j-1] = v[j] / t.getColors();
+						v[j] = v[j] % t.getColors();
+					}
+				}
+				else incrementar = false;
+				--j;
 			}
+			Combinacio c = new Combinacio(t.getLine_size());
+			c.setCombinacio(v);
 			poblacio.add(c);
 		}
 	}
 	
-	/** Emplena l'ArrayList colorNull amb tots aquells colors que
-	 * han estat confirmats que no apareixen a la combinacio que s'ha d'endevinar.
-	 * @param c es una combinacio amb valors a dins.
-	 * @param t es un tauler de la partida.
-	 */
-	public void emplenarColorNull(Combinacio c, Tauler t) {
+	public void minimax(Tauler t) {
+		Combinacio pista = new Combinacio(t.get_solucio_linia(t.getUltima() + 1));
+		Combinacio anterior = new Combinacio(t.getlinia(t.getUltima() + 1));
+		int blancs = 0;
+		int negres = 0;
 		for (int i = 0; i < t.getLine_size(); ++i) {
-			if (!colorNull.contains(c.get_elementx(i))){
-				colorNull.add(c.get_elementx(i));
-			}
+			if (pista.get_elementx(i) == 2) ++blancs;
+			else if (pista.get_elementx(i) == 1) ++negres;
 		}
-	}
-	
-	/** Elimina de poblacio totes aquelles combinacions que nomes tenen colors
-	 * que pertanyen al ArrayList colorNull.
-	 * @param t es un tauler de la partida.
-	 */
-	public void eliminarColorPoblacio(Tauler t) {
 		Iterator<Combinacio> it = poblacio.iterator();
-		Combinacio caux = new Combinacio(t.getLine_size());
-		while (it.hasNext()) {
-			caux = it.next();
-		    int noApte = 0;
-		    int i = 0;
-		    while (noApte < t.getLine_size() && i < t.getLine_size()) {
-		    	int j = 0;
-		    	while (noApte < t.getLine_size() && j < colorNull.size()) {
-		    		if (caux.get_elementx(i) == colorNull.get(j)) ++noApte;
-		    		++j;
-		    	}
-		    	++i;
-		    }
-		    if (noApte >= 4) {
-		    	Combinacio cremove = new Combinacio(caux);
-		    	poblacio.remove(cremove);
-		    }
+		ArrayList<Combinacio> auxpoblacio = new ArrayList<Combinacio>();
+		while(it.hasNext()){
+			Combinacio c = new Combinacio(it.next());
+			Tauler t2 = new Tauler(t.getLine_number(), t.getLine_size(), t.getColors());
+			t2.setInitial_line(c);
+			t2.set_ultima_linia(anterior);
+			Combinacio pista2 = new Combinacio(t2.get_solucio_linia(t2.getUltima() + 1));
+			int blancs2 = 0;
+			int negres2 = 0;
+			for (int i = 0; i < t2.getLine_size(); ++i) {
+				if (pista2.get_elementx(i) == 2) ++blancs2;
+				else if (pista2.get_elementx(i) == 1) ++negres2;
+			}
+			if (negres == negres2 && blancs == blancs2) {
+				auxpoblacio.add(c);
+			}
 		}
+		poblacio = auxpoblacio;
 	}
-	
-	/** Emplena el Set poblacioFitness amb totes les combinacions que
-	 * assoleixen la formula de Fitness.
-	 * @param t es un tauler de la partida.
-	 */
-	public void calcularFitness(Tauler t) {
-		Iterator<Combinacio> it = poblacio.iterator();
-		Combinacio c = new Combinacio(t.getLine_size());
-		Combinacio fitness = new Combinacio(t.getLine_size());
-		
-		int fmax = 0;
-		int liniaFitness = t.getUltima();
-		for (int i = t.getUltima(); i < t.getLine_number(); ++i) {
-			int blancs = 0;
-			int negres = 0;
-			for (int j = 0; j != t.getLine_size(); ++j) {
-				if (t.get_solucio_linia(i).get_elementx(j) == 1) ++blancs;
-				else if (t.get_solucio_linia(i).get_elementx(j) == 2) ++negres;
-			}
-			if (((2*negres) + blancs) > fmax) {
-				fmax = (2*negres) + blancs;
-				fitness = t.getlinia(i);
-				liniaFitness = i;
-			}
-		}
-		
-		while (it.hasNext()) {
-			c = it.next();
-			Tauler t2 = new Tauler (t.getLine_number(), t.getLine_size(), t.getColors());
-			t2.setInitial_line(fitness);
-			t2.set_ultima_linia(c);
-			if (t.get_solucio_linia(liniaFitness).comparar(t2.get_solucio_linia(t2.getUltima() + 1))){
-				poblacioFitness.add(c);	
-			}
-		}
-	}
-	
-	/** Afegeix al Set poblacio els crossovers que s'ha fet
-	 * sobre el Set poblacioFitness
-	 *  @param t es un tauler de la partida.
-	 */
-	public void crossoverPoblacioFitness(Tauler t) {
-		Iterator<Combinacio> it = poblacioFitness.iterator();
-		Random r = new Random();
-		while (it.hasNext()) {
-			Combinacio aux = new Combinacio(t.getLine_size());
-			aux = it.next();
-			if (it.hasNext()) {
-				Combinacio aux2 = new Combinacio(t.getLine_size());
-				aux2 = it.next();
-				int n = r.nextInt(t.getLine_size());
-				if (n%2 == 0) {
-					aux.set_elementx(n, aux2.get_elementx(n));
-					if (r.nextInt(100) > 3) aux.set_elementx(n, r.nextInt(t.getColors()));
-					poblacio.add(aux);
-				}
-				else {
-					aux2.set_elementx(n, aux.get_elementx(n));
-					if (r.nextInt(100) > 3) aux2.set_elementx(n, r.nextInt(t.getColors()));
-					poblacio.add(aux2);
-				}
-			}
-		}
-	}
-	
-	
+
 	public Combinacio algoritmeGenetic(Tauler t) {
-		// Retorna el primer element del conjunt poblacio
-		if (primer) {
-			primer = false;
+		Combinacio resultat = new Combinacio(t.getLine_size());
+		if (first) {
 			emplenarPoblacio(t);
-			Combinacio c;
-			c = new Combinacio(poblacio.iterator().next());
-			return c;
+			resultat = poblacio.get(0);
+			first = false;
 		}
-		
-		// S'executa l'algoritme Genetic
-		else {
-			Combinacio pista = new Combinacio(t.getLine_size());
-			Combinacio aux = new Combinacio(t.getLine_size());
-			pista = t.get_solucio_linia(t.getUltima() + 1);
-			aux = t.getlinia(t.getUltima() + 1);
-			
-			// comprovar si pista te algun valor
-			int cont = 0;
-			for (int i = 0; i != t.getLine_size(); ++i) {
-				if (pista.get_elementx(i) != 0) ++cont;
-			}
-			// si no en te elimina de poblacio aquells que tenen els mateixos colors
-			if (cont == 0) {
-				emplenarColorNull(aux, t);
-				eliminarColorPoblacio(t);
-			}
-			calcularFitness(t);
-			poblacio.clear();
-			crossoverPoblacioFitness(t);
-			Combinacio resultat = new Combinacio(poblacio.iterator().next());
-			return resultat;
+		else{
+			minimax(t);
+			resultat = poblacio.get(0);
 		}
+		return resultat;
 	}
 }
-

@@ -3,25 +3,40 @@ package Drivers;
 import Domini.Algoritme;
 import Domini.Tauler;
 import Domini.Combinacio;
+import java.util.Scanner;
 
 public class DriverAlgoritme {
 
 	public static void main(String [] args){
-		Tauler t = new Tauler(8, 4, 6);
+		Scanner S = new Scanner(System.in);
+		int files, columnes, colors;
+		System.out.print("Introdueix el nombre de files:");
+		files = S.nextInt();
+		System.out.print("Introdueix el nombre de columnes:");
+		columnes = S.nextInt();
+		System.out.print("Introdueix el nombre de colors:");
+		colors = S.nextInt();
+		Tauler t = new Tauler(files, columnes, colors);
+		System.out.println("Ara introdueix la combinacio a endevinar!");
 		Combinacio c = new Combinacio(t.getLine_size());
 		c.llegir_comb();
 		t.setInitial_line(c);
 		Algoritme a = new Algoritme();
 		int cont = 0;
+		boolean encertat = false;
 		
-		while (t.getUltima() >= 0) while (t.getUltima() >= 0) {
+		while (t.getUltima() >= 0 && !encertat) {
 			Combinacio c2 = new Combinacio(t.getLine_size());
 			System.out.println("iteracio:"+cont);
 			c2 = a.algoritmeGenetic(t);
 			System.out.print("linia afegida: ");
 			c2.escriu_combinacio();
+			System.out.println();
 			t.set_ultima_linia(c2);
-			if (t.get_comb_ini().comparar(c2)) System.out.println("HAS ENCERTAT");
+			if (t.get_comb_ini().comparar(c2)) {
+				System.out.println("HAS ENCERTAT");
+				encertat = true;
+			}
 			else {
 				for (int i = 0; i != t.getLine_number(); ++i) {
 					for (int j = 0; j != t.getLine_size(); ++j) {
@@ -30,6 +45,7 @@ public class DriverAlgoritme {
 					
 					System.out.print("///");
 					t.get_solucio_linia(i).escriu_combinacio();
+					System.out.println();
 				}
 				++cont;
 				System.out.println();
@@ -38,5 +54,6 @@ public class DriverAlgoritme {
 				System.out.println();
 			}
 		}
+		
 	}
 }

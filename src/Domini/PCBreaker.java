@@ -31,7 +31,7 @@ public class PCBreaker extends Jugador{
      */
     @Override
     public Combinacio fesJugada(Tauler tauler){
-        Combinacio combinacio = algoritme.algoritmeGenetic(tauler);
+        Combinacio combinacio = algoritme.algoritmeMinimax(tauler);
         return combinacio;
     }
 }

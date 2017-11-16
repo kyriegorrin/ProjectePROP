@@ -3,15 +3,27 @@ package Domini;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+/**
+ * CLASE ALGORITME
+ *
+ * Un algoritme s'encarrega de resoldre ..........
+ */
+
 public class Algoritme {
 	private ArrayList<Combinacio> poblacio;
 	private boolean first;
 	
+	/** Constructora que crea un objecte Algoritme.
+	 */
 	public Algoritme() {
 		poblacio = new ArrayList<Combinacio>();
 		first = true;
 	}
 	
+	/**
+	 * S'emplena el ArrayList poblacio amb totes les combinacions possibles
+	 * @param t Es tractat del tauler del joc
+	 */
 	public void emplenarPoblacio(Tauler t) {
 		double base = t.getColors();
 		double exponent = t.getLine_size();
@@ -42,6 +54,10 @@ public class Algoritme {
 		}
 	}
 	
+	/**
+	 * S'executa el "Five-guess algorithm" de Donald Knuth
+	 * @param t Es tractat del tauler del joc
+	 */
 	public void minimax(Tauler t) {
 		Combinacio pista = new Combinacio(t.get_solucio_linia(t.getUltima() + 1));
 		Combinacio anterior = new Combinacio(t.getlinia(t.getUltima() + 1));
@@ -72,7 +88,11 @@ public class Algoritme {
 		poblacio = auxpoblacio;
 	}
 
-	public Combinacio algoritmeGenetic(Tauler t) {
+	/**
+	 * Crida de l'algoritme
+	 * @param t Es tractat del tauler del joc
+	 */
+	public Combinacio algoritmeMinimax(Tauler t) {
 		Combinacio resultat = new Combinacio(t.getLine_size());
 		if (first) {
 			emplenarPoblacio(t);

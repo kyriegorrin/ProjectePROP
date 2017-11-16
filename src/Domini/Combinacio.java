@@ -131,6 +131,7 @@ public class Combinacio {
         for (int i = 0; i < combinacio.length; ++i){
             System.out.print (combinacio[i]);
         }
+        System.out.println();
     }
 
     /**  Donat un nombre de colors comprova que es respecti que

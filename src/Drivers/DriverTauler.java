@@ -1,6 +1,8 @@
-package Domini;
+package Drivers;
 
 import java.util.Scanner;
+import Domini.Tauler;
+import Domini.Combinacio;
 
 public class DriverTauler {
 
@@ -16,7 +18,7 @@ public class DriverTauler {
 		System.out.print("escriu el numero de colors:");
 		int colors = 0;
 		colors = S.nextInt();
-		Tauler t = new Tauler(files, numero_elements,colors);
+		Tauler t = new Tauler(files, numero_elements, colors);
 		String comanda;
 		comanda = S.nextLine();
 		

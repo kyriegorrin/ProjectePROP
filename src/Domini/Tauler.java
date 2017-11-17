@@ -1,8 +1,12 @@
 package Domini;
 
 /**
- * CLASE TAULER
+ * <h1>CLASE TAULER</h1>
  *
+ * La classe tauler consta de dos vectors de combinacions, un per a les combinacions de colors i l'altre per a les solucions.
+ * També conté els atributs de colors, mida del tauler i quina és la combinació secreta a resoldre.
+ *
+ * @author Marc Aparicio Arbusà
  */
 
 public class Tauler { 
@@ -27,12 +31,11 @@ public class Tauler {
 	/// 100-> PER CADA ENCERTA LA SOLUCIO PERO EN DIFERENT POSICIO
 	/// CONSTRUCTORS
 	
-	/** Constructora que creaun objecte tauler.
+	/** Constructora que crea un objecte tauler.
 	 * 
 	 * @param line_number nombre de linies del MM.
 	 * @param line_size nombre d'elements per linia.
 	 * @param colors ultima linia a modificar.
-	 * @return retorna un objecte Tauler
 	 */
 	public Tauler(int line_number, int line_size, int colors){
 		
@@ -51,8 +54,8 @@ public class Tauler {
 	/// SETTERS I GETTERS
 	
 	/**
-	 * @brief Getter de la proxima linia del tauler que s'ha de modificar.
-	 * @return L'atribut ultima.
+	 * Getter de la proxima linia del tauler que s'ha de modificar.
+	 * @return L'atribut ultima (enter que indica la proxima linia a modificar).
 	 */
 	// retorna el numero de la ultima linia modificada
 	public int getUltima() {
@@ -60,7 +63,7 @@ public class Tauler {
 	}
 	
 	/**
-	 * @brief Getter de el numero total de linies.
+	 * Getter de el numero total de linies.
 	 * @return L'atribut line_number.
 	 */
 	// retorna el nombre de linies del MM
@@ -68,16 +71,15 @@ public class Tauler {
 		return line_number;
 	}
 	/**
-	 * @brief Setter del numero de linies que te el tauler.
-	 * @param Enter >0
-	 * 
+	 * Setter del numero de linies que te el tauler.
+	 * @param line_number Enter &gt; 0.
 	 */
 	// modifica el nombre de linies del MM
 	public void setLine_number(int line_number){
 		this.line_number = line_number;
 	}
 	/**
-	 * @brief Getter del numero d'elements que te cada combinacio.
+	 * Getter del numero d'elements que te cada combinacio.
 	 * @return L'atribut line_size.
 	 */
 	// retorna el nombre d'elements per linia
@@ -85,8 +87,8 @@ public class Tauler {
 		return line_size;
 	}
 	/**
-	 * @brief Setter del numero d'elements que te cada combinacio.
-	 * @param Enter >0.
+	 * Setter del numero d'elements que te cada combinacio.
+	 * @param line_size Enter &gt; 0.
 	 */
 	// modifica el nombre d'elements per linia
 	public void setLine_size(int line_size){
@@ -94,9 +96,9 @@ public class Tauler {
 	}
 	
 	/**
-	 * @brief Getter de la combinacio d'una linia concreta.
-	 * @param 0 >=line >= line_number-1
-	 * @return Es retorna la combinacio del tauler de la posicio line
+	 * Getter de la combinacio d'una linia concreta.
+	 * @param line 0 &gt;= line &gt;= line_number-1.
+	 * @return Es retorna la combinacio del tauler de la posició line.
 	 */
 	// retorna la combinacio la linia "line"
 	public Combinacio getlinia(int line){
@@ -104,8 +106,8 @@ public class Tauler {
 	}
 	
 	/**
-	 * @brief Getter de la solucio d'una linia concreta.
-	 * @param  0 >=linia >= line_number-1.
+	 * Getter de la solucio d'una linia concreta.
+	 * @param linia 0 &gt;= linia &gt;= line_number-1.
 	 * @return Es retorna la combinacio de la solucio de la posicio linia.
 	 */
 	public Combinacio get_solucio_linia(int linia){
@@ -113,7 +115,7 @@ public class Tauler {
 	}
 
 	/**
-	 * @brief Getter de tot el tauler.
+	 * Getter de tot el tauler.
 	 * @return Es retorna un vector de combinacions igual que matriu.
 	 */
 	public Combinacio[] getTauler(){
@@ -121,7 +123,7 @@ public class Tauler {
 	}
 
 	/**
-	 * @brief Setter del Tauler
+	 * Setter del Tauler
 	 * @param matriu és un vector de combinacions inicialitzat
 	 */
 	// modifica la matriu tauler
@@ -167,7 +169,7 @@ public class Tauler {
 	}
 
 	/**
-	 * Getter del numbre de colors de la partida.
+	 * Getter del nombre de colors de la partida.
 	 * @return Es retorna l'atribut colors.
 	 */
 	
@@ -176,8 +178,8 @@ public class Tauler {
 	}
 
 	/**
-	 * Setter del nombrede colors de la partida.
-	 * @param colors colors es un enter > 0.
+	 * Setter del nombre de colors de la partida.
+	 * @param colors colors es un enter &gt; 0.
 	 */
 	public void setColors(int colors) {
 		this.colors = colors;
@@ -188,7 +190,7 @@ public class Tauler {
 	
 	// escriu el tauler per pantalla
 	/**
-	 * Escriptor del tauler de combinacions.
+	 * Escriptor del tauler de combinacions. Mostra les combinacions de colors per pantalla.
 	 */
 	public void escriu_tauler(){
 		for(int i = 0; i < line_number; ++i){
@@ -199,7 +201,7 @@ public class Tauler {
 	
 	// escriu la solucio per pantalla
 	/**
-	 * Escriptor del tauler de solucions.
+	 * Escriptor del tauler de solucions. Mostra les solucions per pantalla.
 	 */
 	public void escriu_solucio(){
 		for(int i = 0; i < line_number; ++i){
@@ -209,7 +211,7 @@ public class Tauler {
 	}
 	// escriu el tauler seguidament de la solucio corresponent
 	/**
-	 * Escriptor del tauler combinacio seguit del tauler de solucions.
+	 * Escriptor del tauler de combinacions de colors seguit del tauler de solucions.
 	 */
 	public void escriu_tot(){
 		for(int i = 0; i < line_number; ++i ){
@@ -224,16 +226,16 @@ public class Tauler {
 	
 	
 	/**
-	 * Comprovant de si el tauler esta ple
+	 * Comprova de si el tauler esta ple.
 	 * @return Es retorna true si el vector esta ple, si no es retorna false.
 	 */
 	public boolean tauler_ple(){
 		return ultima == -1;
 	}
 	/**
-	 * Comprovant de si s'ha encertat la combinacio a endivinar
+	 * Comprova si s'ha encertat la combinacio a endivinar.
 	 * @return Es retorna true si l'ultim element del tauler de combinacions 
-	 * es igual a la combinacio a enfivinar, en cas negatiu es retorna false.
+	 * es igual a la combinacio a endivinar, en cas negatiu es retorna false.
 	 */
 	public boolean encert(){
 		for(int i = 0; i < line_size; ++i){
@@ -245,7 +247,7 @@ public class Tauler {
 	
 	/**
 	 * Consultora de la puntuacio de la partida actual
-	 * @return Es retorna un enter amb la puntuacio de totes les jugades.
+	 * @return Es retorna un enter amb la puntuacio total de totes les jugades.
 	 */
 	public int puntuacio(){
 		

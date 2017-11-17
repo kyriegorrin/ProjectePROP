@@ -97,6 +97,7 @@ public class Algoritme {
 	 * "minimax" fins que s'acaba. Retorna una Combinacio amb el primer element de la poblacio.
 	 * 
 	 * @param t Es tractat del tauler del joc
+	 * @return Retorna una combinació computada a partir de l'algoritme minimax.
 	 */
 	public Combinacio algoritmeMinimax(Tauler t) {
 		Combinacio resultat = new Combinacio(t.getLine_size());

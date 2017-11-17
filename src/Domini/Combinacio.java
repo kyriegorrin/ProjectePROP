@@ -5,9 +5,11 @@ package Domini;
 import java.util.Scanner;
 
 /**
- * CLASE COMBINACIO
+ * <h1>CLASSE COMBINACIO</h1>
  *
+ * Classe que implementa una combinació de colors, representada amb vectors d'enters d'una llargada determinada.
  *
+ * @author Marc Aparicio Arbusà
  */
 
 public class Combinacio {
@@ -19,10 +21,9 @@ public class Combinacio {
 
     /// CONSTRUCTORS
 
-    /** Constructora que genera un objecte combinacio.
+    /** Constructora que genera un objecte combinacio amb el numero d'elements especificat.
      *
-     * @param tamany es un enter >0.
-     * @return Es retorna un objecta combiancio inicialitzat.
+     * @param tamany es un enter &gt; 0.
      */
     public Combinacio(int tamany) {
 
@@ -53,7 +54,7 @@ public class Combinacio {
         return combinacio;
     }
     /**Setter de l'atribut coombinacio.
-     * @param combinacio Es un vector d'enters inicialitzat de gradnaria @tamany.
+     * @param combinacio Es un vector d'enters inicialitzat de grandaria @tamany.
      */
 
     public void setCombinacio(int [] combinacio){
@@ -65,7 +66,7 @@ public class Combinacio {
 
 
     /**Getter del color que hi ha a una posicio concreta.
-     * @parameters x Es un enter 0 >=x >= tamany-1.
+     * @param x Es un enter 0 &gt;= x &gt;= tamany-1.
      * @return Retorna l'element de la posicio x de l'atribut combinacio.
      */
 
@@ -83,7 +84,7 @@ public class Combinacio {
     }
 
     /**Posa un element a una posicio concreta al vector de colors de la combinacio.
-     * @param x Es un enter 0 >=x >= tamany-1.
+     * @param x Es un enter 0 &gt;= x &gt;= tamany-1.
      * @param y Es un enter inicialitzat.
      */
     public void set_elementx(int x, int y){
@@ -91,8 +92,8 @@ public class Combinacio {
     }
 
     /**Donat un nombre de blancs i negres emplena l'atribut combinacio.
-     * @param blancs  Es un enter 0 >=blancs>= tamany-1.
-     * @param negres Es un enter 0 >=negres >= tamany-1.
+     * @param blancs  Es un enter 0 &gt;= blancs &gt;= tamany-1.
+     * @param negres Es un enter 0 &gt;= negres &gt;= tamany-1.
      */
     public void omplir(int blancs, int negres){
         int i = 0;
@@ -125,7 +126,7 @@ public class Combinacio {
     }
 
     /**
-     *  Escriu una combinacio per pantalla.
+     *  Escriu la combinacio per pantalla.
      */
     public void escriu_combinacio(){
         for (int i = 0; i < combinacio.length; ++i){
@@ -136,7 +137,7 @@ public class Combinacio {
     /**  Donat un nombre de colors comprova que es respecti que
      * tots els elements de combinacio siguin de un enter inferior
      * a colors i superior a 0.
-     * @params color Es un enter >0
+     * @param color Es un enter &gt; 0
      * @return Retorna -1 si no es rspecta la franja de colors, en cas contrari retorna 0
      */
 
@@ -148,7 +149,7 @@ public class Combinacio {
         return 0;
     }
     /**
-     * Donada una combinacio c la compara amb l'atribut combiancio.
+     * Donada una combinacio c la compara amb la propia combinació..
      * @param c Es una combinacio incialitzada.
      * @return Si són iguals retorna true, si són diferents retorna false.
      */

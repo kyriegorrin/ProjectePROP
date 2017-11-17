@@ -42,7 +42,8 @@ public class Partida {
 
     //---------------------------------METODES----------------------------------//
 
-    /**@brief Constructora de la classe.
+    /**Constructora de la classe.
+     * @param nom string que conté el nom amb el que volem identificar al jugador humà.
     * @param conf determina quin jugador ocupa quin rol inicialment. Ha de ser 0 (CodeBreaker humà) o 1 (CodeBreaker màquina).
     * @param tamLinia indica quantes posicions te cada linia. Ha de ser &gt; 0.
     * @param numColors indica quants colors utilitzem. Ha de ser &gt; 0*/

@@ -50,7 +50,7 @@ public class DriverTauler {
 					break;
 		
 				case "colors":
-					System.out.print("colors:"+t.getColors());
+					System.out.println("colors:"+t.getColors());
 					break;
 					
 				case "escriure_endivinar":
@@ -69,7 +69,6 @@ public class DriverTauler {
 					
 					Combinacio combi = new Combinacio(t.getLine_size());
 					combi.llegir_comb();
-					System.out.println("LA puta"+t.getUltima());
 					t.set_ultima_linia(combi);
 					break;
 					

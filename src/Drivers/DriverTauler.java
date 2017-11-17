@@ -90,7 +90,7 @@ public class DriverTauler {
 					
 					break;
 				case "elementsx":
-					System.out.print("Introdueix numero de linia:");
+					System.out.println("Introdueix numero de linia:");
 					int l = S.nextInt();
 					if (l < 0 || l >= t.getLine_number()) System.out.println("El numero que has introduit no es valid");
 					else {
@@ -105,7 +105,7 @@ public class DriverTauler {
 					t.escriu_solucio();
 					break;
 				case "puntuacio":
-					System.out.print("WINER WINER CHICKEN DINER."+t.puntuacio());
+					System.out.println("WINER WINER CHICKEN DINER."+t.puntuacio());
 					break;
 				case "tauler_solucio":
 					t.escriu_tot();

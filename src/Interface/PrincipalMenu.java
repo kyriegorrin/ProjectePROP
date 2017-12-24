@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 public class PrincipalMenu {
     private JPanel panelMain;
     private JButton jugarButton;
-    private JButton rànquingButton;
+    private JButton ranquingButton;
     private JButton ajudaButton;
     private JButton sortirButton;
     private JLabel ImageLogo;
@@ -23,7 +23,19 @@ public class PrincipalMenu {
         ajudaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                // FALTA AQUI
+            }
+        });
+        jugarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // FALTA AQUI
+            }
+        });
+        ranquingButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // FALTA AQUI!
             }
         });
     }

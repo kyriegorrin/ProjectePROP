@@ -13,7 +13,7 @@ public class PrincipalMenu {
     private JLabel ImageLogo;
 
 
-    public PrincipalMenu() {
+    public PrincipalMenu(UIController control) {
         sortirButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -23,7 +23,7 @@ public class PrincipalMenu {
         ajudaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // FALTA AQUI
+                control.menuToHelp();
             }
         });
         jugarButton.addActionListener(new ActionListener() {
@@ -44,11 +44,15 @@ public class PrincipalMenu {
         ImageLogo = new JLabel(new ImageIcon("MastermindLogo.png"));
     }
 
+    public JPanel getPanel(){
+        return panelMain;
+    }
+    /*
     public static void main(String[] args){
         JFrame frame = new JFrame("Menu Principal");
         frame.setContentPane(new PrincipalMenu().panelMain);
         frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
-    }
+    }*/
 }

@@ -22,7 +22,7 @@
           <text value="Help/About"/>
         </properties>
       </component>
-      <component id="74bec" class="javax.swing.JTextPane" binding="benvingutsAMasterMindElTextPane" default-binding="true">
+      <component id="74bec" class="javax.swing.JTextPane" binding="textPane">
         <constraints>
           <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="50"/>

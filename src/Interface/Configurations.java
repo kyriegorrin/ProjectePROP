@@ -13,13 +13,14 @@ public class Configurations {
     private JButton jugarButton;
     private JPanel panelConfiguration;
     private JTextField textField1;
+    private JButton tornarButton;
     private boolean dificultat = false;
     private int files = 0;
     private int columnes = 0;
     private int colors = 0;
 
 
-    public Configurations() {
+    public Configurations(UIController control) {
         facilButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -62,8 +63,20 @@ public class Configurations {
                 }
             }
         });
+        tornarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                control.configurationsToMenu();
+            }
+        });
     }
 
+    /**Funció que retorna la "vista"*/
+    public JPanel getPanel(){
+        return panelConfiguration;
+    }
+
+    /*
     public static void main(String[] args) {
         JFrame frame = new JFrame("Configurar Partida");
         frame.setContentPane(new Configurations().panelConfiguration);
@@ -71,5 +84,5 @@ public class Configurations {
         frame.pack();
         frame.setVisible(true);
     }
-
+    */
 }

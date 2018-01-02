@@ -54,7 +54,7 @@
           <grid row="11" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
       </vspacer>
-      <component id="d703a" class="javax.swing.JLabel" binding="CPULabel" custom-create="true">
+      <component id="d703a" class="javax.swing.JLabel" binding="CPULabel">
         <constraints>
           <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -70,7 +70,7 @@
           <text value="Label"/>
         </properties>
       </component>
-      <component id="999b4" class="javax.swing.JLabel" binding="GuanyatPerdutLAbel" custom-create="true">
+      <component id="999b4" class="javax.swing.JLabel" binding="GuanyatPerdutLAbel">
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>

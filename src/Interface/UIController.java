@@ -1,8 +1,12 @@
 package Interface;
 
 import javax.swing.*;
+import Domini.*;
+import Dades.*;
 
 public class UIController {
+    //Dades auxiliars per al funcionament de la partida
+    private Ranking ranking;
 
     //Tots els frames necessaris per a l'aplicació, a ampliar
     private JFrame frameMenu;
@@ -13,8 +17,13 @@ public class UIController {
     private JFrame frameFinal;
     private int dificultat;
 
+    private RankForm rankForm;
+
     /**Constructora de la classe. Prepara totes les vistes de l'aplicacio.*/
     public UIController(){
+        //Inicialitzem classes complementaries necessaries
+        rankForm = new RankForm(this);
+
         //Inicialitzem els frames necessaris en el seu estat inicial
         //TODO: Ampliar segons anem implementant noves vistes
         frameMenu = new JFrame("Menu Principal");
@@ -38,7 +47,7 @@ public class UIController {
         frameTauler.pack();
 
         frameRanking = new JFrame("Ranking");
-        frameRanking.setContentPane(new RankForm(this).getPanel());
+        frameRanking.setContentPane(rankForm.getPanel());
         frameRanking.setDefaultCloseOperation(frameHelp.EXIT_ON_CLOSE);
         frameRanking.pack();
 
@@ -117,6 +126,15 @@ public class UIController {
         return dificultat;
     }
 
+    //------------------------FUNCIONS AUXILIARS---------------------------------//
+
+    /** Funció que llegeix el ranking i fa refresh de la taula gràfica*/
+    public void refreshRanking(){
+        ranking = new Ranking();
+        ranking.inicialitza();
+        rankForm.updateRankTable(ranking.toString());
+    }
+
     //-----------------------------MAIN------------------------------------------//
 
     //Funció main, potser en un futur la implementem en una classe a part.
@@ -125,5 +143,6 @@ public class UIController {
         UIController control = new UIController();
 
         control.inicialitza();
+        control.refreshRanking();
     }
 }

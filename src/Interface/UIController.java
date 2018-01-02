@@ -9,6 +9,7 @@ public class UIController {
     private JFrame frameHelp;
     private JFrame frameConfig;
     private JFrame frameTauler;
+    private JFrame frameRanking;
     private int dificultat;
 
     /**Constructora de la classe. Prepara totes les vistes de l'aplicacio.*/
@@ -34,6 +35,11 @@ public class UIController {
         frameTauler.setContentPane(new Tauler(this).getPanel());
         frameTauler.setDefaultCloseOperation(frameHelp.EXIT_ON_CLOSE);
         frameTauler.pack();
+
+        frameRanking = new JFrame("Ranking");
+        frameRanking.setContentPane(new RankForm(this).getPanel());
+        frameRanking.setDefaultCloseOperation(frameHelp.EXIT_ON_CLOSE);
+        frameRanking.pack();
     }
 
     /**Funció per a iniciar la visibilitat de les vistes necessàries.*/
@@ -43,6 +49,7 @@ public class UIController {
         frameHelp.setVisible(false);
         frameConfig.setVisible(false);
         frameTauler.setVisible(false);
+        frameRanking.setVisible(false);
     }
 
     //---------------------FUNCIONS DE CANVI DE FRAME---------------------------//
@@ -59,11 +66,13 @@ public class UIController {
         frameHelp.setVisible(true);
     }
 
+    /** Funció que permet canviar entre el frame de configuració i el menú principal.*/
     public void configurationsToMenu(){
         frameConfig.setVisible(false);
         frameMenu.setVisible(true);
     }
 
+    /** Funció que permet canviar entre el menú principal i el frame de configuració.*/
     public void menuToConfigurations(){
         frameMenu.setVisible(false);
         frameConfig.setVisible(true);
@@ -73,6 +82,18 @@ public class UIController {
     public void configurationsToTauler(){
         frameConfig.setVisible(false);
         frameTauler.setVisible(true);
+    }
+
+    /** Funció que permet canviar entre el menú principal i el frame de ranking.*/
+    public void menuToRanking(){
+        frameMenu.setVisible(false);
+        frameRanking.setVisible(true);
+    }
+
+    /**Funcio que permet canviar entre el frame de ranking i el menu principal*/
+    public void rankingToMenu(){
+        frameRanking.setVisible(false);
+        frameMenu.setVisible(true);
     }
 
     //-------------------------PAS DE PARAMETRES---------------------------------//

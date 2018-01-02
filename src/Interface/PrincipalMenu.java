@@ -35,7 +35,7 @@ public class PrincipalMenu {
         ranquingButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // FALTA AQUI!
+                control.menuToRanking();
             }
         });
     }

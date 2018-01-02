@@ -51,7 +51,7 @@ public class RankForm {
         }
 
         tableModel = new DefaultTableModel(data, columnNames);
-        table1 = new JTable(tableModel);
-        table1.repaint();
+        tableModel.setColumnIdentifiers(columnNames);
+        table1.setModel(tableModel);
     }
 }

@@ -8,6 +8,8 @@ public class UIController {
     private JFrame frameMenu;
     private JFrame frameHelp;
     private JFrame frameConfig;
+    private JFrame frameTauler;
+    private int dificultat;
 
     /**Constructora de la classe. Prepara totes les vistes de l'aplicacio.*/
     public UIController(){
@@ -27,6 +29,11 @@ public class UIController {
         frameConfig.setContentPane(new Configurations(this).getPanel());
         frameConfig.setDefaultCloseOperation(frameHelp.EXIT_ON_CLOSE);
         frameConfig.pack();
+
+        frameTauler = new JFrame("Tauler");
+        frameTauler.setContentPane(new Tauler(this).getPanel());
+        frameTauler.setDefaultCloseOperation(frameHelp.EXIT_ON_CLOSE);
+        frameTauler.pack();
     }
 
     /**Funció per a iniciar la visibilitat de les vistes necessàries.*/
@@ -35,6 +42,7 @@ public class UIController {
         frameMenu.setVisible(true);
         frameHelp.setVisible(false);
         frameConfig.setVisible(false);
+        frameTauler.setVisible(false);
     }
 
     //---------------------FUNCIONS DE CANVI DE FRAME---------------------------//
@@ -59,6 +67,22 @@ public class UIController {
     public void menuToConfigurations(){
         frameMenu.setVisible(false);
         frameConfig.setVisible(true);
+    }
+
+    /** FUNCIÓ DE PROBA - PROBA - PROBA - PROBA - PROBA */
+    public void configurationsToTauler(){
+        frameConfig.setVisible(false);
+        frameTauler.setVisible(true);
+    }
+
+    //-------------------------PAS DE PARAMETRES---------------------------------//
+
+    public void setDificultat(int n){
+        dificultat = n;
+    }
+
+    public int getDificultat(){
+        return dificultat;
     }
 
     //-----------------------------MAIN------------------------------------------//

@@ -15,9 +15,7 @@ public class Configurations {
     private JTextField textField1;
     private JButton tornarButton;
     private boolean dificultat = false;
-    private int files = 0;
-    private int columnes = 0;
-    private int colors = 0;
+    private int tipus = 0;
 
 
     public Configurations(UIController control) {
@@ -25,34 +23,29 @@ public class Configurations {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dificultat = true;
-                files = 8;
-                columnes = 3;
-                colors = 3;
+                tipus = 0; // facil
             }
         });
         normalButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dificultat = true;
-                files = 8;
-                columnes = 4;
-                colors = 4;
+                tipus = 1; // normal
             }
         });
         dificilButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dificultat = true;
-                files = 8;
-                columnes = 5;
-                colors = 5;
+                tipus = 2; // dificil
             }
         });
         jugarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (dificultat){
-
+                    control.setDificultat(tipus);
+                    control.configurationsToTauler();
                 }
                 else {
                     JDialog dialog = new JDialog();
@@ -74,6 +67,11 @@ public class Configurations {
     /**Funció que retorna la "vista"*/
     public JPanel getPanel(){
         return panelConfiguration;
+    }
+
+    /**Funció que retorna el "tipus" de dificultat*/
+    public int getTipus(){
+        return tipus;
     }
 
     /*

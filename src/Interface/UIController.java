@@ -10,6 +10,7 @@ public class UIController {
     private JFrame frameConfig;
     private JFrame frameTauler;
     private JFrame frameRanking;
+    private JFrame frameFinal;
     private int dificultat;
 
     /**Constructora de la classe. Prepara totes les vistes de l'aplicacio.*/
@@ -40,6 +41,11 @@ public class UIController {
         frameRanking.setContentPane(new RankForm(this).getPanel());
         frameRanking.setDefaultCloseOperation(frameHelp.EXIT_ON_CLOSE);
         frameRanking.pack();
+
+        frameFinal = new JFrame("PantallaFinal");
+        frameFinal.setContentPane(new PantallaFinal(this).getPanel());
+        frameFinal.setDefaultCloseOperation(frameHelp.EXIT_ON_CLOSE);
+        frameFinal.pack();
     }
 
     /**Funció per a iniciar la visibilitat de les vistes necessàries.*/
@@ -50,6 +56,7 @@ public class UIController {
         frameConfig.setVisible(false);
         frameTauler.setVisible(false);
         frameRanking.setVisible(false);
+        frameFinal.setVisible(false);
     }
 
     //---------------------FUNCIONS DE CANVI DE FRAME---------------------------//
@@ -95,7 +102,11 @@ public class UIController {
         frameRanking.setVisible(false);
         frameMenu.setVisible(true);
     }
-
+    /**Funcio que permet canviar entre el frame Final i el menu principal*/
+    public void FinalToMenu(){
+        frameFinal.setVisible(false);
+        frameMenu.setVisible(true);
+    }
     //-------------------------PAS DE PARAMETRES---------------------------------//
 
     public void setDificultat(int n){

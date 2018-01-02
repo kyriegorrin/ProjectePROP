@@ -1,7 +1,11 @@
 package Interface;
 
+import com.sun.xml.internal.ws.api.streaming.XMLStreamReaderFactory;
+
+import javax.sound.midi.MetaMessage;
 import javax.swing.*;
 import javax.swing.event.TableModelListener;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,6 +14,9 @@ public class RankForm {
     private JTable table1;
     private JButton tornarButton;
     private JPanel panel1;
+    private JLabel rankLabel;
+
+    private DefaultTableModel tableModel;
 
     /**Constructora per defecte de la classe.
      *
@@ -42,7 +49,9 @@ public class RankForm {
                 data[i][j] = auxParts[j];
             }
         }
-        table1 = new JTable(data, columnNames);
+
+        tableModel = new DefaultTableModel(data, columnNames);
+        table1 = new JTable(tableModel);
         table1.repaint();
     }
 }

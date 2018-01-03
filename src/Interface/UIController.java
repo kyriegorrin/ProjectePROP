@@ -42,7 +42,7 @@ public class UIController {
         frameConfig.pack();
 
         frameTauler = new JFrame("Tauler");
-        frameTauler.setContentPane(new Tauler(this).getPanel());
+        frameTauler.setContentPane(new TaulerPanel(15, 4, 5)); //TODO: valors experimentals
         frameTauler.setDefaultCloseOperation(frameHelp.EXIT_ON_CLOSE);
         frameTauler.pack();
 
@@ -94,7 +94,7 @@ public class UIController {
         frameConfig.setVisible(true);
     }
 
-    /** FUNCIÓ DE PROBA - PROBA - PROBA - PROBA - PROBA */
+    /** Funció que permet canviar entre el menú de configuració i el tauler del joc*/
     public void configurationsToTauler(){
         frameConfig.setVisible(false);
         frameTauler.setVisible(true);
@@ -115,6 +115,19 @@ public class UIController {
     public void FinalToMenu(){
         frameFinal.setVisible(false);
         frameMenu.setVisible(true);
+    }
+
+    /** Funció que permet passar del tauler al menú principal. Guarda l'estat de la partida si és necessari.
+     *
+     * @param guardar Si volem guardar la partida, guardar = 1. 0 altrament.
+     */
+    public void taulerToMenu(boolean guardar){
+
+    }
+
+    /** Funció que permet passar del tauler a la pantalla de final de partida.*/
+    public void taulerToFinal(){
+
     }
     //-------------------------PAS DE PARAMETRES---------------------------------//
 

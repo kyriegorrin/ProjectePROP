@@ -9,6 +9,7 @@
     <list default="true" id="91dfed3d-bb7e-425c-a48d-1cb806d11999" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Interface/TaulerPanel.java" afterPath="$PROJECT_DIR$/src/Interface/TaulerPanel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Interface/UIController.java" afterPath="$PROJECT_DIR$/src/Interface/UIController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -66,8 +67,8 @@
       <file leaf-file-name="UIController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Interface/UIController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="44" column="91" lean-forward="false" selection-start-line="44" selection-start-column="91" selection-end-line="44" selection-end-column="91" />
+            <state relative-caret-position="283">
+              <caret line="127" column="53" lean-forward="false" selection-start-line="127" selection-start-column="53" selection-end-line="127" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -78,10 +79,14 @@
       <file leaf-file-name="TaulerPanel.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Interface/TaulerPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="382">
-              <caret line="82" column="37" lean-forward="false" selection-start-line="82" selection-start-column="37" selection-end-line="82" selection-end-column="37" />
+            <state relative-caret-position="963">
+              <caret line="69" column="13" lean-forward="false" selection-start-line="69" selection-start-column="13" selection-end-line="69" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#4037#4038#0" expanded="true" />
+                <element signature="e#4095#4096#0" expanded="true" />
+                <element signature="e#4246#4247#0" expanded="true" />
+                <element signature="e#4305#4306#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -192,8 +197,8 @@
         <option value="$PROJECT_DIR$/src/Interface/RankForm.java" />
         <option value="$PROJECT_DIR$/src/Interface/RankForm.form" />
         <option value="$PROJECT_DIR$/src/Interface/TaulerFrame.java" />
-        <option value="$PROJECT_DIR$/src/Interface/UIController.java" />
         <option value="$PROJECT_DIR$/src/Interface/TaulerPanel.java" />
+        <option value="$PROJECT_DIR$/src/Interface/UIController.java" />
       </list>
     </option>
   </component>
@@ -229,18 +234,6 @@
               <item name="MasterMind" type="b2602c69:ProjectViewProjectNode" />
               <item name="ProjectePROP" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MasterMind" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProjectePROP" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Dades" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MasterMind" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProjectePROP" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Domini" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MasterMind" type="b2602c69:ProjectViewProjectNode" />
@@ -514,7 +507,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32767764" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32767764" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -750,7 +743,7 @@
         <state relative-caret-position="330">
           <caret line="28" column="22" lean-forward="false" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
             <element signature="e#847#848#0" expanded="false" />
             <element signature="e#876#877#0" expanded="false" />
           </folding>
@@ -875,8 +868,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Interface/UIController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="44" column="91" lean-forward="false" selection-start-line="44" selection-start-column="91" selection-end-line="44" selection-end-column="91" />
+        <state relative-caret-position="283">
+          <caret line="127" column="53" lean-forward="false" selection-start-line="127" selection-start-column="53" selection-end-line="127" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -885,10 +878,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Interface/TaulerPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="82" column="37" lean-forward="false" selection-start-line="82" selection-start-column="37" selection-end-line="82" selection-end-column="37" />
+        <state relative-caret-position="963">
+          <caret line="69" column="13" lean-forward="false" selection-start-line="69" selection-start-column="13" selection-end-line="69" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#4037#4038#0" expanded="true" />
+            <element signature="e#4095#4096#0" expanded="true" />
+            <element signature="e#4246#4247#0" expanded="true" />
+            <element signature="e#4305#4306#0" expanded="true" />
           </folding>
         </state>
       </provider>

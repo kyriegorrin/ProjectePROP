@@ -4,6 +4,8 @@ import Domini.Partida;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class TaulerPanel extends JPanel {
 
@@ -22,12 +24,13 @@ public class TaulerPanel extends JPanel {
     private JButton saveButton;
     private JButton submitButton;
 
-    public TaulerPanel(int line_number, int line_size, int colors){
+    public TaulerPanel(int line_number, int line_size, int colors, UIController control){
         super();
 
         //Preparem el layout del panell principal
         setLayout(new BorderLayout()); //TODO: posar valors finals
         setBorder(BorderFactory.createEmptyBorder(15,15,15,15));
+        setPreferredSize(new Dimension(600,600));
 
         //Inicialitzem els subpanels
         panelJugades = new JPanel();
@@ -36,18 +39,26 @@ public class TaulerPanel extends JPanel {
         panelButtons = new JPanel();
 
         panelJugades.setLayout(new GridLayout(line_number, line_size, 5, 5));
+        panelJugades.setBorder(BorderFactory.createEmptyBorder(15,15,15,15));
         panelPistes.setLayout(new GridLayout(line_number, line_size, 5, 5));
+        panelPistes.setBorder(BorderFactory.createEmptyBorder(15,15,15,15));
         panelContenidor.setLayout(new GridLayout(1,2));
-        panelButtons.setLayout(new BoxLayout(panelButtons, BoxLayout.PAGE_AXIS));
+        panelContenidor.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        panelButtons.setLayout(new BoxLayout(panelButtons, BoxLayout.Y_AXIS));
+        panelButtons.setBorder(BorderFactory.createEmptyBorder(15,15,15,15));
 
         //Inicialitzem els botons
         submitButton = new JButton("Passar torn");
         saveButton = new JButton("Guardar i sortir");
         exitButton = new JButton("Sortir");
 
-        submitButton.setSize(50,25);
-        exitButton.setSize(50,25);
-        saveButton.setSize(50,25);
+        submitButton.setPreferredSize(new Dimension(80,25));
+        exitButton.setPreferredSize(new Dimension(80,25));
+        saveButton.setPreferredSize(new Dimension(80,25));
+
+        submitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        saveButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        exitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         //Inicialitzem posicions del tauler
         butons = new JButton[line_number][line_size];
@@ -79,10 +90,33 @@ public class TaulerPanel extends JPanel {
 
         //Afegim els buttons al contenidor de buttons
         panelButtons.add(submitButton);
+        panelButtons.add(Box.createRigidArea(new Dimension(5,25))); //Separador
         panelButtons.add(saveButton);
+        panelButtons.add(Box.createRigidArea(new Dimension(5,5)));
         panelButtons.add(exitButton);
 
         //Afegim subcomponents al panell final
         add(panelContenidor, BorderLayout.CENTER);
+        add(panelButtons, BorderLayout.PAGE_END);
+
+        //----------------LISTENERS-------------------//
+        submitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //TODO
+            }
+        });
+        saveButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                control.taulerToMenu(true);
+            }
+        });
+        exitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                control.taulerToMenu(false);
+            }
+        });
     }
 }

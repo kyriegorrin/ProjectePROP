@@ -24,36 +24,69 @@ public class DriverAlgoritme {
 		Algoritme a = new Algoritme();
 		int cont = 0;
 		boolean encertat = false;
-		
-		while (t.getUltima() >= 0 && !encertat) {
-			Combinacio c2 = new Combinacio(t.getLine_size());
-			System.out.println("iteracio:"+cont);
-			c2 = a.algoritmeMinimax(t);
-			System.out.print("linia afegida: ");
-			c2.escriu_combinacio();
-			System.out.println();
-			t.set_ultima_linia(c2);
-			if (t.get_comb_ini().comparar(c2)) {
-				System.out.println("HAS ENCERTAT");
-				encertat = true;
-			}
-			else {
-				for (int i = 0; i != t.getLine_number(); ++i) {
-					for (int j = 0; j != t.getLine_size(); ++j) {
-						System.out.print(t.getlinia(i).get_elementx(j));
+
+		System.out.println("Escolleix si vols Minimax o Random (0 o 1 respectivament):");
+		if (0 == S.nextInt()) {
+
+			while (t.getUltima() >= 0 && !encertat) {
+				Combinacio c2 = new Combinacio(t.getLine_size());
+				System.out.println("iteracio:" + cont);
+				c2 = a.algoritmeMinimax(t);
+				System.out.print("linia afegida: ");
+				c2.escriu_combinacio();
+				System.out.println();
+				t.set_ultima_linia(c2);
+				if (t.get_comb_ini().comparar(c2)) {
+					System.out.println("HAS ENCERTAT");
+					encertat = true;
+				} else {
+					for (int i = 0; i != t.getLine_number(); ++i) {
+						for (int j = 0; j != t.getLine_size(); ++j) {
+							System.out.print(t.getlinia(i).get_elementx(j));
+						}
+
+						System.out.print("///");
+						t.get_solucio_linia(i).escriu_combinacio();
+						System.out.println();
 					}
-					
-					System.out.print("///");
-					t.get_solucio_linia(i).escriu_combinacio();
+					++cont;
+					System.out.println();
+					System.out.println("----------------");
+					System.out.println("----------------");
 					System.out.println();
 				}
-				++cont;
-				System.out.println();
-				System.out.println("----------------");
-				System.out.println("----------------");
-				System.out.println();
 			}
 		}
-		
+
+		else {
+			while (t.getUltima() >= 0 && !encertat) {
+				Combinacio c2 = new Combinacio(t.getLine_size());
+				System.out.println("iteracio:" + cont);
+				c2 = a.algoritmeRandom(t);
+				System.out.print("linia afegida: ");
+				c2.escriu_combinacio();
+				System.out.println();
+				t.set_ultima_linia(c2);
+				if (t.get_comb_ini().comparar(c2)) {
+					System.out.println("HAS ENCERTAT");
+					encertat = true;
+				} else {
+					for (int i = 0; i != t.getLine_number(); ++i) {
+						for (int j = 0; j != t.getLine_size(); ++j) {
+							System.out.print(t.getlinia(i).get_elementx(j));
+						}
+
+						System.out.print("///");
+						t.get_solucio_linia(i).escriu_combinacio();
+						System.out.println();
+					}
+					++cont;
+					System.out.println();
+					System.out.println("----------------");
+					System.out.println("----------------");
+					System.out.println();
+				}
+			}
+		}
 	}
 }

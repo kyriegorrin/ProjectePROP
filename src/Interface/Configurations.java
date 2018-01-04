@@ -57,7 +57,7 @@ public class Configurations {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (dificultat && interaccioCheckBox){
-                    if (!interaccio2CheckBox){
+                    if (!interaccio2CheckBox && !pveCheckBox.isSelected()){
                         JDialog dialog = new JDialog();
                         JOptionPane.showMessageDialog(dialog,
                                 "Escolleix la jugabilitat de les dues màquines",

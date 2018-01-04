@@ -12,7 +12,18 @@ public class TaulerPanel extends JPanel {
     //Logica associada
     private Partida partida;
 
-    //Elements interns
+    //Variables auxiliars
+    private int line_number, line_size;
+    private Color colors[] = {
+            Color.GRAY,
+            Color.CYAN,
+            Color.ORANGE,
+            Color.RED,
+            Color.PINK,
+            Color.GREEN
+    };
+
+    //Elements visuals interns
     private JButton[][] butons;
     private JButton[][] pistes;
     private JPanel panelJugades;
@@ -27,6 +38,9 @@ public class TaulerPanel extends JPanel {
 
     public TaulerPanel(int line_number, int line_size, int colors, UIController control){
         super();
+        //Inicialitzem variables auxiliars
+        this.line_number = line_number;
+        this.line_size = line_size;
 
         //Preparem el layout del panell principal
         setLayout(new BorderLayout()); //TODO: posar valors finals
@@ -64,8 +78,6 @@ public class TaulerPanel extends JPanel {
         exitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         //Inicialitzem posicions del tauler
-        //WARNING: EN CAS DE QUE ELS BUTONS NO ES CORRESPONGUIN AMB LES POSICIONS
-        //LOGIQUES DEL TAULER, PROBABLEMENT S'HAGIN D'INSERIR LES FILES EN ORDRE INVERS
         butons = new JButton[line_number][line_size];
         pistes = new JButton[line_number][line_size];
 
@@ -78,7 +90,9 @@ public class TaulerPanel extends JPanel {
         }
 
         //Afegim els components als subpanels
-        for(int i = 0; i < line_number; i++){
+        //NOTA: inserim les files en ordre invers perque aquest layout coloca totes les
+        //merdes de dalt a baix i d'esquerra a dreta, i ens interessa omplir de baix a dalt.
+        for(int i = line_number - 1; i >= 0; i--){
             for(int j = 0; j < line_size; ++j){
                 panelJugades.add(butons[i][j]);
                 panelPistes.add(pistes[i][j]);
@@ -107,7 +121,7 @@ public class TaulerPanel extends JPanel {
         submitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //TODO
+                //TODO: passar torn encara no s'ha implementat
             }
         });
         saveButton.addActionListener(new ActionListener() {
@@ -122,5 +136,24 @@ public class TaulerPanel extends JPanel {
                 control.taulerToMenu(false);
             }
         });
+
+        //Listeners de les posicions del tauler
+        for(int i = 0; i < line_number; ++i){
+            for(int j = 0; j < line_size; ++j){
+                //Copio els valors perque si no dona pel cul quan els vull escriure
+                int finalI = i;
+                int finalJ = j;
+                butons[i][j].addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        //TODO: posar el color que toca per cada click
+                        //Per a això, és necessari implementar la funcionalitat de la partida.
+                        butons[finalI][finalJ].setBackground(Color.BLUE);//Valor temporal
+                    }
+                });
+            }
+        }
+
+
     }
 }

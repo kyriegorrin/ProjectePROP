@@ -13,8 +13,8 @@ public class TaulerPanel extends JPanel {
     private Partida partida;
 
     //Variables auxiliars
-    private int line_number, line_size;
-    private Color colors[] = {
+    private int line_number, line_size, num_colors;
+    private Color vectorColor[] = {
             Color.GRAY,
             Color.CYAN,
             Color.ORANGE,
@@ -41,6 +41,7 @@ public class TaulerPanel extends JPanel {
         //Inicialitzem variables auxiliars
         this.line_number = line_number;
         this.line_size = line_size;
+        this.num_colors = colors;
 
         //Preparem el layout del panell principal
         setLayout(new BorderLayout()); //TODO: posar valors finals
@@ -117,6 +118,7 @@ public class TaulerPanel extends JPanel {
         add(panelContenidor, BorderLayout.CENTER);
         add(panelButtons, BorderLayout.PAGE_END);
 
+
         //----------------LISTENERS-------------------//
         submitButton.addActionListener(new ActionListener() {
             @Override
@@ -150,12 +152,42 @@ public class TaulerPanel extends JPanel {
                         //Per a això, és necessari implementar la funcionalitat de la partida.
                         //Utilitza el vector de colors que he declarat, cada click va accedeix a la posició següent
                         //i torna a la inicial quan arriba a la posició "numColors"
-                        butons[finalI][finalJ].setBackground(Color.BLUE);//Valor temporal
+                        if (!comprovarColorExistent(finalI, finalJ)) {
+                            butons[finalI][finalJ].setBackground(vectorColor[0]); //Valor temporal
+                        }
+                        else {
+                            int it = comprovarIteracioColor(finalI, finalJ);
+                            ++it;
+                            if (it >= num_colors) it = 0;
+                            butons[finalI][finalJ].setBackground(vectorColor[it]);
+                        }
                     }
                 });
             }
         }
+    }
 
+    //--------------FUNCIONS EXTRA---------------//
 
+    private boolean comprovarColorExistent(int auxi, int auxj){
+        Color c = butons[auxi][auxj].getBackground();
+        boolean trobat = false;
+        int cont = 0;
+        while (!trobat && cont < num_colors){
+            if (vectorColor[cont].equals(c)) trobat = true;
+            else ++cont;
+        }
+        return trobat;
+    }
+
+    private int comprovarIteracioColor(int auxi, int auxj){
+        Color c = butons[auxi][auxj].getBackground();
+        boolean trobat = false;
+        int cont = 0;
+        while (!trobat){
+            if (vectorColor[cont].equals(c)) trobat = true;
+            else ++cont;
+        }
+        return cont;
     }
 }

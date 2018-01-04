@@ -20,6 +20,7 @@ public class TaulerPanel extends JPanel {
     private JPanel panelContenidor;
     private JPanel panelButtons;
 
+    private JLabel labelInfo;
     private JButton exitButton;
     private JButton saveButton;
     private JButton submitButton;
@@ -47,7 +48,8 @@ public class TaulerPanel extends JPanel {
         panelButtons.setLayout(new BoxLayout(panelButtons, BoxLayout.Y_AXIS));
         panelButtons.setBorder(BorderFactory.createEmptyBorder(15,15,15,15));
 
-        //Inicialitzem els botons
+        //Inicialitzem secció de sota (butons i label)
+        labelInfo = new JLabel("TEXT RANDOM A CANVIAR");
         submitButton = new JButton("Passar torn");
         saveButton = new JButton("Guardar i sortir");
         exitButton = new JButton("Sortir");
@@ -56,21 +58,20 @@ public class TaulerPanel extends JPanel {
         exitButton.setPreferredSize(new Dimension(80,25));
         saveButton.setPreferredSize(new Dimension(80,25));
 
+        labelInfo.setAlignmentX(Component.CENTER_ALIGNMENT);
         submitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         saveButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         exitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         //Inicialitzem posicions del tauler
+        //WARNING: EN CAS DE QUE ELS BUTONS NO ES CORRESPONGUIN AMB LES POSICIONS
+        //LOGIQUES DEL TAULER, PROBABLEMENT S'HAGIN D'INSERIR LES FILES EN ORDRE INVERS
         butons = new JButton[line_number][line_size];
         pistes = new JButton[line_number][line_size];
 
-        for(int i = 0; i < line_number; i++){
-            for(int j = 0; j < line_size; ++j){
+        for(int i = 0; i < line_number; i++) {
+            for (int j = 0; j < line_size; ++j) {
                 butons[i][j] = new JButton();
-            }
-        }
-        for(int i = 0; i < line_number; i++){
-            for(int j = 0; j < line_size; ++j){
                 pistes[i][j] = new JButton();
                 pistes[i][j].setEnabled(false);
             }
@@ -89,10 +90,13 @@ public class TaulerPanel extends JPanel {
         panelContenidor.add(panelPistes);
 
         //Afegim els buttons al contenidor de buttons
+        //També una label per a avisos/info
+        panelButtons.add(labelInfo);
+        panelButtons.add(Box.createRigidArea(new Dimension(5,10))); //Separador
         panelButtons.add(submitButton);
         panelButtons.add(Box.createRigidArea(new Dimension(5,25))); //Separador
         panelButtons.add(saveButton);
-        panelButtons.add(Box.createRigidArea(new Dimension(5,5)));
+        panelButtons.add(Box.createRigidArea(new Dimension(5,5))); //Separador
         panelButtons.add(exitButton);
 
         //Afegim subcomponents al panell final

@@ -169,6 +169,7 @@ public class TaulerPanel extends JPanel {
 
     //--------------FUNCIONS EXTRA---------------//
 
+    // comprova que existeixi un background color al "boto[auxi][auxj]"
     private boolean comprovarColorExistent(int auxi, int auxj){
         Color c = butons[auxi][auxj].getBackground();
         boolean trobat = false;
@@ -180,6 +181,7 @@ public class TaulerPanel extends JPanel {
         return trobat;
     }
 
+    // retorna l'iteracio del background color actual del "boto[auxi][auxj]"
     private int comprovarIteracioColor(int auxi, int auxj){
         Color c = butons[auxi][auxj].getBackground();
         boolean trobat = false;

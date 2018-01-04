@@ -148,6 +148,8 @@ public class TaulerPanel extends JPanel {
                     public void actionPerformed(ActionEvent e) {
                         //TODO: posar el color que toca per cada click
                         //Per a això, és necessari implementar la funcionalitat de la partida.
+                        //Utilitza el vector de colors que he declarat, cada click va accedeix a la posició següent
+                        //i torna a la inicial quan arriba a la posició "numColors"
                         butons[finalI][finalJ].setBackground(Color.BLUE);//Valor temporal
                     }
                 });

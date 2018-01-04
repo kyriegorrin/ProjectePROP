@@ -120,7 +120,7 @@ public class UIController {
                 break;
         }
 
-        //Generació nova vista de tauler
+        //Generació nova vista de tauler personalitzada
         frameTauler = new JFrame("Tauler");
         frameTauler.setContentPane(new TaulerPanel(numLinies, numColumnes, numColors, this));
         frameTauler.setDefaultCloseOperation(frameHelp.EXIT_ON_CLOSE);
@@ -142,7 +142,7 @@ public class UIController {
         frameMenu.setVisible(true);
     }
     /**Funcio que permet canviar entre el frame Final i el menu principal*/
-    public void FinalToMenu(){
+    public void finalToMenu(){
         frameFinal.setVisible(false);
         frameMenu.setVisible(true);
     }
@@ -157,7 +157,7 @@ public class UIController {
         }
         else{
             //Tornem al menu sense guardar res.
-            //No destruim el tauler ja que s'haurà de recrear per arribar a aquí un altre cop.
+            //No destruim el tauler ja que s'haurà de recrear per arribar aquí un altre cop i ja es farà llavors.
             frameTauler.setVisible(false);
             frameMenu.setVisible(true);
         }

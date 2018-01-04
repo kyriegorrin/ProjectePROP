@@ -97,7 +97,35 @@ public class UIController {
 
     /** Funció que permet canviar entre el menú de configuració i el tauler del joc*/
     public void configurationsToTauler(){
-        //TODO: has de generar els parametres del tauler i recrear el panell
+        //TODO: falta passar els parametres de humaVSpc o pcVSpc
+        int numLinies, numColumnes, numColors;
+        numLinies = 15;
+
+        switch(dificultat){
+            case 0: //Easy
+                numColumnes = 3;
+                numColors = 4;
+                break;
+            case 1: //Normal
+                numColumnes = 4;
+                numColors = 5;
+                break;
+            case 2: //Difficult
+                numColumnes = 5;
+                numColors = 6;
+                break;
+            default:
+                numColumnes = 4;
+                numColors = 5;
+                break;
+        }
+
+        //Generació nova vista de tauler
+        frameTauler = new JFrame("Tauler");
+        frameTauler.setContentPane(new TaulerPanel(numLinies, numColumnes, numColors, this));
+        frameTauler.setDefaultCloseOperation(frameHelp.EXIT_ON_CLOSE);
+        frameTauler.pack();
+
         frameConfig.setVisible(false);
         frameTauler.setVisible(true);
     }

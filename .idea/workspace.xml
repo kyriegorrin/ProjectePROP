@@ -8,7 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="91dfed3d-bb7e-425c-a48d-1cb806d11999" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Interface/TaulerPanel.java" afterPath="$PROJECT_DIR$/src/Interface/TaulerPanel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Interface/UIController.java" afterPath="$PROJECT_DIR$/src/Interface/UIController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -66,9 +66,16 @@
       <file leaf-file-name="Configurations.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Interface/Configurations.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1544">
+            <state relative-caret-position="1156">
               <caret line="141" column="38" lean-forward="false" selection-start-line="141" selection-start-column="38" selection-end-line="141" selection-end-column="38" />
-              <folding />
+              <folding>
+                <marker date="1515060525860" expanded="false" signature="4009:4028" ph=" { " />
+                <marker date="1515060525860" expanded="false" signature="4059:4073" ph=" }" />
+                <marker date="1515060525860" expanded="false" signature="5564:5574" ph=" { " />
+                <marker date="1515060525860" expanded="false" signature="5600:5606" ph=" }" />
+                <marker date="1515060525860" expanded="false" signature="5687:5697" ph=" { " />
+                <marker date="1515060525860" expanded="false" signature="5710:5716" ph=" }" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -76,8 +83,8 @@
       <file leaf-file-name="UIController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Interface/UIController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="127" column="53" lean-forward="false" selection-start-line="127" selection-start-column="53" selection-end-line="127" selection-end-column="53" />
+            <state relative-caret-position="323">
+              <caret line="124" column="93" lean-forward="false" selection-start-line="124" selection-start-column="93" selection-end-line="124" selection-end-column="93" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -188,7 +195,6 @@
         <option value="$PROJECT_DIR$/src/Interface/HelpForm.form" />
         <option value="$PROJECT_DIR$/src/Interface/HelpForm.java" />
         <option value="$PROJECT_DIR$/src/Interface/README" />
-        <option value="$PROJECT_DIR$/src/Interface/Configurations.java" />
         <option value="$PROJECT_DIR$/src/Interface/Configurations.form" />
         <option value="$PROJECT_DIR$/src/Interface/PrincipalMenu.form" />
         <option value="$PROJECT_DIR$/src/Interface/PrincipalMenu.java" />
@@ -196,8 +202,9 @@
         <option value="$PROJECT_DIR$/src/Interface/RankForm.java" />
         <option value="$PROJECT_DIR$/src/Interface/RankForm.form" />
         <option value="$PROJECT_DIR$/src/Interface/TaulerFrame.java" />
-        <option value="$PROJECT_DIR$/src/Interface/UIController.java" />
         <option value="$PROJECT_DIR$/src/Interface/TaulerPanel.java" />
+        <option value="$PROJECT_DIR$/src/Interface/Configurations.java" />
+        <option value="$PROJECT_DIR$/src/Interface/UIController.java" />
       </list>
     </option>
   </component>
@@ -513,7 +520,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32767764" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32767764" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -880,16 +887,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Interface/Configurations.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1544">
+        <state relative-caret-position="1156">
           <caret line="141" column="38" lean-forward="false" selection-start-line="141" selection-start-column="38" selection-end-line="141" selection-end-column="38" />
-          <folding />
+          <folding>
+            <marker date="1515060525860" expanded="false" signature="4009:4028" ph=" { " />
+            <marker date="1515060525860" expanded="false" signature="4059:4073" ph=" }" />
+            <marker date="1515060525860" expanded="false" signature="5564:5574" ph=" { " />
+            <marker date="1515060525860" expanded="false" signature="5600:5606" ph=" }" />
+            <marker date="1515060525860" expanded="false" signature="5687:5697" ph=" { " />
+            <marker date="1515060525860" expanded="false" signature="5710:5716" ph=" }" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Interface/UIController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="127" column="53" lean-forward="false" selection-start-line="127" selection-start-column="53" selection-end-line="127" selection-end-column="53" />
+        <state relative-caret-position="323">
+          <caret line="124" column="93" lean-forward="false" selection-start-line="124" selection-start-column="93" selection-end-line="124" selection-end-column="93" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

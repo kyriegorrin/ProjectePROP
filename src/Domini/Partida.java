@@ -100,18 +100,18 @@ public class Partida {
 
     /** Funcio que permet que els jugadors facin les seves corresponents accions durant un torn. Aquesta versió
      * permet introduir una combinació (utilitzat per a la versió GUI).
-     * @param combinacio Combinació entrant, recollida de la GUI.
+     * @param comb Combinació entrant, recollida de la GUI.
      * @return Retorna 0 si el torn no ha produit cap event. 1 si el torn ha produit un final de fase.
      * 2 si el torn ha produit final de partida. 3 si no es permeten mes torns.
      */
-    public int fesTorn(Combinacio combinacio){
+    public int fesTorn(Combinacio comb){
         int event = 0;
 
         if(fase == 2) event = 3;
         else{
             if(conf == 0){//HBreaker i PCMaker
                 System.out.println("Inserta la teva proposta de combinacio:");
-                tauler.set_ultima_linia(combinacio);
+                tauler.set_ultima_linia(comb);
                 //Mirem si la jugada es guanyadora o hem acabat les posicions del tauler
                 if(tauler.tauler_ple() || tauler.encert()) {
                     if(tauler.encert()) System.out.println("HAS ENCERTAT LA COMBINACIO!");
@@ -120,7 +120,7 @@ public class Partida {
                     seguentFaseGUI();
                 }
             }else{//PCBreaker i HMaker
-                tauler.set_ultima_linia(combinacio);
+                tauler.set_ultima_linia(comb);
                 //Mirem si la jugada es guanyadora o hem acabat les posicions del tauler
                 if (tauler.tauler_ple() || tauler.encert()) {
                     if(tauler.encert()) System.out.println("HAS ENCERTAT LA COMBINACIO!");
@@ -223,6 +223,14 @@ public class Partida {
             ranking.insertaJugador(hbreaker.toString());
             ++fase;
         }
+    }
+
+    /** Funcio que retorna la combinació de pistes que conté la fila indicada.
+     *  @param fila Fila de la que volem la combinació de pistes.
+     * @return Retorna la combinació de pistes de la fila desitjada.
+     */
+    public Combinacio getPista(int fila){
+        return tauler.get_solucio_linia_natural(fila);
     }
 
     /** Mètode que mostra l'estat del ranking per pantalla.

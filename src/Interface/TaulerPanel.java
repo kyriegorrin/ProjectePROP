@@ -153,12 +153,20 @@ public class TaulerPanel extends JPanel {
                 //El torn no ha provocat canvi de fase ni s'ha acabat la partida
                 if(estat == 0){
                     //Deshabilitem els botons actuals, habilitem els següents. Incrementem torn.
+                    //Posem les pistes també.
+                    Combinacio combPistes = partida.getPista(torn);
+                    int pistaAux;
                     for(int i = 0; i < line_size; ++i){
                         butons[torn][i].setEnabled(false);
                         butons[torn+1][i].setBackground(vectorColor[0]);
                         butons[torn+1][i].setEnabled(true);
+                        pistaAux = combPistes.get_elementx(i);
+                        if(pistaAux == 1) pistes[torn][i].setBackground(Color.WHITE);
+                        if(pistaAux == 2) pistes[torn][i].setBackground(Color.BLACK);
                     }
                     torn++;
+                    //debug
+                    //partida.mostraTauler();
                 }
                 //El torn ha provocat un final de fase, canviem rols i reiniciem tauler
                 else if(estat == 1){
@@ -174,6 +182,7 @@ public class TaulerPanel extends JPanel {
                     //TODO
                 }
                 //La partida ja ha acabat
+                //TODO
                 else if(estat == 3) System.out.println("La partida ja ha finalitzat");
                 else partida.mostraTauler();
             }

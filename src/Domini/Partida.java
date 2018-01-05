@@ -235,7 +235,7 @@ public class Partida {
 
     /** Mètode que mostra l'estat del ranking per pantalla.
      */
-    public void mostraRanking(){
+    public void mostraRanking() {
         String stringRanking = ranking.toString();
         if(stringRanking.equals("")) System.out.println("No hi ha ningu al ranking");
         else System.out.println(stringRanking);

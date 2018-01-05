@@ -13,6 +13,7 @@ public class TaulerPanel extends JPanel {
     //Logica associada
     private Partida partida;
     int torn;
+    boolean codeMaker;
 
     //Variables auxiliars
     private int line_number, line_size, num_colors;
@@ -105,6 +106,9 @@ public class TaulerPanel extends JPanel {
                 //Els deshabilitem, només habilitarem la fila que necessitem
                 butons[i][j].setEnabled(false);
                 pistes[i][j].setEnabled(false);
+                //Posem color inicial
+                butons[i][j].setBackground(Color.LIGHT_GRAY);
+                pistes[i][j].setBackground(Color.LIGHT_GRAY);
             }
         }
 
@@ -147,7 +151,7 @@ public class TaulerPanel extends JPanel {
         submitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //TODO: adaptar això
+                //TODO: adaptar això per a fase 2
                 int estat = partida.fesTorn(new Combinacio(llegeixFila(torn)));
 
                 //El torn no ha provocat canvi de fase ni s'ha acabat la partida
@@ -160,6 +164,7 @@ public class TaulerPanel extends JPanel {
                         butons[torn][i].setEnabled(false);
                         butons[torn+1][i].setBackground(vectorColor[0]);
                         butons[torn+1][i].setEnabled(true);
+
                         pistaAux = combPistes.get_elementx(i);
                         if(pistaAux == 1) pistes[torn][i].setBackground(Color.WHITE);
                         if(pistaAux == 2) pistes[torn][i].setBackground(Color.BLACK);
@@ -176,6 +181,13 @@ public class TaulerPanel extends JPanel {
                             "Hora de canviar els panyals! \nReiniciem el tauler...",
                             "Canvi de rols!",
                             JOptionPane.WARNING_MESSAGE);
+
+                    //Reiniciar torn
+                    torn = 0;
+
+                    //Neteja de tauler
+                    resetTauler();
+
                 }
                 //El torn ha provocat un final de partida
                 else if(estat == 2){
@@ -211,8 +223,6 @@ public class TaulerPanel extends JPanel {
                 butons[i][j].addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        //TODO: posar el color que toca per cada click
-                        //Per a això, és necessari implementar la funcionalitat de la partida.
                         //Utilitza el vector de colors que he declarat, cada click va accedeix a la posició següent
                         //i torna a la inicial quan arriba a la posició "numColors"
                         if (!comprovarColorExistent(finalI, finalJ)) {
@@ -270,6 +280,16 @@ public class TaulerPanel extends JPanel {
         return comb;
     }
 
-    //---------------GESTIÓ DE PARTIDA------------------------//
-    //TODO
+    /** Funció que deixa el tauler en el seu estat inicial.*/
+    private void resetTauler(){
+        for (int i = 0; i < line_number; ++i){
+            for(int j = 0; j < line_size; ++j){
+                butons[i][j].setBackground(Color.LIGHT_GRAY);//TEMPORAL
+                pistes[i][j].setBackground(Color.LIGHT_GRAY);//TEMPORAL
+            }
+        }
+        for(int i = 0; i < line_size; ++i){
+            butons[0][i].setBackground(vectorColor[0]);
+        }
+    }
 }

@@ -2,6 +2,7 @@ package Domini;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Random;
 
 /** <h1> CLASSE ALGORITME </h1>
  *
@@ -109,6 +110,20 @@ public class Algoritme {
 		else{
 			minimax(t);
 			resultat = poblacio.get(0);
+		}
+		return resultat;
+	}
+	/**
+	 * Retorna una Combinacio aleatoria.
+	 *
+	 * @param t Es tractat del tauler del joc
+	 * @return Retorna una combinació computada a partir de l'algoritme Random.
+	 */
+	public Combinacio algoritmeRandom(Tauler t){
+		Combinacio resultat = new Combinacio(t.getLine_size());
+		Random rn = new Random();
+		for (int i = 0; i != t.getLine_size(); ++i){
+			resultat.set_elementx(i, rn.nextInt(t.getColors()));
 		}
 		return resultat;
 	}

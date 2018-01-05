@@ -8,14 +8,24 @@ public class Configurations {
     private JButton facilButton;
     private JButton normalButton;
     private JButton dificilButton;
-    private JRadioButton PVPadioButton;
-    private JRadioButton PVERadioButton;
     private JButton jugarButton;
     private JPanel panelConfiguration;
-    private JTextField textField1;
     private JButton tornarButton;
+    private JLabel visualitzadorDificultat;
+    private JCheckBox pvpCheckBox;
+    private JCheckBox pveCheckBox;
     private boolean dificultat = false;
-    private int tipus = 0;
+    private boolean interaccioCheckBox = false;
+    private boolean interaccio2CheckBox = false;
+
+    private JTextField nomTextField; // Nom del jugador
+    private JCheckBox minimaxCheckBox;
+    private JCheckBox randomCheckBox;
+
+
+    /** Parametres per enviar */
+    private int tipus = 0; // Tipus de dificulta: 0, 1 o 2 segons el nivell
+    private boolean jugador = true; // False = Jugador vs Jugador; True = Jugador vs False
 
 
     public Configurations(UIController control) {
@@ -24,6 +34,7 @@ public class Configurations {
             public void actionPerformed(ActionEvent e) {
                 dificultat = true;
                 tipus = 0; // facil
+                visualitzadorDificultat.setText("Fàcil");
             }
         });
         normalButton.addActionListener(new ActionListener() {
@@ -31,6 +42,7 @@ public class Configurations {
             public void actionPerformed(ActionEvent e) {
                 dificultat = true;
                 tipus = 1; // normal
+                visualitzadorDificultat.setText("Normal");
             }
         });
         dificilButton.addActionListener(new ActionListener() {
@@ -38,21 +50,47 @@ public class Configurations {
             public void actionPerformed(ActionEvent e) {
                 dificultat = true;
                 tipus = 2; // dificil
+                visualitzadorDificultat.setText("Difícil");
             }
         });
         jugarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (dificultat){
-                    control.setDificultat(tipus);
-                    control.configurationsToTauler();
+                if (dificultat && interaccioCheckBox){
+                    if (!interaccio2CheckBox && !pveCheckBox.isSelected()){
+                        JDialog dialog = new JDialog();
+                        JOptionPane.showMessageDialog(dialog,
+                                "Escolleix la jugabilitat de les dues màquines",
+                                "Error",
+                                JOptionPane.WARNING_MESSAGE);
+                    }
+                    else if (nomTextField.getText().equals("") || nomTextField.getText().equals("Escriu el teu nom...") && !interaccio2CheckBox){
+                        JDialog dialog = new JDialog();
+                        JOptionPane.showMessageDialog(dialog,
+                                "No s'ha escrit cap nom.",
+                                "Error",
+                                JOptionPane.WARNING_MESSAGE);
+                    }
+                    else {
+                        control.setDificultat(tipus);
+                        control.configurationsToTauler();
+                    }
                 }
                 else {
-                    JDialog dialog = new JDialog();
-                    JOptionPane.showMessageDialog(dialog,
-                            "No s'ha seleccionat cap dificultat.",
-                            "Error",
-                            JOptionPane.WARNING_MESSAGE);
+                    if (!dificultat) {
+                        JDialog dialog = new JDialog();
+                        JOptionPane.showMessageDialog(dialog,
+                                "No s'ha seleccionat cap dificultat.",
+                                "Error",
+                                JOptionPane.WARNING_MESSAGE);
+                    }
+                    else {
+                        JDialog dialog = new JDialog();
+                        JOptionPane.showMessageDialog(dialog,
+                                "No s'ha seleccionat cap jugabilitat.",
+                                "Error",
+                                JOptionPane.WARNING_MESSAGE);
+                    }
                 }
             }
         });
@@ -62,14 +100,51 @@ public class Configurations {
                 control.configurationsToMenu();
             }
         });
+        pveCheckBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                interaccioCheckBox = true;
+                jugador = false;
+                pvpCheckBox.setSelected(false);
+                randomCheckBox.setSelected(false);
+                minimaxCheckBox.setSelected(false);
+
+            }
+        });
+        pvpCheckBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                interaccioCheckBox = true;
+                jugador = true;
+                pveCheckBox.setSelected(false);
+            }
+        });
+        minimaxCheckBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                interaccio2CheckBox = true;
+                randomCheckBox.setSelected(false);
+                pveCheckBox.setSelected(false);
+                pvpCheckBox.setSelected(true);
+            }
+        });
+        randomCheckBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                interaccio2CheckBox = true;
+                minimaxCheckBox.setSelected(false);
+                pveCheckBox.setSelected(false);
+                pvpCheckBox.setSelected(true);
+            }
+        });
     }
 
-    /**Funció que retorna la "vista"*/
+    /**Funció que retorna la "vista" */
     public JPanel getPanel(){
         return panelConfiguration;
     }
 
-    /**Funció que retorna el "tipus" de dificultat*/
+    /**Funció que retorna el "tipus" de dificultat */
     public int getTipus(){
         return tipus;
     }

@@ -16,7 +16,7 @@ public class PantallaFinal {
         reiniciarPartidaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                control.FinalToMenu();
+                control.finalToMenu();
             }
         });
         menuPrincipalButton.addActionListener(new ActionListener() {

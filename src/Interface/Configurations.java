@@ -73,6 +73,7 @@ public class Configurations {
                     }
                     else {
                         control.setDificultat(tipus);
+                        control.setNomJugador(nomTextField.getText());
                         control.configurationsToTauler();
                     }
                 }

@@ -7,6 +7,8 @@ import Dades.*;
 public class UIController {
     //Dades auxiliars per al funcionament de la partida
     private Ranking ranking;
+    private int dificultat;
+    private String nomJugador;
 
     //Tots els frames necessaris per a l'aplicació, a ampliar
     private JFrame frameMenu;
@@ -15,7 +17,6 @@ public class UIController {
     private JFrame frameTauler;
     private JFrame frameRanking;
     private JFrame frameFinal;
-    private int dificultat;
 
     private RankForm rankForm;
 
@@ -43,7 +44,7 @@ public class UIController {
 
         /*NO S'HAURIA DE GENERAR ARA, PERO DE MOMENT ES QUEDA AIXI*/
         frameTauler = new JFrame("Tauler");
-        frameTauler.setContentPane(new TaulerPanel(15, 4, 5, this)); //TODO: valors experimentals
+        frameTauler.setContentPane(new TaulerPanel(15, 4, 5, this, "Placeholder")); //TODO: valors experimentals
         frameTauler.setDefaultCloseOperation(frameHelp.EXIT_ON_CLOSE);
         frameTauler.pack();
 
@@ -122,7 +123,7 @@ public class UIController {
 
         //Generació nova vista de tauler personalitzada
         frameTauler = new JFrame("Tauler");
-        frameTauler.setContentPane(new TaulerPanel(numLinies, numColumnes, numColors, this));
+        frameTauler.setContentPane(new TaulerPanel(numLinies, numColumnes, numColors, this, nomJugador));
         frameTauler.setDefaultCloseOperation(frameHelp.EXIT_ON_CLOSE);
         frameTauler.pack();
 
@@ -172,6 +173,8 @@ public class UIController {
     public void setDificultat(int n){
         dificultat = n;
     }
+
+    public void setNomJugador(String nom) {nomJugador = nom;}
 
     public int getDificultat(){
         return dificultat;

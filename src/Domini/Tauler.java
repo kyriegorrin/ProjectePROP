@@ -115,6 +115,15 @@ public class Tauler {
 	}
 
 	/**
+	 * Getter de la solucio d'una linia concreta, llegint el tauler de baix a dalt. Utilitzada per GUI.
+	 * @param linia 0 &gt;= linia &gt;= line_number-1.
+	 * @return Es retorna la combinacio de la solucio de la posicio linia.
+	 */
+	public Combinacio get_solucio_linia_natural(int linia){
+		return solucio[line_number-1-linia];
+	}
+
+	/**
 	 * Getter de tot el tauler.
 	 * @return Es retorna un vector de combinacions igual que matriu.
 	 */

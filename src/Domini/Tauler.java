@@ -104,6 +104,13 @@ public class Tauler {
 	public Combinacio getlinia(int line){
 		return matriu[line];
 	}
+
+	/**Getter d'una linia concreta, llegint el tauler de baix a dalt. Utilitzada per GUI.
+	 * @param linia 0 &gt;= linia &gt;= line_number-1.
+	 * @return Es retorna la combinacio de la posicio linia.*/
+	public Combinacio getliniaNatural(int linia){
+		return matriu[line_number-1-linia];
+	}
 	
 	/**
 	 * Getter de la solucio d'una linia concreta.
@@ -114,11 +121,9 @@ public class Tauler {
 		return solucio[linia];
 	}
 
-	/**
-	 * Getter de la solucio d'una linia concreta, llegint el tauler de baix a dalt. Utilitzada per GUI.
+	/**Getter de la solucio d'una linia concreta, llegint el tauler de baix a dalt. Utilitzada per GUI.
 	 * @param linia 0 &gt;= linia &gt;= line_number-1.
-	 * @return Es retorna la combinacio de la solucio de la posicio linia.
-	 */
+	 * @return Es retorna la combinacio de la solucio de la posicio linia.*/
 	public Combinacio get_solucio_linia_natural(int linia){
 		return solucio[line_number-1-linia];
 	}

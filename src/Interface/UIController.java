@@ -19,11 +19,13 @@ public class UIController {
     private JFrame frameFinal;
 
     private RankForm rankForm;
+    private PantallaFinal pantallaFinal;
 
     /**Constructora de la classe. Prepara totes les vistes de l'aplicacio.*/
     public UIController(){
         //Inicialitzem classes complementaries necessaries
         rankForm = new RankForm(this);
+        pantallaFinal = new PantallaFinal(this);
 
         //Inicialitzem els frames necessaris en el seu estat inicial
         //TODO: Ampliar segons anem implementant noves vistes
@@ -53,8 +55,9 @@ public class UIController {
         frameRanking.setDefaultCloseOperation(frameHelp.EXIT_ON_CLOSE);
         frameRanking.pack();
 
+        //TAMPOC S'HAURIA DE GENERAR AQUI*/
         frameFinal = new JFrame("PantallaFinal");
-        frameFinal.setContentPane(new PantallaFinal(this).getPanel());
+        frameFinal.setContentPane(pantallaFinal.getPanel());
         frameFinal.setDefaultCloseOperation(frameHelp.EXIT_ON_CLOSE);
         frameFinal.pack();
     }
@@ -165,8 +168,13 @@ public class UIController {
     }
 
     /** Funció que permet passar del tauler a la pantalla de final de partida.*/
-    public void taulerToFinal(){
-        //TODO
+    public void taulerToFinal(String nom1, String nom2, int punts1, int punts2){
+        pantallaFinal.setLabels(nom1, nom2, punts1, punts2);
+        //Fem update del ranking de la GUI
+        refreshRanking();
+        //Canviem el frame
+        frameTauler.setVisible(false);
+        frameFinal.setVisible(true);
     }
     //-------------------------PAS DE PARAMETRES---------------------------------//
 

@@ -120,7 +120,7 @@ public class Partida {
                     seguentFaseGUI();
                 }
             }else{//PCBreaker i HMaker
-                tauler.set_ultima_linia(comb);
+                tauler.set_ultima_linia(pcbreaker.fesJugada(tauler));
                 //Mirem si la jugada es guanyadora o hem acabat les posicions del tauler
                 if (tauler.tauler_ple() || tauler.encert()) {
                     if(tauler.encert()) System.out.println("HAS ENCERTAT LA COMBINACIO!");
@@ -198,14 +198,14 @@ public class Partida {
                 hmaker = new HMaker(hbreaker.getNom(),hbreaker.getPuntuacio());
                 pcbreaker = new PCBreaker(pcmaker.getNom(), pcmaker.getPuntuacio());
                 System.out.println("Inserta la combinació inicial:");
-                tauler.setInitial_line(hmaker.triaCombinacio(tauler.getLine_size(), tauler.getColors()));
+                //Eliminada seleccio de combinacio inicial, ara es tria desde GUI
                 conf = 1;
             }
             else{//PCBreaker i HMaker
                 pcbreaker.setPuntuacio(oldTauler.puntuacio());
                 pcmaker = new PCMaker(pcbreaker.getNom(), pcbreaker.getPuntuacio());
                 hbreaker = new HBreaker(hmaker.getNom(),hmaker.getPuntuacio());
-                tauler.setInitial_line(pcmaker.triaCombinacio(tauler.getLine_size(), tauler.getColors()));
+                //Eliminada seleccio de combinacio inicial, ara es tria desde GUI
                 conf = 0;
             }
             ++fase;
@@ -227,22 +227,56 @@ public class Partida {
 
     /** Funcio que retorna la combinació de pistes que conté la fila indicada.
      *  @param fila Fila de la que volem la combinació de pistes.
-     * @return Retorna la combinació de pistes de la fila desitjada.
-     */
+     * @return Retorna la combinació de pistes de la fila desitjada. */
     public Combinacio getPista(int fila){
         return tauler.get_solucio_linia_natural(fila);
     }
 
-    /** Mètode que mostra l'estat del ranking per pantalla.
-     */
+    /** Funció que retorna la combinació que conté la fila indicada.
+     * @param fila Fila a la que volem accedir.
+     * @return Retorna la combinació de la fila desitjada.*/
+    public Combinacio getFila(int fila){
+        return tauler.getliniaNatural(fila);
+    }
+
+    /** Funcio que retorna la puntuacio que ha aconseguit el jugador humà.
+     * @return Puntuacio del jugador humà.*/
+    public int getPuntuacioHuma(){
+        return hbreaker.getPuntuacio();
+    }
+
+    /** Funcio que retorna la puntuacio que ha aconseguit el jugador màquina.
+     * @return Puntuacio del jugador màquina.*/
+    public int getPuntuacioCPU(){
+        return pcbreaker.getPuntuacio();
+    }
+
+    /** Funció que retorna el nom del jugador humà.
+     * @return Nom del jugador humà.*/
+    public String getNomHuma(){
+        return hbreaker.getNom();
+    }
+
+    /** Funció que retorna el nom del jugador màquina.
+     * @return Nom del jugador màquina.*/
+    public String getNomCPU(){
+        return pcbreaker.getNom();
+    }
+
+    /** Funcio per a inserir la combinació al tauler. Utilitzat per la GUI.
+     * @param comb Combinació a inserir com a combinació inicial.  */
+    public void setCombinacioInicial(Combinacio comb){
+        tauler.setInitial_line(comb);
+    }
+
+    /** Mètode que mostra l'estat del ranking per pantalla.*/
     public void mostraRanking() {
         String stringRanking = ranking.toString();
         if(stringRanking.equals("")) System.out.println("No hi ha ningu al ranking");
         else System.out.println(stringRanking);
     }
 
-    /** Mètode que mostra l'estat del tauler per pantalla.
-     */
+    /** Mètode que mostra l'estat del tauler per pantalla.*/
     public void mostraTauler(){
         tauler.escriu_tot();
     }

@@ -3,18 +3,12 @@ package Interface;
 import javax.swing.*;
 import Domini.*;
 import Dades.*;
-import com.google.gson.Gson;
 
 public class UIController {
     //Dades auxiliars per al funcionament de la partida
     private Ranking ranking;
     private int dificultat;
     private String nomJugador;
-
-    //Variables de guardat de partida
-    SaveGame savegame;
-    String stringJSON;
-    Gson gson;
 
     //Tots els frames necessaris per a l'aplicació, a ampliar
     private JFrame frameMenu;
@@ -29,10 +23,6 @@ public class UIController {
 
     /**Constructora de la classe. Prepara totes les vistes de l'aplicacio.*/
     public UIController(){
-        //Iniciem dades de guardat de partida
-        savegame = new SaveGame();
-        gson = new Gson();
-
         //Inicialitzem classes complementaries necessaries
         rankForm = new RankForm(this);
         pantallaFinal = new PantallaFinal(this);
@@ -103,44 +93,10 @@ public class UIController {
         frameMenu.setVisible(true);
     }
 
-    /** Funció que permet canviar entre el menú principal i el frame de configuració.
-     *  En cas d'haver-hi una partida guardada existent i es vol continuar, saltarem directament al tauler.*/
+    /** Funció que permet canviar entre el menú principal i el frame de configuració.*/
     public void menuToConfigurations(){
-        if(savegame.exists()){
-            JDialog dialog = new JDialog();
-            Object[] options = {"Sí", "No"};
-            int opcio = JOptionPane.showOptionDialog(dialog,
-                    "S'ha detectat una partida guardada. La vols continuar?" +
-                            "\n(No continuar la partida suposa borrar-la",
-                    "Partida guardada detectada",
-                    JOptionPane.YES_NO_CANCEL_OPTION,
-                    JOptionPane.QUESTION_MESSAGE,
-                    null,
-                    options,
-                    options[1]);
-            //Carreguem la partida, carreguem el frame del tauler i canviem directament a ell
-            if(opcio == 0){
-                stringJSON = savegame.load();
-                TaulerPanel tauler = gson.fromJson(stringJSON, TaulerPanel.class);
-                frameTauler = new JFrame("Tauler");
-                frameTauler.setContentPane(tauler);
-                frameTauler.setDefaultCloseOperation(frameHelp.EXIT_ON_CLOSE);
-                frameTauler.pack();
-
-                frameMenu.setVisible(false);
-                frameTauler.setVisible(true);
-            }
-            else{//No carreguem res, borrem la partida i prosseguim normalment
-                savegame.clear();
-                frameMenu.setVisible(false);
-                frameConfig.setVisible(true);
-                System.out.println("----PARTIDA ANTERIOR DESCARTADA----");
-                System.out.println("Ja pots procedir a executar el programa normalment.\n");
-            }
-        }else{
-            frameMenu.setVisible(false);
-            frameConfig.setVisible(true);
-        }
+        frameMenu.setVisible(false);
+        frameConfig.setVisible(true);
     }
 
     /** Funció que permet canviar entre el menú de configuració i el tauler del joc*/
@@ -201,13 +157,14 @@ public class UIController {
      */
     public void taulerToMenu(boolean guardar){
         if (guardar){
-            //Guardem tot el frame a pelo, perque tenim els collons aixi de grossos
-            stringJSON = gson.toJson(frameTauler);
-            savegame.save(stringJSON);
+            //TODO: Guarda la partida, tornem al menu
         }
-        //Tornem al menu
-        frameTauler.setVisible(false);
-        frameMenu.setVisible(true);
+        else{
+            //Tornem al menu sense guardar res.
+            //No destruim el tauler ja que s'haurà de recrear per arribar aquí un altre cop i ja es farà llavors.
+            frameTauler.setVisible(false);
+            frameMenu.setVisible(true);
+        }
     }
 
     /** Funció que permet passar del tauler a la pantalla de final de partida.*/

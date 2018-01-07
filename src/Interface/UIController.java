@@ -10,6 +10,7 @@ public class UIController {
     private Ranking ranking;
     private int dificultat;
     private String nomJugador;
+    private boolean jugador; // True = Màquina VS Màquina; False Jugador VS Màquina
     private int torn, conf, fase;
 
     //Tots els frames necessaris per a l'aplicació, a ampliar
@@ -225,8 +226,8 @@ public class UIController {
 
     public void setNomJugador(String nom) {nomJugador = nom;}
 
-    public int getDificultat(){
-        return dificultat;
+    public void setJugador(boolean b){
+        jugabilitat = b;
     }
 
     //------------------------FUNCIONS AUXILIARS---------------------------------//

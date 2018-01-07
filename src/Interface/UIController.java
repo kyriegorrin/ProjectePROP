@@ -227,7 +227,7 @@ public class UIController {
     public void setNomJugador(String nom) {nomJugador = nom;}
 
     public void setJugador(boolean b){
-        jugabilitat = b;
+        jugador = b;
     }
 
     //------------------------FUNCIONS AUXILIARS---------------------------------//

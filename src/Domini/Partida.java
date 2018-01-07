@@ -225,6 +225,14 @@ public class Partida {
         }
     }
 
+    /** Funció que retorna el numero de posicions de les files del tauler.
+     * @return Nombre de posicions per fila.*/
+    public int getLineSize(){return tauler.getLine_size();}
+
+    /** Funció que retorna el numero de colors de les files del tauler.
+     * @return Nombre de colors disponibles.*/
+    public int getNumColors(){return tauler.getColors();}
+
     /** Funcio que retorna la combinació de pistes que conté la fila indicada.
      *  @param fila Fila de la que volem la combinació de pistes.
      * @return Retorna la combinació de pistes de la fila desitjada. */
@@ -261,6 +269,30 @@ public class Partida {
      * @return Nom del jugador màquina.*/
     public String getNomCPU(){
         return pcbreaker.getNom();
+    }
+
+    /** Funció que retorna la configuració actual de la partida.
+     * @return Enter que identifica la configuració de la partida.*/
+    public int getConf(){
+        return conf;
+    }
+
+    /** Funció que retorna la fase actual de la partida.
+     * @return Enter que conté l'identificador de la fase actual.*/
+    public int getFase(){
+        return fase;
+    }
+
+    /** Funcio que retorna el "torn" actual. És la següent línia a modificar.
+     * @return Enter que identifica la pròxima linia a modificar.*/
+    public int getTorn(){
+        return NUM_LINIES - 1 - tauler.getUltima();//La mare que em va parir
+    }
+
+    /** Funcio per a aconseguir la combinació inicial del tauler. Utilitzat per la GUI.
+     *  @return Combinació inicial llegida.  */
+    public Combinacio getCombinacioInicial(){
+        return tauler.get_comb_ini();
     }
 
     /** Funcio per a inserir la combinació al tauler. Utilitzat per la GUI.

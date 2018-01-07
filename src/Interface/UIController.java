@@ -3,12 +3,14 @@ package Interface;
 import javax.swing.*;
 import Domini.*;
 import Dades.*;
+import com.google.gson.Gson;
 
 public class UIController {
     //Dades auxiliars per al funcionament de la partida
     private Ranking ranking;
     private int dificultat;
     private String nomJugador;
+    private int torn, conf, fase;
 
     //Tots els frames necessaris per a l'aplicació, a ampliar
     private JFrame frameMenu;
@@ -19,6 +21,7 @@ public class UIController {
     private JFrame frameFinal;
 
     private RankForm rankForm;
+    private TaulerPanel taulerPanel;
     private PantallaFinal pantallaFinal;
 
     /**Constructora de la classe. Prepara totes les vistes de l'aplicacio.*/
@@ -93,10 +96,52 @@ public class UIController {
         frameMenu.setVisible(true);
     }
 
-    /** Funció que permet canviar entre el menú principal i el frame de configuració.*/
+    /** Funció que permet canviar entre el menú principal i el frame de configuració.
+     *  En cas d'existir una partida guardada, dona l'opcio de restaurar-la. Si no es
+     *  restaura, es borra.*/
     public void menuToConfigurations(){
-        frameMenu.setVisible(false);
-        frameConfig.setVisible(true);
+        //Comprovem si existeix una partida guardada.
+        SaveGame savegame = new SaveGame();
+        if(savegame.exists()){
+            //TODO: dialog que retorna opcio
+            Object[] options = {"Sí", "No"};
+            JDialog dialog = new JDialog();
+            int opcio = JOptionPane.showOptionDialog(dialog,
+                    "S'ha detectat una aprtida guardada. Vols restaurar-la?\n" +
+                            "(No restaurar-la implica borrar les dades de guardat)",
+                    "Restaurar partida",
+                    JOptionPane.YES_NO_CANCEL_OPTION,
+                    JOptionPane.QUESTION_MESSAGE,
+                    null,
+                    options,
+                    options[1]);
+            if(opcio == 0){
+                //Llegim partida guardada, creem frame de tauler i restaurem el contingut visual
+                String stringJSON;
+                Gson gson = new Gson();
+                stringJSON = savegame.load();
+                Partida partida = gson.fromJson(stringJSON, Partida.class);
+
+                taulerPanel = new TaulerPanel(15, partida.getLineSize(), partida.getNumColors(), this, partida.getNomHuma());
+                frameTauler = new JFrame("Tauler");
+                frameTauler.setContentPane(taulerPanel);
+                frameTauler.setDefaultCloseOperation(frameHelp.EXIT_ON_CLOSE);
+                frameTauler.pack();
+
+                taulerPanel.restauraPartida(partida);
+
+                //Anem al frame del tauler directament
+                frameMenu.setVisible(false);
+                frameTauler.setVisible(true);
+            }else{
+                savegame.clear();
+                frameMenu.setVisible(false);
+                frameConfig.setVisible(true);
+            }
+        }else{
+            frameMenu.setVisible(false);
+            frameConfig.setVisible(true);
+        }
     }
 
     /** Funció que permet canviar entre el menú de configuració i el tauler del joc*/
@@ -126,7 +171,8 @@ public class UIController {
 
         //Generació nova vista de tauler personalitzada
         frameTauler = new JFrame("Tauler");
-        frameTauler.setContentPane(new TaulerPanel(numLinies, numColumnes, numColors, this, nomJugador));
+        taulerPanel = new TaulerPanel(numLinies, numColumnes, numColors, this, nomJugador);
+        frameTauler.setContentPane(taulerPanel);
         frameTauler.setDefaultCloseOperation(frameHelp.EXIT_ON_CLOSE);
         frameTauler.pack();
 
@@ -152,19 +198,14 @@ public class UIController {
     }
 
     /** Funció que permet passar del tauler al menú principal. Guarda l'estat de la partida si és necessari.
-     *
-     * @param guardar Si volem guardar la partida, guardar = 1. 0 altrament.
-     */
+     * @param guardar Si volem guardar la partida, guardar = 1. 0 altrament.*/
     public void taulerToMenu(boolean guardar){
         if (guardar){
-            //TODO: Guarda la partida, tornem al menu
+            taulerPanel.guardaPartida();
         }
-        else{
-            //Tornem al menu sense guardar res.
-            //No destruim el tauler ja que s'haurà de recrear per arribar aquí un altre cop i ja es farà llavors.
-            frameTauler.setVisible(false);
-            frameMenu.setVisible(true);
-        }
+        //No destruim el tauler ja que s'haurà de recrear per arribar aquí un altre cop i ja es farà llavors.
+        frameTauler.setVisible(false);
+        frameMenu.setVisible(true);
     }
 
     /** Funció que permet passar del tauler a la pantalla de final de partida.*/

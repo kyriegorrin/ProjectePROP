@@ -16,29 +16,31 @@ import Dades.Ranking;
 public class Partida {
     //------------------------------ATRIBUTS------------------------------------//
     //Jugadors
-    private HBreaker hbreaker;
-    private HMaker hmaker;
-    private PCBreaker pcbreaker;
-    private PCMaker pcmaker;
+    protected HBreaker hbreaker;
+    protected HMaker hmaker;
+    protected PCBreaker pcbreaker;
+    protected PCMaker pcmaker;
 
     //Taulers
-    private Tauler tauler;
-    private Tauler oldTauler;
+    protected Tauler tauler;
+    protected Tauler oldTauler;
     //TODO: modifica el valor a 15 per a l'entrega final.
     public static final int NUM_LINIES = 15;
 
     //Capa de dades
-    private Ranking ranking;
+    protected Ranking ranking;
 
     //Variables d'estat de la partida
-    private int conf;
+    protected int conf;
     //Si es 0, juguen HBreaker i PCMaker primer
     //Si es 1, juguen HMaker i PCBreaker primer
 
-    private int fase;
+    protected int fase;
     //Si es 0, es la primera fase de la partida.
     //Si es 1, es la segona fase (el tauler s'ha reiniciat i s'han intercanviat rols)
     //Si es 2, la partida s'ha acabat
+
+    protected boolean cpuVScpu;
 
     //---------------------------------METODES----------------------------------//
 
@@ -50,6 +52,7 @@ public class Partida {
     public Partida(String nom, int conf, int tamLinia, int numColors){
         this.conf = conf;
         this.fase = 0;
+        cpuVScpu = false;
         tauler = new Tauler(NUM_LINIES, tamLinia, numColors);
         ranking = new Ranking();
         ranking.inicialitza();
@@ -136,7 +139,7 @@ public class Partida {
     /** Metode intern per a avançar de fase i fer les operacions que aixo requereixi.
      * Comportament diferenciat depenent de la fase actual
      */
-    private void seguentFase(){
+    protected void seguentFase(){
         //Canvi de rols i nou tauler
         if(fase == 0){
             //Reiniciem tauler
@@ -182,7 +185,7 @@ public class Partida {
     /** Metode intern per a avançar de fase i fer les operacions que aixo requereixi.
      * Comportament diferenciat depenent de la fase actual. Versió utilitzada per al programa amb GUI.
      */
-    private void seguentFaseGUI(){
+    protected void seguentFaseGUI(){
         //Canvi de rols i nou tauler
         if(fase == 0){
             //Reiniciem tauler
@@ -288,6 +291,10 @@ public class Partida {
     public int getTorn(){
         return NUM_LINIES - 1 - tauler.getUltima();//La mare que em va parir
     }
+
+    /** Funció que retorna el mode de la partida.
+     * @return 0 si és Humà vs CPU, 1 si és CPU vs CPU.*/
+    public boolean getMode(){ return cpuVScpu;}
 
     /** Funcio per a aconseguir la combinació inicial del tauler. Utilitzat per la GUI.
      *  @return Combinació inicial llegida.  */

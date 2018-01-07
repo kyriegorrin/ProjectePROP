@@ -9,11 +9,13 @@ package Domini;
  * @author Ricard Zarco Badia
  */
 public class PCBreaker extends Jugador{
-    private Algoritme algoritme; 
+    private Algoritme algoritme;
+    private boolean llest;
 
     /** Constructora per defecte. Utilitza la constructora de la superclasse (Jugador).
      */
     public PCBreaker() {
+        llest = true;
     }
 
     /** Constructora que crea un objecte PCBreaker amb dos paràmetres.
@@ -23,6 +25,7 @@ public class PCBreaker extends Jugador{
     public PCBreaker(String nom, int puntuacio) {
         super(nom, puntuacio);
         algoritme = new Algoritme();
+        llest = true;
     }
 
     /** Mètode utilitzat per a permetre al PCBreaker computar i proposar una combinació en base a l'estat del tauler.
@@ -31,7 +34,13 @@ public class PCBreaker extends Jugador{
      */
     @Override
     public Combinacio fesJugada(Tauler tauler){
-        Combinacio combinacio = algoritme.algoritmeMinimax(tauler);
+        Combinacio combinacio;
+        if (llest) combinacio = algoritme.algoritmeMinimax(tauler);
+        else combinacio = algoritme.algoritmeRandom(tauler);
         return combinacio;
     }
+
+    /** Funció que permet indicar la inteligencia del PCBreaker.
+      * @param llest Si 1, utilitza algoritme bo. Si 0, fa random.*/
+    public void setInteligencia(boolean llest){this.llest = llest;}
 }

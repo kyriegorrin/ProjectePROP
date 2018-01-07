@@ -16,16 +16,13 @@ public class Configurations {
     private JCheckBox pveCheckBox;
     private boolean dificultat = false;
     private boolean interaccioCheckBox = false;
-    private boolean interaccio2CheckBox = false;
 
     private JTextField nomTextField; // Nom del jugador
-    private JCheckBox minimaxCheckBox;
-    private JCheckBox randomCheckBox;
 
 
     /** Parametres per enviar */
     private int tipus = 0; // Tipus de dificulta: 0, 1 o 2 segons el nivell
-    private boolean jugador = true; // False = Jugador vs Jugador; True = Jugador vs False
+    private boolean jugador = true; // True = Màquina VS Màquina; False Jugador VS Màquina
 
 
     public Configurations(UIController control) {
@@ -57,23 +54,24 @@ public class Configurations {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (dificultat && interaccioCheckBox){
-                    if (!interaccio2CheckBox && !pveCheckBox.isSelected()){
-                        JDialog dialog = new JDialog();
-                        JOptionPane.showMessageDialog(dialog,
-                                "Escolleix la jugabilitat de les dues màquines",
-                                "Error",
-                                JOptionPane.WARNING_MESSAGE);
-                    }
-                    else if (nomTextField.getText().equals("") || nomTextField.getText().equals("Escriu el teu nom...") && !interaccio2CheckBox){
+                    if (nomTextField.getText().equals("") || nomTextField.getText().equals("Escriu el teu nom...")){
                         JDialog dialog = new JDialog();
                         JOptionPane.showMessageDialog(dialog,
                                 "No s'ha escrit cap nom.",
                                 "Error",
                                 JOptionPane.WARNING_MESSAGE);
                     }
+                    else if (nomTextField.getText().contains(" ")){
+                        JDialog dialog = new JDialog();
+                        JOptionPane.showMessageDialog(dialog,
+                                "El nom no ha de contenir cap espai en blanc.",
+                                "Error",
+                                JOptionPane.WARNING_MESSAGE);
+                    }
                     else {
                         control.setDificultat(tipus);
                         control.setNomJugador(nomTextField.getText());
+                        control.setJugador(jugador);
                         control.configurationsToTauler();
                     }
                 }
@@ -107,8 +105,6 @@ public class Configurations {
                 interaccioCheckBox = true;
                 jugador = false;
                 pvpCheckBox.setSelected(false);
-                randomCheckBox.setSelected(false);
-                minimaxCheckBox.setSelected(false);
 
             }
         });
@@ -120,24 +116,6 @@ public class Configurations {
                 pveCheckBox.setSelected(false);
             }
         });
-        minimaxCheckBox.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                interaccio2CheckBox = true;
-                randomCheckBox.setSelected(false);
-                pveCheckBox.setSelected(false);
-                pvpCheckBox.setSelected(true);
-            }
-        });
-        randomCheckBox.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                interaccio2CheckBox = true;
-                minimaxCheckBox.setSelected(false);
-                pveCheckBox.setSelected(false);
-                pvpCheckBox.setSelected(true);
-            }
-        });
     }
 
     /**Funció que retorna la "vista" */
@@ -145,18 +123,4 @@ public class Configurations {
         return panelConfiguration;
     }
 
-    /**Funció que retorna el "tipus" de dificultat */
-    public int getTipus(){
-        return tipus;
-    }
-
-    /*
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("Configurar Partida");
-        frame.setContentPane(new Configurations().panelConfiguration);
-        frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
-    }
-    */
 }

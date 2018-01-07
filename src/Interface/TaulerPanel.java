@@ -367,8 +367,8 @@ public class TaulerPanel extends JPanel {
             Combinacio combPistes = partida.getPista(fila);
             int pistaAux;
             pistaAux = combPistes.get_elementx(i);
-            if(pistaAux == 1) pistes[torn][i].setBackground(Color.WHITE);
-            if(pistaAux == 2) pistes[torn][i].setBackground(Color.BLACK);
+            if(pistaAux == 1) pistes[fila][i].setBackground(Color.WHITE);
+            if(pistaAux == 2) pistes[fila][i].setBackground(Color.BLACK);
         }
     }
 
@@ -386,8 +386,7 @@ public class TaulerPanel extends JPanel {
     }
 
     /** Funció per a llegir la combinació inicial inserida a la GUI.
-     *  @return Retorna un objecte Combinació que conté la combinació inserida.
-     */
+     *  @return Retorna un objecte Combinació que conté la combinació inserida.*/
     private Combinacio llegeixCombInicial(){
         int num[] = new int[line_size];
 
@@ -552,6 +551,7 @@ public class TaulerPanel extends JPanel {
 
         //Habilitem o posem el color inicial de la fila corresponent al torn
         for(int i = 0; i < line_size; ++i){
+            butons[0][i].setEnabled(false);
             butons[torn][i].setBackground(vectorColor[0]);
             if(conf == 0) butons[torn][i].setEnabled(true);
         }

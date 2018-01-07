@@ -67,6 +67,7 @@ public class SaveGame {
                 FileReader fr = new FileReader(file);
                 BufferedReader br = new BufferedReader(fr);
                 stringJSON = br.readLine();
+                fr.close();
             }catch(IOException e){
                 e.printStackTrace();
             }

@@ -481,4 +481,5 @@ public class TaulerPanel extends JPanel {
         else if(estat == 3) System.out.println("La partida ja ha finalitzat");
         else partida.mostraTauler();
     }
+
 }

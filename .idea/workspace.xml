@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b03b47ed-591e-4b42-a8a7-300e949ae75c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Domini/PartidaBots.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Domini/PCBreaker.java" afterPath="$PROJECT_DIR$/src/Domini/PCBreaker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Domini/Partida.java" afterPath="$PROJECT_DIR$/src/Domini/Partida.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Domini/PartidaBots.java" afterPath="$PROJECT_DIR$/src/Domini/PartidaBots.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -85,7 +82,7 @@
       <file leaf-file-name="Partida.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Domini/Partida.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
+            <state relative-caret-position="3196">
               <caret line="188" column="36" lean-forward="true" selection-start-line="188" selection-start-column="36" selection-end-line="188" selection-end-column="36" />
               <folding>
                 <element signature="e#12253#12254#0" expanded="true" />
@@ -104,8 +101,8 @@
       <file leaf-file-name="PartidaBots.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Domini/PartidaBots.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="41" column="17" lean-forward="true" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
+            <state relative-caret-position="833">
+              <caret line="94" column="14" lean-forward="false" selection-start-line="94" selection-start-column="14" selection-end-line="94" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -671,7 +668,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Domini/Partida.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
+        <state relative-caret-position="3196">
           <caret line="188" column="36" lean-forward="true" selection-start-line="188" selection-start-column="36" selection-end-line="188" selection-end-column="36" />
           <folding>
             <element signature="e#12253#12254#0" expanded="true" />
@@ -688,8 +685,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Domini/PartidaBots.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="41" column="17" lean-forward="true" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
+        <state relative-caret-position="833">
+          <caret line="94" column="14" lean-forward="false" selection-start-line="94" selection-start-column="14" selection-end-line="94" selection-end-column="14" />
           <folding />
         </state>
       </provider>

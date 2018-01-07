@@ -69,14 +69,16 @@ public class PartidaBots extends Partida {
 
             //Intercanvi de rols
             if(conf == 0){//HBreaker i PCMaker
-                hbreaker.setPuntuacio(oldTauler.puntuacio());
-                hmaker = new HMaker(hbreaker.getNom(),hbreaker.getPuntuacio());
-                pcbreaker = new PCBreaker(pcmaker.getNom(), pcmaker.getPuntuacio());
+                pcBreaker1.setPuntuacio(oldTauler.puntuacio());
+                pcMaker2 = new PCMaker(pcBreaker1.getNom(),pcBreaker1.getPuntuacio());
+                pcBreaker2 = new PCBreaker(pcMaker1.getNom(), pcMaker1.getPuntuacio());
+                //Volem que pcBreaker 2 sigui tonto
+                pcBreaker2.setInteligencia(false);
                 System.out.println("Inserta la combinació inicial:");
                 //Eliminada seleccio de combinacio inicial, ara es tria desde GUI
                 conf = 1;
             }
-            else{//PCBreaker i HMaker
+            else{//PCBreaker i HMaker//NO UTILITZADA DE MOMENT
                 pcbreaker.setPuntuacio(oldTauler.puntuacio());
                 pcmaker = new PCMaker(pcbreaker.getNom(), pcbreaker.getPuntuacio());
                 hbreaker = new HBreaker(hmaker.getNom(),hmaker.getPuntuacio());
@@ -87,15 +89,15 @@ public class PartidaBots extends Partida {
         }
         //Finalitzar partida i actualitzar ranking
         else if(fase == 1){
-            if(conf == 0) hbreaker.setPuntuacio(tauler.puntuacio());
-            else if(conf == 1) pcbreaker.setPuntuacio(tauler.puntuacio());
+            if(conf == 0) pcBreaker1.setPuntuacio(tauler.puntuacio());
+            else if(conf == 1) pcBreaker2.setPuntuacio(tauler.puntuacio());
             System.out.println("PUNTUACIO FINAL");
             System.out.println("---------------");
-            System.out.println(hbreaker.getNom() + ": " + hbreaker.getPuntuacio());
-            System.out.println(pcbreaker.getNom() + ": " + pcbreaker.getPuntuacio() + "\n");
+            System.out.println(pcBreaker1.getNom() + ": " + pcBreaker1.getPuntuacio());
+            System.out.println(pcBreaker2.getNom() + ": " + pcBreaker2.getPuntuacio() + "\n");
             System.out.println("Afegint jugador humà al ranking...\n");
             System.out.println("--- JOC FINALITZAT ---\n");
-            ranking.insertaJugador(hbreaker.toString());
+            //ranking.insertaJugador(hbreaker.toString());
             ++fase;
         }
     }

@@ -11,6 +11,7 @@ public class PantallaFinal {
     private JLabel playerLAbel;
     private JPanel panel1;
     private JLabel guanyadorLabel;
+    private JButton reiniciarButton;
 
     public PantallaFinal(UIController control)  {
 

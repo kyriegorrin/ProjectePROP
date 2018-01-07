@@ -5,22 +5,18 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class PantallaFinal {
-    private JButton reiniciarPartidaButton;
     private JButton menuPrincipalButton;
-    private JLabel GuanyatPerdutLAbel;
-    private JLabel CPULabel;
-    private JLabel PlayerLAbel;
+    private JLabel guanyatPerdutLAbel;
+    private JLabel cpuLabel;
+    private JLabel playerLAbel;
     private JPanel panel1;
+    private JLabel guanyadorLabel;
 
     public PantallaFinal(UIController control)  {
 
-        reiniciarPartidaButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //TODO: AIXO ESTA MALAMENT REEEEEEEEEE
-                control.finalToMenu();
-            }
-        });
+        guanyatPerdutLAbel.setText("PARTIDA ACABADA");
+
+
         menuPrincipalButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -30,14 +26,16 @@ public class PantallaFinal {
     }
 
     public void setLabels(String nom1, String nom2, int punts1, int punts2){
-        PlayerLAbel.setText(nom1 + " ha aconseguit " + punts1 + " punts");
-        CPULabel.setText(nom2 + " ha aconseguit " + punts2 + " punts");
+        if(punts1 >punts2){guanyadorLabel.setText(nom1 + " HA GUANYAT LA PARTIDA!!"); }
+        else if (punts2 > punts1){guanyadorLabel.setText(nom2 + " HA GUANYAT LA PARTIDA!!"); }
+        else guanyadorLabel.setText("EMPAT!!");
+        playerLAbel.setText(nom1 + " ha aconseguit" + punts1 + " punts");
+        cpuLabel.setText(nom2 + " ha aconseguit " + punts2 + " punts");
     }
 
     public JPanel getPanel(){
         return panel1;
     }
-
 }
 
 

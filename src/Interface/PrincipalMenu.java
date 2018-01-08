@@ -41,7 +41,7 @@ public class PrincipalMenu {
     }
 
     private void createUIComponents(){
-        ImageLogo = new JLabel(new ImageIcon("MastermindLogo.png"));
+        ImageLogo = new JLabel(new ImageIcon(this.getClass().getResource("MastermindLogo.png")));
     }
 
     public JPanel getPanel(){

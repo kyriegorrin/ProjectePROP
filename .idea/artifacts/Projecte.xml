@@ -4,6 +4,7 @@
     <root id="archive" name="Projecte.jar">
       <element id="module-output" name="Project" />
       <element id="extracted-dir" path="$PROJECT_DIR$/../gson-2.6.2.jar" path-in-jar="/" />
+      <element id="file-copy" path="$PROJECT_DIR$/MastermindLogo.png" />
     </root>
   </artifact>
 </component>

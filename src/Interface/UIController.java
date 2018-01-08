@@ -5,6 +5,16 @@ import Domini.*;
 import Dades.*;
 import com.google.gson.Gson;
 
+/** <h1>Classe gestora de la coordinació de vistes i accions.</h1>
+ *
+ *  <p>La classe UIController és la classe que permet a les diferents vistes comunicar-se entre elles i coordinar-se, així com provocar diferents
+ *      accions depenent de les condicions internes de cada una. També conté totes les vistes i variables auxiliars per a generar-les
+ *      novament en cas de que sigui necessari.
+ *  </p>
+ *
+ *  @author Ricard Zarco Badia
+ */
+
 public class UIController {
     //Dades auxiliars per al funcionament de la partida
     private Ranking ranking;
@@ -24,8 +34,10 @@ public class UIController {
     private TaulerPanel taulerPanel;
     private PantallaFinal pantallaFinal;
 
-    /**Constructora de la classe. Prepara totes les vistes de l'aplicacio.*/
-    public UIController(){
+    /**
+     * Constructora de la classe. Prepara totes les vistes de l'aplicacio.
+     */
+    public UIController() {
         //Inicialitzem classes complementaries necessaries
         rankForm = new RankForm(this);
         pantallaFinal = new PantallaFinal(this);
@@ -65,8 +77,10 @@ public class UIController {
         frameFinal.pack();
     }
 
-    /**Funció per a iniciar la visibilitat de les vistes necessàries.*/
-    public void inicialitza(){
+    /**
+     * Funció per a iniciar la visibilitat de les vistes necessàries.
+     */
+    public void inicialitza() {
         //TODO: Aquesta secció s'ha d'ampliar amb els frames necessaris
         frameMenu.setVisible(true);
         frameHelp.setVisible(false);
@@ -78,31 +92,39 @@ public class UIController {
 
     //---------------------FUNCIONS DE CANVI DE FRAME---------------------------//
 
-    /** Funció que permet canviar entre el frame d'ajuda i el menú principal.*/
-    public void helpToMenu(){
+    /**
+     * Funció que permet canviar entre el frame d'ajuda i el menú principal.
+     */
+    public void helpToMenu() {
         frameHelp.setVisible(false);
         frameMenu.setVisible(true);
     }
 
-    /** Funció que permet canviar entre el frame del menú principal i l'ajuda.*/
-    public void menuToHelp(){
+    /**
+     * Funció que permet canviar entre el frame del menú principal i l'ajuda.
+     */
+    public void menuToHelp() {
         frameMenu.setVisible(false);
         frameHelp.setVisible(true);
     }
 
-    /** Funció que permet canviar entre el frame de configuració i el menú principal.*/
-    public void configurationsToMenu(){
+    /**
+     * Funció que permet canviar entre el frame de configuració i el menú principal.
+     */
+    public void configurationsToMenu() {
         frameConfig.setVisible(false);
         frameMenu.setVisible(true);
     }
 
-    /** Funció que permet canviar entre el menú principal i el frame de configuració.
-     *  En cas d'existir una partida guardada, dona l'opcio de restaurar-la. Si no es
-     *  restaura, es borra.*/
-    public void menuToConfigurations(){
+    /**
+     * Funció que permet canviar entre el menú principal i el frame de configuració.
+     * En cas d'existir una partida guardada, dona l'opcio de restaurar-la. Si no es
+     * restaura, es borra.
+     */
+    public void menuToConfigurations() {
         //Comprovem si existeix una partida guardada.
         SaveGame savegame = new SaveGame();
-        if(savegame.exists()){
+        if (savegame.exists()) {
             //TODO: dialog que retorna opcio
             Object[] options = {"Sí", "No"};
             JDialog dialog = new JDialog();
@@ -115,7 +137,7 @@ public class UIController {
                     null,
                     options,
                     options[1]);
-            if(opcio == 0){
+            if (opcio == 0) {
                 //Llegim partida guardada, creem frame de tauler i restaurem el contingut visual
                 String stringJSON;
                 Gson gson = new Gson();
@@ -136,31 +158,33 @@ public class UIController {
 
                 //També hem de posar les variables d'aquesta classe preparades per si hem de fer un reiniciar partida
                 nomJugador = partida.getNomHuma();
-                if(partida.getLineSize() == 3) dificultat = 0;
-                else if(partida.getLineSize() == 4) dificultat = 1;
+                if (partida.getLineSize() == 3) dificultat = 0;
+                else if (partida.getLineSize() == 4) dificultat = 1;
                 else dificultat = 2;
 
                 //Anem al frame del tauler directament
                 frameMenu.setVisible(false);
                 frameTauler.setVisible(true);
-            }else{
+            } else {
                 savegame.clear();
                 frameMenu.setVisible(false);
                 frameConfig.setVisible(true);
             }
-        }else{
+        } else {
             frameMenu.setVisible(false);
             frameConfig.setVisible(true);
         }
     }
 
-    /** Funció que permet canviar entre el menú de configuració i el tauler del joc*/
-    public void configurationsToTauler(){
+    /**
+     * Funció que permet canviar entre el menú de configuració i el tauler del joc
+     */
+    public void configurationsToTauler() {
         //TODO: falta passar els parametres de humaVSpc o pcVSpc
         int numLinies, numColumnes, numColors;
         numLinies = 15;
 
-        switch(dificultat){
+        switch (dificultat) {
             case 0: //Easy
                 numColumnes = 3;
                 numColors = 4;
@@ -182,7 +206,7 @@ public class UIController {
         //Generació nova vista de tauler personalitzada
         frameTauler = new JFrame("Tauler");
         taulerPanel = new TaulerPanel(numLinies, numColumnes, numColors, this, nomJugador);
-        if(jugador) taulerPanel.setModeIA(); //En cas de que tinguem mode IA vs IA
+        if (jugador) taulerPanel.setModeIA(); //En cas de que tinguem mode IA vs IA
         frameTauler.setContentPane(taulerPanel);
         frameTauler.setDefaultCloseOperation(frameHelp.EXIT_ON_CLOSE);
         frameTauler.pack();
@@ -191,27 +215,37 @@ public class UIController {
         frameTauler.setVisible(true);
     }
 
-    /** Funció que permet canviar entre el menú principal i el frame de ranking.*/
-    public void menuToRanking(){
+    /**
+     * Funció que permet canviar entre el menú principal i el frame de ranking.
+     */
+    public void menuToRanking() {
         frameMenu.setVisible(false);
         frameRanking.setVisible(true);
     }
 
-    /**Funcio que permet canviar entre el frame de ranking i el menu principal*/
-    public void rankingToMenu(){
+    /**
+     * Funcio que permet canviar entre el frame de ranking i el menu principal
+     */
+    public void rankingToMenu() {
         frameRanking.setVisible(false);
         frameMenu.setVisible(true);
     }
-    /**Funcio que permet canviar entre el frame Final i el menu principal*/
-    public void finalToMenu(){
+
+    /**
+     * Funcio que permet canviar entre el frame Final i el menu principal
+     */
+    public void finalToMenu() {
         frameFinal.setVisible(false);
         frameMenu.setVisible(true);
     }
 
-    /** Funció que permet passar del tauler al menú principal. Guarda l'estat de la partida si és necessari.
-     * @param guardar Si volem guardar la partida, guardar = 1. 0 altrament.*/
-    public void taulerToMenu(boolean guardar){
-        if (guardar){
+    /**
+     * Funció que permet passar del tauler al menú principal. Guarda l'estat de la partida si és necessari.
+     *
+     * @param guardar Si volem guardar la partida, guardar = 1. 0 altrament.
+     */
+    public void taulerToMenu(boolean guardar) {
+        if (guardar) {
             taulerPanel.guardaPartida();
         }
         //No destruim el tauler ja que s'haurà de recrear per arribar aquí un altre cop i ja es farà llavors.
@@ -219,8 +253,10 @@ public class UIController {
         frameMenu.setVisible(true);
     }
 
-    /** Funció que permet passar del tauler a la pantalla de final de partida.*/
-    public void taulerToFinal(String nom1, String nom2, int punts1, int punts2){
+    /**
+     * Funció que permet passar del tauler a la pantalla de final de partida.
+     */
+    public void taulerToFinal(String nom1, String nom2, int punts1, int punts2) {
         pantallaFinal.setLabels(nom1, nom2, punts1, punts2);
         //Fem update del ranking de la GUI
         refreshRanking();
@@ -230,20 +266,28 @@ public class UIController {
     }
     //-------------------------PAS DE PARAMETRES---------------------------------//
 
-    public void setDificultat(int n){
+    /**Setter de la variable interna de dificultat.
+     * @param n Dificultat a inserir. */
+    public void setDificultat(int n) {
         dificultat = n;
     }
 
-    public void setNomJugador(String nom) {nomJugador = nom;}
+    /**Setter de la variable interna del nom de jugador.
+     * @param nom Nom a inserir. */
+    public void setNomJugador(String nom) {
+        nomJugador = nom;
+    }
 
-    public void setJugador(boolean b){
+    /**Setter de la variable interna de mode de joc.
+     * @param b True = mode IAvsIA, False = HumavsCPU.*/
+    public void setJugador(boolean b) {
         jugador = b;
     }
 
     //------------------------FUNCIONS AUXILIARS---------------------------------//
 
-    /** Funció que llegeix el ranking i fa refresh de la taula gràfica*/
-    public void refreshRanking(){
+    /**Funció que llegeix el ranking i fa refresh de la taula gràfica.*/
+    public void refreshRanking() {
         ranking = new Ranking();
         ranking.inicialitza();
         rankForm.updateRankTable(ranking.toString());
@@ -251,8 +295,7 @@ public class UIController {
 
     //-----------------------------MAIN------------------------------------------//
 
-    //Funció main, potser en un futur la implementem en una classe a part.
-    //Fins que no trobem raons per no fer-ho, s'implementarà aquí.
+    /** Main del programa sencer.*/
     public static void main(String args[]){
         UIController control = new UIController();
 

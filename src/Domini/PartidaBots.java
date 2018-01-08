@@ -2,6 +2,18 @@ package Domini;
 
 import Dades.Ranking;
 
+/** <h1>Classe que gestiona una partida completa de MasterMind per a IAvsIA.</h1>
+ *
+ *  <p>Aquesta classe conté tots els mètodes necessaris per a gestionar i assegurar que es pugui desenvolupar una partida
+ *  completa de MasterMind. Una partida completa consta de dues fases, on es juga amb un rol diferent en cada una. Quan aquestes
+ *  dues classes es completen, es dona la partida per acabada. També existeixen mètodes complementaris per a funcionalitats adicionals,
+ *  com mirar el rànking, per exemple.</p>
+ *
+ *  El nombre de linies per defecte és 15.
+ *
+ *  @author Ricard Zarco Badia
+ */
+
 public class PartidaBots extends Partida {
 
     private PCMaker pcMaker1, pcMaker2;

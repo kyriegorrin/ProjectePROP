@@ -10,6 +10,15 @@ import javax.swing.table.TableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/** <h1>Classe gestora de la vista del ranking.</h1>
+ *
+ *  <p>La classe RankForm genera i gestionauna vista que conté el ranking de jugadors. Està associat
+ *  a un arxiu .form de mateix nom per a generar el disseny de la vista.
+ *  </p>
+ *
+ *  @author Ricard Zarco Badia
+ */
+
 public class RankForm {
     private JTable table1;
     private JButton tornarButton;
@@ -18,10 +27,8 @@ public class RankForm {
 
     private DefaultTableModel tableModel;
 
-    /**Constructora per defecte de la classe.
-     *
-     * @param control Instancia de UIController. Necessaria per a coordinació entre vistes.
-     */
+    /**Constructora per defecte de la classe.     *
+     * @param control Instancia de UIController. Necessaria per a coordinació entre vistes.*/
     public RankForm(UIController control){
 
         tornarButton.addActionListener(new ActionListener() {
@@ -32,10 +39,14 @@ public class RankForm {
         });
     }
 
+    /** Funció que retorna el JPanel contenidor de la vista d'aquesta classe.
+     * @return JPanel associat a la classe.*/
     public JPanel getPanel(){
         return panel1;
     }
 
+    /** Funció que refresca el contingut del ranking a la vista.
+     * @param rankString Conté el ranking en format String.*/
     public void updateRankTable(String rankString){
         String parts[] = rankString.split("\n");
 

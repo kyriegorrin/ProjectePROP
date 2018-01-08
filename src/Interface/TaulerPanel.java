@@ -11,6 +11,15 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/** <h1>Classe gestora de la vista del tauler.</h1>
+ *
+ *  <p>La classe TaulerPanel genera i gestionauna vista que conté el tauler on es fa el joc. Té associats elements de la capa de
+ *  domini per a assegurar la congruència entre el que es mostra per pantalla i l'estat lògic de la partida.
+ *  </p>
+ *
+ *  @author Ricard Zarco Badia
+ */
+
 public class TaulerPanel extends JPanel {
 
     //Logica associada
@@ -285,7 +294,10 @@ public class TaulerPanel extends JPanel {
 
     //--------------FUNCIONS EXTRA---------------//
 
-    // comprova que existeixi un background color al "boto[auxi][auxj]"
+    /** Funció que comprova que existeixi un background color a la posició indicada de la matriu de butons del tauler.
+     *  @param auxi Numero de fila a accedir.
+     *  @param auxj Numero de columna a accedir.
+     *  @return True si hi ha color, False si no.*/
     private boolean comprovarColorExistent(int auxi, int auxj){
         Color c = butons[auxi][auxj].getBackground();
         boolean trobat = false;
@@ -297,7 +309,10 @@ public class TaulerPanel extends JPanel {
         return trobat;
     }
 
-    // retorna l'iteracio del background color actual del "boto[auxi][auxj]"
+    /** Funció que retorna l'iteracio del background color actual de la posició indicada de la matriu de butons del tauler.
+     * @param auxi Numero de fila a accedir.
+     * @param auxj Numero de columna a accedir.
+     * @return Numero de iteracio de color. */
     private int comprovarIteracioColor(int auxi, int auxj){
         Color c = butons[auxi][auxj].getBackground();
         boolean trobat = false;
@@ -309,7 +324,9 @@ public class TaulerPanel extends JPanel {
         return cont;
     }
 
-    // comprova que existeixi un background color al combinacio[auxi]
+    /** Funció que comprova que existeixi un background color a una posició concreta de la combinació inicial.
+     * @param auxi Posició a accedir
+     * @return True si hi ha color existent, False altrament.*/
     private boolean comprovarColorExistentCombinacio(int auxi){
         Color c = combinacio[auxi].getBackground();
         boolean trobat = false;
@@ -322,7 +339,6 @@ public class TaulerPanel extends JPanel {
     }
 
     /** Funció que retorna l'iteracio del background color actual del combinacio[auxi].
-     *
      * @param auxi Posició dins la combinació inicial a comprovar-ne el color.
      * @return Identificador de color que conté en aquella posició.*/
     private int comprovarIteracioColorCombinacio(int auxi){
@@ -339,8 +355,7 @@ public class TaulerPanel extends JPanel {
     /** Funció que llegeix la fila indicada del tauler de combinacions de la GUI.
      *  Ho transforma a un objecte Combinacio.
      * @param numFila Fila del tauler de combinacions de la GUI a la que volem accedir.
-     * @return Retorna un objecte Combinacio generat a partir de la lectura.
-     */
+     * @return Retorna un objecte Combinacio generat a partir de la lectura.*/
     private Combinacio llegeixFila(int numFila){
         int num[] = new int[line_size];
 
@@ -474,8 +489,7 @@ public class TaulerPanel extends JPanel {
     //--------------GESTIO PARTIDA-----------------------//
 
     /** Funció que controla l'estat de la partida i la congruència entre el que s'ensenya per pantalla i
-     * l'estat intern lògic de la partida cada vegada que es passa de torn.
-     */
+     * l'estat intern lògic de la partida cada vegada que es passa de torn.*/
     public void controlTorn(){
         int estat = partida.fesTorn(new Combinacio(llegeixFila(torn)));
 
@@ -644,6 +658,9 @@ public class TaulerPanel extends JPanel {
         if(conf == 1 || modeJugadorIA) repaintCombinacioInicial();
     }
 
+    /** Funció que canvia el mode de funcionament visual del tauler i canvia la lògica interna de CPUvsPersona a CPUvsCPU.
+     *  És important que es cridi única i exclusivament just després de crear una instància d'aquesta classe,
+     *  en cas de que es vulgui utilitzar. */
     public void setModeIA(){
         //Canviem la partida per una de bots
         partida = new PartidaBots("CPU", conf, line_size, num_colors );

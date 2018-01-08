@@ -53,8 +53,6 @@ public class TaulerPanel extends JPanel {
     private JPanel panelContenidor;
     private JPanel panelButtons;
     private JPanel panelCombinacio;
-
-    private JLabel labelInfo;
     private JLabel labelCombinacio;
     private JButton exitButton;
     private JButton saveButton;
@@ -122,7 +120,6 @@ public class TaulerPanel extends JPanel {
             combinacio[i].setEnabled(false);
         }
 
-        labelInfo = new JLabel("TEXT RANDOM A CANVIAR");
         labelCombinacio = new JLabel("Combinació secreta");
         submitButton = new JButton("Passar torn");
         saveButton = new JButton("Guardar i sortir");
@@ -135,7 +132,6 @@ public class TaulerPanel extends JPanel {
         combinacioButton.setPreferredSize(new Dimension(80,25));
 
         labelCombinacio.setAlignmentX(Component.CENTER_ALIGNMENT);
-        labelInfo.setAlignmentX(Component.CENTER_ALIGNMENT);
         submitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         saveButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         exitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -192,8 +188,6 @@ public class TaulerPanel extends JPanel {
         panelButtons.add(labelCombinacio);
         panelButtons.add(panelCombinacio);
         panelButtons.add(combinacioButton);
-        panelButtons.add(Box.createRigidArea(new Dimension(5,10))); //Separador
-        panelButtons.add(labelInfo);
         panelButtons.add(Box.createRigidArea(new Dimension(5,10))); //Separador
         panelButtons.add(submitButton);
         panelButtons.add(Box.createRigidArea(new Dimension(5,25))); //Separador

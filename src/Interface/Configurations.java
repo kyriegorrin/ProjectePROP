@@ -54,14 +54,14 @@ public class Configurations {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (dificultat && interaccioCheckBox){
-                    if (nomTextField.getText().equals("") || nomTextField.getText().equals("Escriu el teu nom...")){
+                    if (nomTextField.getText().equals("") || nomTextField.getText().equals("Escriu el teu nom...") && pveCheckBox.isSelected()){
                         JDialog dialog = new JDialog();
                         JOptionPane.showMessageDialog(dialog,
                                 "No s'ha escrit cap nom.",
                                 "Error",
                                 JOptionPane.WARNING_MESSAGE);
                     }
-                    else if (nomTextField.getText().contains(" ")){
+                    else if (nomTextField.getText().contains(" ") && pveCheckBox.isSelected()){
                         JDialog dialog = new JDialog();
                         JOptionPane.showMessageDialog(dialog,
                                 "El nom no ha de contenir cap espai en blanc.",

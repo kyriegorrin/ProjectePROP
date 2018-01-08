@@ -19,7 +19,12 @@ public class PartidaBots extends Partida {
     private PCMaker pcMaker1, pcMaker2;
     private PCBreaker pcBreaker1, pcBreaker2;
 
-    /** Constructora de la classe*/
+    /** Constructora de la classe.
+     * @param nom Nom del jugador inicial.
+     * @param conf Configuracio de la partida.
+     * @param tamLinia Numero de posicions per linia.
+     * @param numColors Numero de colors disponibles.
+     */
     public PartidaBots(String nom, int conf, int tamLinia, int numColors){
         super(nom, conf, tamLinia, numColors);
 

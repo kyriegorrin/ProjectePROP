@@ -118,7 +118,8 @@ public class Configurations {
         });
     }
 
-    /**Funció que retorna la "vista" */
+    /**Funció que retorna la "vista" .
+     * @return JPanel que conté la vista.  */
     public JPanel getPanel(){
         return panelConfiguration;
     }

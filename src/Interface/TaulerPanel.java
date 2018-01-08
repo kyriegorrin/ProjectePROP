@@ -630,7 +630,8 @@ public class TaulerPanel extends JPanel {
         savegame.save(stringJSON);
     }
 
-    /** Funció que restaura l'estat de la partida llegint el JSON de la lògica i recrear-lo visualment*/
+    /** Funció que restaura l'estat de la partida llegint el JSON de la lògica i recrear-lo visualment.
+     * @param partidaGuardada Objecte partida que conté l'estat lògic de la partida.*/
     public void restauraPartida(Partida partidaGuardada){
         ///Carreguem la partida a la logica interna
         partida = partidaGuardada;

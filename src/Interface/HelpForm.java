@@ -35,7 +35,8 @@ public class HelpForm {
         });
     }
 
-    /** Funció que retorna el panell d'aquesta vista.*/
+    /** Funció que retorna el panell d'aquesta vista.
+     * @return JPanel que conté la vista. */
     public JPanel getPanel(){
         return panel1;
     }

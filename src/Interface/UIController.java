@@ -253,8 +253,11 @@ public class UIController {
         frameMenu.setVisible(true);
     }
 
-    /**
-     * Funció que permet passar del tauler a la pantalla de final de partida.
+    /** Funció que permet passar del tauler a la pantalla de final de partida.
+     * @param nom1 Nom del jugador 1.
+     * @param nom2 Nom del jugador 2.
+     * @param punts1 Punts del jugador 1.
+     * @param punts2 Punts del jugador 2.
      */
     public void taulerToFinal(String nom1, String nom2, int punts1, int punts2) {
         pantallaFinal.setLabels(nom1, nom2, punts1, punts2);
@@ -295,7 +298,8 @@ public class UIController {
 
     //-----------------------------MAIN------------------------------------------//
 
-    /** Main del programa sencer.*/
+    /** Main del programa sencer.
+     * @param args Arguments d'entrada del programa. */
     public static void main(String args[]){
         UIController control = new UIController();
 

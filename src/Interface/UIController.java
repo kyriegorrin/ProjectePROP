@@ -11,7 +11,6 @@ public class UIController {
     private int dificultat;
     private String nomJugador;
     private boolean jugador; // True = Màquina VS Màquina; False Jugador VS Màquina
-    private int torn, conf, fase;
 
     //Tots els frames necessaris per a l'aplicació, a ampliar
     private JFrame frameMenu;
@@ -121,7 +120,11 @@ public class UIController {
                 String stringJSON;
                 Gson gson = new Gson();
                 stringJSON = savegame.load();
+
                 Partida partida = gson.fromJson(stringJSON, Partida.class);
+                jugador = partida.getMode();
+                //En cas de ser una partida de IA, recarreguem la partida com a PartidaBots
+                if (jugador) partida = gson.fromJson(stringJSON, PartidaBots.class);
 
                 taulerPanel = new TaulerPanel(15, partida.getLineSize(), partida.getNumColors(), this, partida.getNomHuma());
                 frameTauler = new JFrame("Tauler");
@@ -130,6 +133,12 @@ public class UIController {
                 frameTauler.pack();
 
                 taulerPanel.restauraPartida(partida);
+
+                //També hem de posar les variables d'aquesta classe preparades per si hem de fer un reiniciar partida
+                nomJugador = partida.getNomHuma();
+                if(partida.getLineSize() == 3) dificultat = 0;
+                else if(partida.getLineSize() == 4) dificultat = 1;
+                else dificultat = 2;
 
                 //Anem al frame del tauler directament
                 frameMenu.setVisible(false);
@@ -173,6 +182,7 @@ public class UIController {
         //Generació nova vista de tauler personalitzada
         frameTauler = new JFrame("Tauler");
         taulerPanel = new TaulerPanel(numLinies, numColumnes, numColors, this, nomJugador);
+        if(jugador) taulerPanel.setModeIA(); //En cas de que tinguem mode IA vs IA
         frameTauler.setContentPane(taulerPanel);
         frameTauler.setDefaultCloseOperation(frameHelp.EXIT_ON_CLOSE);
         frameTauler.pack();

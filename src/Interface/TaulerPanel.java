@@ -3,6 +3,7 @@ package Interface;
 import Dades.SaveGame;
 import Domini.Combinacio;
 import Domini.Partida;
+import Domini.PartidaBots;
 import com.google.gson.Gson;
 
 import javax.swing.*;
@@ -16,7 +17,7 @@ public class TaulerPanel extends JPanel {
     private UIController control;
     private Partida partida;
     int torn, fase, conf;
-    boolean codeMaker;
+    boolean modeJugadorIA;//True = cpuVScpu, False = humaVScpu
 
     //Variables de gestió de guardat de partida
     SaveGame savegame;
@@ -79,6 +80,7 @@ public class TaulerPanel extends JPanel {
         conf = 0;
         partida = new Partida(nom, conf, line_size, colors);
         torn = 0;
+        modeJugadorIA = false;//Inicialment, pot canviar si es crida el mètode per canviar-ho
 
         //Preparem el layout del panell principal
         setLayout(new BorderLayout()); //TODO: posar valors finals
@@ -199,7 +201,8 @@ public class TaulerPanel extends JPanel {
         submitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controlTorn();
+                if(modeJugadorIA) controlTornIA();
+                else controlTorn();
             }
         });
 
@@ -360,11 +363,32 @@ public class TaulerPanel extends JPanel {
         }
     }
 
+    /** Funció que llegeix la fila lògica del tauler antic i la fa visible al seu equivalent gràfic.
+     * @param fila Fila que volem accedir.*/
+    private void setColorsFilaAntiga(int fila){
+        Combinacio combFila = partida.getFilaAntiga(fila);
+        for(int i = 0; i < line_size; ++i){
+            butons[fila][i].setBackground(vectorColor[combFila.get_elementx(i)]);
+        }
+    }
+
     /** Funció que llegeix la fila lògica de pistes del tauler i la fa visible al seu equivalent gràfic.
      * @param fila Fila que volem accedir.*/
     private void setColorsFilaPista(int fila){
         for(int i = 0; i < line_size; ++i){
             Combinacio combPistes = partida.getPista(fila);
+            int pistaAux;
+            pistaAux = combPistes.get_elementx(i);
+            if(pistaAux == 1) pistes[fila][i].setBackground(Color.WHITE);
+            if(pistaAux == 2) pistes[fila][i].setBackground(Color.BLACK);
+        }
+    }
+
+    /** Funció que llegeix la fila lògica de pistes del tauler antic i la fa visible al seu equivalent gràfic.
+     * @param fila Fila que volem accedir.*/
+    private void setColorsFilaPistaAntiga(int fila){
+        for(int i = 0; i < line_size; ++i){
+            Combinacio combPistes = partida.getPistaAntiga(fila);
             int pistaAux;
             pistaAux = combPistes.get_elementx(i);
             if(pistaAux == 1) pistes[fila][i].setBackground(Color.WHITE);
@@ -453,7 +477,6 @@ public class TaulerPanel extends JPanel {
      * l'estat intern lògic de la partida cada vegada que es passa de torn.
      */
     public void controlTorn(){
-        //TODO: adaptar això per a fase 2
         int estat = partida.fesTorn(new Combinacio(llegeixFila(torn)));
 
         //El torn no ha provocat canvi de fase ni s'ha acabat la partida
@@ -479,10 +502,12 @@ public class TaulerPanel extends JPanel {
         }
         //El torn ha provocat un final de fase, canviem rols i reiniciem tauler
         else if(estat == 1){
-            //TODO: afegir les accions de lògica necessàries
+            //Afegim pistes de la ultima linia tocada
+            setColorsFilaPistaAntiga(torn);
+
             JDialog dialog = new JDialog();
             JOptionPane.showMessageDialog(dialog,
-                    "Hora de canviar els panyals! \nReiniciem el tauler...",
+                    "Hora de canviar els rols! \nReiniciem el tauler...",
                     "Canvi de rols!",
                     JOptionPane.WARNING_MESSAGE);
 
@@ -500,18 +525,8 @@ public class TaulerPanel extends JPanel {
             Combinacio combPistes = partida.getPista(torn);
 
             //En cas de ser la fase en que som Codemaker, hem de posar els colors llegint el tauler logic
-            if(conf == 1){
-                setColorsFila(torn);
-            }
-
-            int pistaAux;
-            for(int i = 0; i < line_size; ++i){
-                butons[torn][i].setEnabled(false);
-
-                pistaAux = combPistes.get_elementx(i);
-                if(pistaAux == 1) pistes[torn][i].setBackground(Color.WHITE);
-                if(pistaAux == 2) pistes[torn][i].setBackground(Color.BLACK);
-            }
+            if(conf == 1) setColorsFila(torn);
+            setColorsFilaPista(torn);
 
             //Avisem de que la partida ha acabat
             JDialog dialog = new JDialog();
@@ -527,6 +542,74 @@ public class TaulerPanel extends JPanel {
         else if(estat == 3) System.out.println("La partida ja ha finalitzat");
         else partida.mostraTauler();
     }
+
+    /** Funció que controla l'estat de la partida i la congruència entre el que s'ensenya per pantalla i
+     * l'estat intern lògic de la partida cada vegada que es passa de torn. Per a mode IA vs IA.*/
+    public void controlTornIA(){
+        int estat = partida.fesTorn(new Combinacio(llegeixFila(torn)));
+
+        //El torn no ha provocat canvi de fase ni s'ha acabat la partida
+        if(estat == 0){
+            //Posem els colors que toquen a la fila
+            setColorsFila(torn);
+
+            for(int i = 0; i < line_size; ++i){
+                butons[torn][i].setEnabled(false);
+                butons[torn+1][i].setBackground(vectorColor[0]);
+            }
+            //Posem les pistes també
+            setColorsFilaPista(torn);
+
+            torn++;
+        }
+        //El torn ha provocat un final de fase, canviem rols i reiniciem tauler
+        else if(estat == 1){
+            //Posem la ultima linia tocada i la pista generada
+            setColorsFilaPistaAntiga(torn);
+            setColorsFilaAntiga(torn);
+
+            //Mostrem dialog de final de fase
+            JDialog dialog = new JDialog();
+            JOptionPane.showMessageDialog(dialog,
+                    "Hora de canviar rols! \nReiniciem el tauler...",
+                    "Canvi de rols!",
+                    JOptionPane.WARNING_MESSAGE);
+
+            //Reiniciar torn i canviar configuracio
+            torn = 0;
+            conf = 1;
+            //Neteja de tauler
+            resetTauler();
+            //Posem la nova combinacio seleccionada
+            repaintCombinacioInicial();
+        }
+        //El torn ha provocat un final de partida
+        else if(estat == 2){
+            //Posem l'estat final del tauler afegint la ultima linia
+            Combinacio combPistes = partida.getPista(torn);
+
+            //En cas de ser la fase en que som Codemaker, hem de posar els colors llegint el tauler logic
+            if(conf == 1){
+                setColorsFila(torn);
+            }
+
+            setColorsFilaPista(torn);
+
+            //Avisem de que la partida ha acabat
+            JDialog dialog = new JDialog();
+            JOptionPane.showMessageDialog(dialog,
+                    "La partida s'ha acabat!",
+                    "Final de partida!",
+                    JOptionPane.WARNING_MESSAGE);
+
+            //TODO: canvi a frame final, pas de puntuacions i memes
+            control.taulerToFinal(partida.getNomHuma(), partida.getNomCPU(), partida.getPuntuacioHuma(), partida.getPuntuacioCPU());
+        }
+        //La partida ja ha acabat, NO HAURIEM D'ENTRAR MAI AQUI
+        else if(estat == 3) System.out.println("La partida ja ha finalitzat");
+        else partida.mostraTauler();
+    }
+
      /** Funció per a guardar l'estat lògic de la partida.*/
     public void guardaPartida(){
         stringJSON = gson.toJson(partida);
@@ -542,6 +625,7 @@ public class TaulerPanel extends JPanel {
         torn = partida.getTorn();
         fase = partida.getFase();
         conf = partida.getConf();
+        modeJugadorIA = partida.getMode();
 
         //Redibuixem el tauler
         for(int i = 0; i < torn; ++i){
@@ -553,10 +637,21 @@ public class TaulerPanel extends JPanel {
         for(int i = 0; i < line_size; ++i){
             butons[0][i].setEnabled(false);
             butons[torn][i].setBackground(vectorColor[0]);
-            if(conf == 0) butons[torn][i].setEnabled(true);
+            if(conf == 0 && !modeJugadorIA) butons[torn][i].setEnabled(true);//Nomes ho posem si som jugadors humans en conf 0
         }
 
-        //En cas de ser codemaker, redibuixar la combinació inicial
-        if(conf == 1) repaintCombinacioInicial();
+        //En cas de ser codemaker o mode IA, redibuixar la combinació inicial
+        if(conf == 1 || modeJugadorIA) repaintCombinacioInicial();
+    }
+
+    public void setModeIA(){
+        //Canviem la partida per una de bots
+        partida = new PartidaBots("CPU", conf, line_size, num_colors );
+        modeJugadorIA = true;
+        //Adaptem el tauler grafic deshabilitant la primera fila i posant la combinació inicial visible
+        for (int i = 0; i < line_size; ++i){
+            butons[0][i].setEnabled(false);
+        }
+        repaintCombinacioInicial();
     }
 }

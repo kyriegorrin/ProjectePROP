@@ -40,6 +40,7 @@ public class Partida {
     //Si es 1, es la segona fase (el tauler s'ha reiniciat i s'han intercanviat rols)
     //Si es 2, la partida s'ha acabat
 
+    //Indica si es una partida de IA vs IA o no
     protected boolean cpuVScpu;
 
     //---------------------------------METODES----------------------------------//
@@ -243,11 +244,25 @@ public class Partida {
         return tauler.get_solucio_linia_natural(fila);
     }
 
+    /** Funcio que retorna la combinació de pistes que conté la fila indicada de la taula antiga.
+     *  @param fila Fila de la que volem la combinació de pistes.
+     * @return Retorna la combinació de pistes de la fila desitjada. */
+    public Combinacio getPistaAntiga(int fila){
+        return oldTauler.get_solucio_linia_natural(fila);
+    }
+
     /** Funció que retorna la combinació que conté la fila indicada.
      * @param fila Fila a la que volem accedir.
      * @return Retorna la combinació de la fila desitjada.*/
     public Combinacio getFila(int fila){
         return tauler.getliniaNatural(fila);
+    }
+
+    /** Funció que retorna la combinació que conté la fila indicada de la taula antiga.
+     * @param fila Fila a la que volem accedir.
+     * @return Retorna la combinació de la fila desitjada.*/
+    public Combinacio getFilaAntiga(int fila){
+        return oldTauler.getliniaNatural(fila);
     }
 
     /** Funcio que retorna la puntuacio que ha aconseguit el jugador humà.

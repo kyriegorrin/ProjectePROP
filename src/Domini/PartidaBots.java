@@ -11,6 +11,8 @@ public class PartidaBots extends Partida {
     public PartidaBots(String nom, int conf, int tamLinia, int numColors){
         super(nom, conf, tamLinia, numColors);
 
+        //Fem aixo per a tenir el nom que volem i no modificar la funcio original en Partida
+
         //Som partida de bots, a utilitzar pels controladors
         cpuVScpu = true;
 
@@ -75,14 +77,14 @@ public class PartidaBots extends Partida {
                 //Volem que pcBreaker 2 sigui tonto
                 pcBreaker2.setInteligencia(false);
                 System.out.println("Inserta la combinació inicial:");
-                //Eliminada seleccio de combinacio inicial, ara es tria desde GUI
+                tauler.setInitial_line(pcMaker2.triaCombinacio(tauler.getLine_size(), tauler.getColors()));//Posem nova comb inicial
                 conf = 1;
             }
             else{//PCBreaker i HMaker//NO UTILITZADA DE MOMENT
                 pcbreaker.setPuntuacio(oldTauler.puntuacio());
                 pcmaker = new PCMaker(pcbreaker.getNom(), pcbreaker.getPuntuacio());
                 hbreaker = new HBreaker(hmaker.getNom(),hmaker.getPuntuacio());
-                //Eliminada seleccio de combinacio inicial, ara es tria desde GUI
+                tauler.setInitial_line(pcMaker2.triaCombinacio(tauler.getLine_size(), tauler.getColors()));
                 conf = 0;
             }
             ++fase;
@@ -101,4 +103,33 @@ public class PartidaBots extends Partida {
             ++fase;
         }
     }
+
+    /** Funció que retorna el nom del jugador màquina, en aquest cas la màquina inteligent.
+     * @return Nom del jugador màquina amb IA complexe.*/
+    @Override
+    public String getNomHuma(){
+        return pcBreaker1.getNom();
+    }
+
+    /** Funció que retorna el nom del jugador màquina, en aquest cas la màquina tonta.
+     * @return Nom del jugador màquina amb IA simple.*/
+    @Override
+    public String getNomCPU(){
+        return pcBreaker2.getNom();
+    }
+
+    /** Funcio que retorna la puntuacio que ha aconseguit el jugador màquina inteligent.
+     * @return Puntuacio del jugador humà inteligent.*/
+    @Override
+    public int getPuntuacioHuma(){
+        return pcBreaker1.getPuntuacio();
+    }
+
+    /** Funcio que retorna la puntuacio que ha aconseguit el jugador màquina simple.
+     * @return Puntuacio del jugador màquina simple.*/
+    @Override
+    public int getPuntuacioCPU(){
+        return pcBreaker2.getPuntuacio();
+    }
+
 }
